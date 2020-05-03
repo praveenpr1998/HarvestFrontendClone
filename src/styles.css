@@ -1,0 +1,611 @@
+.mainpage{
+    text-align: center;
+    margin: 0;
+    padding-top: 90px;
+}
+.page{
+    background-color: black;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.productnamehome{
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
+.logocontainer{
+    text-align: center;
+    margin: 0;
+    padding-top: 90px;
+}
+.menu{
+    padding-right:10px;
+    padding-left:280px;
+    color:#81f5ff;
+    font-family:'Roboto';
+}
+.mcart{
+    padding-right:10px;
+    padding-left:50px;
+    color:#81f5ff;
+    font-family:'Roboto';
+}
+.logout{
+    padding-right:10px;
+    padding-left:50px;
+    color:#81f5ff;
+    font-family:'Roboto';
+}
+.mcart:hover{
+    color: yellow;
+}
+.menu:hover{
+    color: yellow;
+}
+.logout:hover{
+    color: yellow;
+}
+.row.maincarddiv{
+    padding-top: 50px;
+    position: relative;
+   
+}
+.contact{
+    text-align: center;
+    margin: 0;
+    padding-top: 210px;   
+}
+.quote{
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color:white;
+}
+.logo{
+    width:200px;
+    height:100px;
+}
+.bootstrapcontainer{
+    width:100%;
+    height:100%;
+}
+.logoHome{
+    width:180px;
+    height: 60px;
+}
+.form-group{
+    width:300px;
+}
+.homecontainer{
+    height: 100px;
+    width: 100px;
+    background-color: black;
+}
+.mycart{
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    text-decoration: underline;
+    padding-left: 30px;
+    padding-top: 20px;
+}
+.cartimage{
+    width: 120px;
+    height: 120px;
+    padding-left: 18px;
+
+}
+.productname{
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 95px;
+    font-family: 'Roboto', sans-serif;
+}
+.producthome{
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+   
+}
+.productperunit{
+    font-size: 20px;
+    right: 36px;
+    font-family: 'Roboto', sans-serif;
+    position: absolute;
+}
+.productquantity{
+    font-size: 20px;
+    bottom:40px;
+    left: 200px;
+    position: absolute;
+    font-family: 'Roboto', sans-serif;
+}
+.producttotal{
+    font-size: 20px;
+   bottom:5px;
+   left:200px;
+   font-family: 'Roboto', sans-serif;
+    position: absolute; 
+}
+.total{
+    font-size: 20px;
+    padding-left: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.quant{
+    position: absolute;
+    bottom: 57px;
+    left:300px;
+}
+.btn.btn-info.btn-sm.cartButtons{
+    width: 5px;
+    height: 20px;
+}
+.cartcards{
+    padding-top: 10px;
+}
+.us{
+    margin-top: 50px;
+    padding-top: 30px;
+    width: 300px; 
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    left: 40%;
+    position: absolute;
+}
+.delete{
+    position: absolute;
+    bottom: 67px;
+    left:420px;
+}
+.cardalign{
+    text-align: center;
+    width: 200px;
+}
+
+.carddiv{
+    padding-left: 70px;
+    text-align:"center";
+    padding-bottom:10px;
+    padding-top: 20px;
+}
+.noitemimage{
+    width: 500px;
+    margin-left: 200px;
+    position: absolute;
+}
+.checkout{
+    text-align: center;
+    padding-bottom: 10px;
+}
+.forminpop{
+    padding:20px;
+}
+.mobile{
+    padding-bottom: 10px;
+}
+.orderplaced{
+    text-align: center;
+}
+.tickimage{
+    width: 100px;
+    height: 100px;
+}
+
+.allmenu{
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+
+@media screen and (max-width: 700px) {
+.form-group{
+    width: 150px;
+}
+.allmenu{
+    padding-top: 8px;
+    padding-bottom: 5px;
+}
+.mycart{
+    font-family: 'Roboto', sans-serif;
+    font-size: 19px;
+    text-decoration: underline;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+.noitemimage{
+    width: 400px;
+    margin-left: 0px;
+}
+.menu{
+    color:'#43d8c9';
+    padding-right:10px;
+    padding-left:10px;
+    font-family:'Roboto';
+}
+.mcart{
+    color:'#43d8c9';
+    padding-right:10px;
+    padding-left:20px;
+    font-family:'Roboto';
+}
+
+.logout{
+    color:'#43d8c9';
+    padding-right:10px;
+    padding-left:20px;
+}
+.row.maincarddiv{
+    padding-top: 10px;
+    padding-left: 0px;
+}
+.logoHome{
+    width: 110px;
+    height: 50px;
+}
+.forimage{
+    background-image: url(images/markus-winkler-HeqXGxnsnX4-unsplash.jpg);
+    background-color: aquamarine;
+}
+.productnamehome{
+    font-size: 10px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
+.cartcards{
+    padding-top: 10px;
+   padding-left: 0px;
+}
+
+.actualcards{
+    height: 120px;
+    width: 98%;
+}
+.cardalign{
+    text-align: center;
+    width: 180px;
+}
+.total{
+    font-size: 18px;
+    padding-left: 28px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
+.carddiv{
+    padding-left: 20px;
+}
+.quote{
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+}
+.productquantity{
+    font-size: 18px;
+    bottom:30px;
+    left: 100px;
+    position: absolute;
+    font-family: 'Roboto', sans-serif;
+}
+.productname{
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 10px;
+    font-family: 'Roboto', sans-serif;
+   
+}
+.us{
+    text-align: center;
+    padding-top: 30px;
+    margin-top: 0px;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    left: 10%;
+    position: relative;
+}
+.producttotal{
+    font-size: 17px;
+   bottom:0px;
+   left:100px;
+    position: absolute;
+    font-family: 'Roboto', sans-serif; 
+}
+.productperunit{
+    font-size: 18px;
+    right: 36px;
+    position: absolute;
+    font-family: 'Roboto', sans-serif;
+}
+
+.quant{
+    position: absolute;
+    bottom: 47px;
+    left:190px;
+}
+.delete{
+    position: absolute;
+    bottom: 36px;
+    left:320px;
+}
+.cartimage{
+    width: 110px;
+    height: 100px;
+}
+}
+@media screen and (max-width: 400px) {
+    .delete{
+        position: absolute;
+        bottom: 36px;
+        left:280px;
+    }
+    .allmenu{
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+    .form-group{
+        width: 150px;
+    }
+    .mycart{
+        font-family: 'Roboto', sans-serif;
+        font-size: 19px;
+        text-decoration: underline;
+        padding-left: 20px;
+        padding-top: 20px;
+    }
+    .noitemimage{
+        width: 350px;
+        margin-left: 0px;
+        margin-top: 20px;
+    }
+    .menu{
+        color:'#43d8c9';
+        padding-right:10px;
+        padding-left:10px;
+        font-family:'Roboto';
+    }
+    .mcart{
+        color:'#43d8c9';
+        padding-right:10px;
+        padding-left:20px;
+        font-family:'Roboto';
+    }
+    
+    .logout{
+        color:'#43d8c9';
+        padding-right:10px;
+        padding-left:20px;
+    }
+    .row.maincarddiv{
+        padding-top: 10px;
+        padding-left: 0px;
+    }
+    .logoHome{
+        width: 90px;
+        height: 40px;
+    }
+   
+    .productnamehome{
+        font-size: 10px;
+        font-weight: bold;
+        font-family: 'Roboto', sans-serif;
+    }
+    .cartcards{
+        padding-top: 0px;
+        
+        padding-bottom: 10px;
+       padding-left: 0px;
+    }
+    
+    .actualcards{
+        height: 120px;
+        width: 98%;
+    }
+    .cardalign{
+        text-align: center;
+        width: 150px;
+        height: 250px;
+    }
+    .total{
+        font-size: 14px;
+        padding-left: 28px;
+        font-weight: bold;
+        font-family: 'Roboto', sans-serif;
+    }
+    .carddiv{
+        padding-left: 20px;
+    }
+    .quote{
+        font-size: 18px;
+        font-family: 'Roboto', sans-serif;
+    }
+    .productquantity{
+        font-size: 16px;
+        bottom:30px;
+        left: 100px;
+        position: absolute;
+        font-family: 'Roboto', sans-serif;
+    }
+    .productname{
+        font-size: 16px;
+        font-weight: bold;
+        padding-left: 10px;
+        font-family: 'Roboto', sans-serif;
+       
+    }
+    .us{
+        text-align: center;
+        padding-top: 30px;
+        margin-top: 0px;
+        font-size: 18px;
+        font-family: 'Roboto', sans-serif;
+        text-align: center;
+        left: 5%;
+        position: relative;
+    }
+    .producttotal{
+        font-size: 17px;
+       bottom:0px;
+       left:100px;
+        position: absolute;
+        font-family: 'Roboto', sans-serif; 
+    }
+    .productperunit{
+        font-size: 16px;
+        right: 36px;
+        position: absolute;
+        font-family: 'Roboto', sans-serif;
+    }
+    .homecardperunit{
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px; 
+    }
+    .quant{
+        position: absolute;
+        bottom: 47px;
+        left:170px;
+    }
+    .cartimage{
+        width: 100px;
+        height: 100px;
+    }
+    
+
+}
+@media screen and (max-width: 330px) {
+    .delete{
+        position: absolute;
+        bottom: 36px;
+        left:250px;
+    }
+    .form-group{
+        width: 150px;
+    }
+    .noitemimage{
+        width: 300px;
+        margin-left: 0px;
+        margin-top: 20px;
+    }
+    .menu{
+        color:'#43d8c9';
+        padding-right:0px;
+        padding-left:15px;
+        font-family:'Roboto';
+        font-size: 14px;
+    }
+    .mcart{
+        color:'#43d8c9';
+        padding-right:0px;
+        padding-left:18px;
+        font-family:'Roboto';
+        font-size: 14px;
+    }
+    
+    .logout{
+        color:'#43d8c9';
+        padding-right:0px;
+        padding-left:20px;
+        font-family:'Roboto';
+        font-size: 14px;
+    }
+    .row.maincarddiv{
+        padding-top: 0px;
+        padding-left: 0px;
+    }
+    .logoHome{
+        width: 90px;
+        height: 40px;
+    }
+   
+    
+    .cartcards{
+        padding-top: 0px;
+        padding-bottom: 10px;
+       padding-left: 0px;
+    }
+    
+    .actualcards{
+        height: 100px;
+        width: 98%;
+    }
+    .cardalign{
+        text-align: center;
+        width: 130px;
+        height: 230px;
+    }
+    .total{
+        font-size: 13px;
+        padding-left: 28px;
+        font-weight: bold;
+        font-family: 'Roboto', sans-serif;
+    }
+    .carddiv{
+        padding-left: 20px;
+    }
+    .quote{
+        font-size: 18px;
+        font-family: 'Roboto', sans-serif;
+    }
+    .productquantity{
+        font-size: 15px;
+        bottom:35px;
+        left: 90px;
+        position: absolute;
+        font-family: 'Roboto', sans-serif;
+    }
+    .productname{
+        font-size: 15px;
+        font-weight: bold;
+        padding-left: 15px;
+        font-family: 'Roboto', sans-serif;
+    }
+    .us{
+        text-align: center;
+        padding-top: 20px;
+        margin-top: 0px;
+        font-size: 15px;
+        font-family: 'Roboto', sans-serif;
+        text-align: center;
+        left: 0%;
+        position: relative;
+    }
+    .producttotal{
+        font-size: 15px;
+       bottom:0px;
+       left:90px;
+        position: absolute;
+        font-family: 'Roboto', sans-serif; 
+    }
+    .productperunit{
+        font-size: 15px;
+        right: 36px;
+        position: absolute;
+        font-family: 'Roboto', sans-serif;
+    }
+    .homecardperunit{
+        font-family: 'Roboto', sans-serif;
+        font-size: 11px; 
+    }
+    .homecardprodname{
+        font-size: 18px;
+        font-family: 'Roboto', sans-serif;
+    }
+    .addbutton{
+        width: 60px;
+        height: 35px;
+    }
+    .quant{
+        position: absolute;
+        bottom: 50px;
+        left:160px;
+    }
+    .cartimage{
+        width: 90px;
+        height: 90px;
+    }
+    
+    
+}
+
