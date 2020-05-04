@@ -221,7 +221,11 @@ input[name="secretKey"] {
     padding-top: 20px;
     padding-bottom: 10px;
 }
-
+.toast{
+    position: absolute;
+    left: 700px;
+    margin-top: 0px;
+}
 @media screen and (max-width: 780px) {
 .noitemimage{
     width: 380px;
@@ -232,6 +236,15 @@ input[name="secretKey"] {
 @media screen and (max-width: 780px) {
 .form-group{
     width: 150px;
+}
+.toast{
+    position: absolute;
+    right: 10px;
+    width: 150px;
+    height: 40px;
+    left: 33%;
+    margin-top: 5px;
+    text-align: center;
 }
 .allmenu{
     padding-top: 8px;
@@ -264,7 +277,7 @@ input[name="secretKey"] {
     padding-left:20px;
 }
 .row.maincarddiv{
-    padding-top: 10px;
+    padding-top: 30px;
     padding-left: 0px;
 }
 .logoHome{
@@ -365,6 +378,15 @@ input[name="secretKey"] {
         bottom: 36px;
         left:270px;
     }
+    .toast{
+        position: absolute;
+        right: 10px;
+        width: 150px;
+        height: 40px;
+        left: 30%;
+        margin-top: 3px;
+        text-align: center;
+    }
     .allmenu{
         padding-top: 3px;
         padding-bottom: 3px;
@@ -403,7 +425,7 @@ input[name="secretKey"] {
         padding-left:20px;
     }
     .row.maincarddiv{
-        padding-top: 10px;
+        padding-top: 28px;
         padding-left: 0px;
     }
     .logoHome{
@@ -630,5 +652,6 @@ input[name="secretKey"] {
         width: 90px;
         height: 90px;
     }
+    
 }
 
