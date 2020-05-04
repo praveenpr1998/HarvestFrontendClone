@@ -3,6 +3,15 @@
     margin: 0;
     padding-top: 90px;
 }
+.bagicon{
+    color:green;
+    position: absolute;
+    right: 0    ;
+    margin-right: 20px;
+}
+.tabmenus:hover{
+    color: aqua;
+}
 .page{
     background-color: black;
     height: 100%;
@@ -14,11 +23,6 @@
     font-size: 20px;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
-}
-.bagicon{
-    color:green;
-    position: absolute;
-    right: 0    ;
 }
 .logocontainer{
     text-align: center;
@@ -60,14 +64,14 @@
 .contact{
     text-align: center;
     margin: 0;
-    padding-top: 210px;   
+    padding-top: 110px;   
 }
 .quote{
     font-family: 'Roboto', sans-serif;
     font-size: 30px;
     padding-top: 20px;
     padding-bottom: 20px;
-    color:white;
+  
 }
 .logo{
     width:200px;
@@ -80,7 +84,6 @@
 .logoHome{
     width:180px;
     height: 60px;
-    margin-top: 10px;
 }
 .form-group{
     width:300px;
@@ -98,15 +101,15 @@
     padding-top: 20px;
 }
 .cartimage{
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     padding-left: 18px;
 
 }
 .productname{
     font-size: 20px;
     font-weight: bold;
-    padding-left: 95px;
+    padding-left: 65px;
     font-family: 'Roboto', sans-serif;
 }
 .producthome{
@@ -123,15 +126,15 @@
 }
 .productquantity{
     font-size: 20px;
-    bottom:40px;
-    left: 200px;
+    bottom:20px;
+    left: 150px;
     position: absolute;
     font-family: 'Roboto', sans-serif;
 }
 .producttotal{
     font-size: 20px;
-   bottom:5px;
-   left:200px;
+   bottom:-9px;
+   left:150px;
    font-family: 'Roboto', sans-serif;
     position: absolute; 
 }
@@ -143,8 +146,8 @@
 
 .quant{
     position: absolute;
-    bottom: 57px;
-    left:300px;
+    bottom: 37px;
+    left:270px;
 }
 .btn.btn-info.btn-sm.cartButtons{
     width: 5px;
@@ -165,7 +168,7 @@
 }
 .delete{
     position: absolute;
-    bottom: 67px;
+    bottom: 41px;
     left:420px;
 }
 .cardalign{
@@ -181,8 +184,8 @@
 }
 .noitemimage{
     width: 500px;
-    margin-left: 200px;
     position: absolute;
+    left: 28%;
 }
 .checkout{
     text-align: center;
@@ -207,8 +210,14 @@
     padding-bottom: 10px;
 }
 
-
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 780px) {
+.noitemimage{
+    width: 380px;
+    position: absolute;
+    left: 25%;
+}
+}
+@media screen and (max-width: 780px) {
 .form-group{
     width: 150px;
 }
@@ -223,10 +232,7 @@
     padding-left: 20px;
     padding-top: 20px;
 }
-.noitemimage{
-    width: 400px;
-    margin-left: 0px;
-}
+
 .menu{
     color:'#43d8c9';
     padding-right:10px;
@@ -268,7 +274,7 @@
 }
 
 .actualcards{
-    height: 120px;
+    height: 110px;
     width: 98%;
 }
 .cardalign{
@@ -298,7 +304,7 @@
 .productname{
     font-size: 18px;
     font-weight: bold;
-    padding-left: 10px;
+    padding-left: 20px;
     font-family: 'Roboto', sans-serif;
    
 }
@@ -321,7 +327,7 @@
 }
 .productperunit{
     font-size: 18px;
-    right: 36px;
+    right: 16px;
     position: absolute;
     font-family: 'Roboto', sans-serif;
 }
@@ -337,15 +343,15 @@
     left:320px;
 }
 .cartimage{
-    width: 110px;
-    height: 100px;
+    width: 95px;
+    height: 90px;
 }
 }
 @media screen and (max-width: 400px) {
     .delete{
         position: absolute;
         bottom: 36px;
-        left:280px;
+        left:270px;
     }
     .allmenu{
         padding-top: 3px;
@@ -362,9 +368,9 @@
         padding-top: 20px;
     }
     .noitemimage{
-        width: 350px;
-        margin-left: 0px;
-        margin-top: 20px;
+        width: 300px;
+        position: absolute;
+    left: 8%;
     }
     .menu{
         color:'#43d8c9';
@@ -391,6 +397,7 @@
     .logoHome{
         width: 90px;
         height: 40px;
+        
     }
    
     .productnamehome{
@@ -406,7 +413,7 @@
     }
     
     .actualcards{
-        height: 120px;
+        height: 100px;
         width: 98%;
     }
     .cardalign{
@@ -430,14 +437,14 @@
     .productquantity{
         font-size: 16px;
         bottom:30px;
-        left: 100px;
+        left: 87px;
         position: absolute;
         font-family: 'Roboto', sans-serif;
     }
     .productname{
         font-size: 16px;
         font-weight: bold;
-        padding-left: 10px;
+        padding-left: 20px;
         font-family: 'Roboto', sans-serif;
        
     }
@@ -454,13 +461,13 @@
     .producttotal{
         font-size: 17px;
        bottom:0px;
-       left:100px;
+       left:90px;
         position: absolute;
         font-family: 'Roboto', sans-serif; 
     }
     .productperunit{
         font-size: 16px;
-        right: 36px;
+        right: 6px;
         position: absolute;
         font-family: 'Roboto', sans-serif;
     }
@@ -471,11 +478,11 @@
     .quant{
         position: absolute;
         bottom: 47px;
-        left:170px;
+        left:160px;
     }
     .cartimage{
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
     }
     
 
@@ -611,7 +618,5 @@
         width: 90px;
         height: 90px;
     }
-    
-    
 }
 
