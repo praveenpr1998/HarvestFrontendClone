@@ -196,8 +196,8 @@ input[name="secretKey"] {
 }
 .noitemimage{
     width: 500px;
-    position: absolute;
-    left: 28%;
+    margin-left: 300px;
+
 }
 .checkout{
     text-align: center;
@@ -543,7 +543,7 @@ input[name="secretKey"] {
     .noitemimage{
         width: 300px;
         margin-left: 0px;
-        margin-top: 20px;
+        margin-top: 40px;
     }
     .menu{
         color:'#43d8c9';
