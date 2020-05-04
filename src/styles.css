@@ -298,10 +298,7 @@ input[name="secretKey"] {
     width: 110px;
     height: 50px;
 }
-.forimage{
-    background-image: url(images/markus-winkler-HeqXGxnsnX4-unsplash.jpg);
-    background-color: aquamarine;
-}
+
 .productnamehome{
     font-size: 10px;
     font-weight: bold;
