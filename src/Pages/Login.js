@@ -62,12 +62,12 @@ class Login extends Component{
                 else if (result.message === "SuccessAdmin") {  
                     this.setState({isLoading:false})  
                     JSON.stringify(localStorage.setItem("token",result.token));
-                    this.props.history.push("/admin")
+                    this.props.history.push("/recentOrders")
                 }     
                 else {
                     this.setState({
                         isLoading: false,
-                        secretKeyError: 'Invalid Email or secretKey'
+                        secretKeyError: 'Invalid secretKey'
                     });
                 }
             });
