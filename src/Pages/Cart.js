@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import Header from "../Components/Header.jsx"
 import "../styles.css";
-import { Card, Button, Container,Spinner } from 'react-bootstrap';
+import { Card, Button, Container,Spinner,Toast } from 'react-bootstrap';
 import { AiOutlinePlusSquare } from 'react-icons/ai';
 import { AiOutlineMinusSquare } from 'react-icons/ai';
 import { MdDelete } from 'react-icons/md';
-import Background from '../images/markus-winkler-HeqXGxnsnX4-unsplash.jpg';
 import Popup from "../Components/Popup.js";
 const GLOBAL = require('../global');
 
@@ -91,7 +90,7 @@ class Cart extends Component{
         var TotalPrice=0;
         
         return(
-        (this.state.cartItems!==null)?
+        (this.state.cartItems===null)?(<img className="noitemimage" src={require("../Resources/Images/IMG-20200502-WA0028.jpg")} alt="NO items" />):
            (this.state.cartItems.length!==0)?
             <div>
             <p className="mycart">My Cart</p>
@@ -126,7 +125,7 @@ class Cart extends Component{
             </div>
             </div>
             </div>
-            :<img className="noitemimage" src={require("../images/IMG-20200502-WA0028.jpg")} alt="NO items" />:null
+            :<img className="noitemimage" src={require("../Resources/Images/IMG-20200502-WA0028.jpg")} alt="NO items" />
         
         )
     }
@@ -136,7 +135,7 @@ class Cart extends Component{
             <Container  className="bootstrapcontainer" >
                 <Popup  show={this.state.modal} onHide={() => { this.setState({ modal: false})}} />
                 <Header />
-                {(this.state.isLoading)?<div style={{paddingTop:10,textAlign:'center'}}><Spinner animation="border" variant="success" /></div>:null}
+                {(this.state.isLoading)?<div style={{paddingTop:20,textAlign:'center'}}><Spinner animation="border" variant="success" /></div>:null}
                     {this.displayCartitems()}
             </Container>
         )
