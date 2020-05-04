@@ -1,3 +1,15 @@
+input[name="secretKey"]:focus {
+    outline:none;
+}
+
+input[name="secretKey"] {
+    background-color:#f6f6f6;
+    padding: 8px 10px;
+    border-radius: 5px;
+    min-width: 250px;
+    border: 0.5px solid #dcd6d6;
+}
+
 .mainpage{
     text-align: center;
     margin: 0;
