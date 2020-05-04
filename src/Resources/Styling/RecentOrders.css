@@ -1,12 +1,38 @@
 @import 'Variables.css';
 
+:root {
+    overflow-x: hidden;
+}
+
 @media (max-width: 767px)
 {
     .primary-section {
-        height: 81vh;
+        height: 90vh;
         /*border: 2px solid red;*/
         overflow-y: scroll;
         -ms-overflow-style: none;
+    }
+    .btn-section {
+        width: 90%;
+        margin: 10px 0 10px 0;
+    }
+
+    .active-btn {
+        border: none;
+        background: none;
+        color: var(--primaryGreenRegular);
+        font-size: var(--titleTextMob);
+    }
+
+    .inactive-btn {
+        border: none;
+        background: none;
+        font-size: var(--titleTextMob);
+    }
+
+    .selection-seperator {
+        padding: 0 10px 0 10px;
+        color: var(--primaryGreenRegular);
     }
 }
 
@@ -18,15 +44,62 @@
         overflow-y: scroll;
         -ms-overflow-style: none;
     }
+
+    .btn-section {
+        width: 75%;
+        margin: 10px 0 10px 0;
+    }
+
+    .active-btn {
+        border: none;
+        background: none;
+        color: var(--primaryGreenRegular);
+        font-size: var(--titleText);
+    }
+
+    .inactive-btn {
+        border: none;
+        background: none;
+        font-size: var(--titleText);
+    }
+
+    .selection-seperator {
+        padding: 0 25px 0 25px;
+        color: var(--primaryGreenRegular);
+    }
+
 }
 
 @media (min-width: 992px)
 {
     .primary-section {
-        height: 88vh;
+        height: 90vh;
         /*border: 2px solid red;*/
         overflow-y: scroll;
+        overflow-x: hidden;
         -ms-overflow-style: none;
+    }
+    .btn-section {
+        width: 20%;
+        margin: 10px 0 10px 0;
+    }
+
+    .active-btn {
+        border: none;
+        background: none;
+        color: var(--primaryGreenRegular);
+        font-size: var(--titleText);
+    }
+
+    .inactive-btn {
+        border: none;
+        background: none;
+        font-size: var(--titleText);
+    }
+
+    .selection-seperator {
+        padding: 0 25px 0 25px;
+        color: var(--primaryGreenRegular);
     }
 }
 
@@ -36,24 +109,6 @@
 
 .selection-section {
     margin: 0.8em 0 0.8em 0;
-}
-
-.selection-seperator {
-    padding: 0 25px 0 25px;
-    color: var(--primaryGreenRegular);
-}
-
-.active-btn {
-    border: none;
-    background: none;
-    color: var(--primaryGreenRegular);
-    font-size: var(--titleText);
-}
-
-.inactive-btn {
-    border: none;
-    background: none;
-    font-size: var(--titleText);
 }
 
 .active-btn:hover {
@@ -146,12 +201,6 @@
     color: var(--text-light);
 }
 
-
-.btn-section {
-    width: 75%;
-    margin: 10px 0 10px 0;
-}
-
 .mark-as-delivered-btn {
     width: 100%;
     border: none;
@@ -203,27 +252,57 @@ th {
 }
 
 td {
-    border: 2px solid var(--primaryGreenLight);
-    text-align: center;
-    font-size: var(--tableText);
+
 }
 
 tr:nth-child(odd) {
     background-color: var(--tableBgGrey);
 }
-
 .name-column {
+    border: 2px solid var(--tableBorder);
+    text-align: center;
+    font-size: var(--tableText);
     max-width: 35vw;
     word-wrap: break-word;
 }
 
 .qty-column {
+    border: 2px solid var(--tableBorder);
+    text-align: center;
+    font-size: var(--tableText);
     width: 10vw;
 }
 
 .price-column {
+    border: 2px solid var(--tableBorder);
+    text-align: center;
+    font-size: var(--tableText);
     width: 30vw;
 }
+
+.name-column-th {
+    border: 2px solid var(--primaryGreenRegular);
+    text-align: center;
+    font-size: var(--tableText);
+    max-width: 35vw;
+    word-wrap: break-word;
+}
+
+.qty-column-th {
+    border: 2px solid var(--primaryGreenRegular);
+    text-align: center;
+    font-size: var(--tableText);
+    width: 10vw;
+}
+
+.price-column-th {
+    border: 2px solid var(--primaryGreenRegular);
+    text-align: center;
+    font-size: var(--tableText);
+    width: 30vw;
+}
+
+
 
 .total-price-section {
     width: 75%;

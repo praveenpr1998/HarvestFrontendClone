@@ -13,12 +13,14 @@
     --primaryOrangeRegular: #EF964D;
     --primaryOrangeMedium: #FBB165;
     --primaryOrangeLight: #FED8B3;
+    --tableBorder: #737373;
 
     /* FONT SIZING */
     --navLinkFont: 1.1em;
     --titleText: 1.3em;
     --dateText: 1.2em;
-    --itemText: 1.5em;
+    --titleTextMob: 1.1em;
+    --itemText: 1.3em;
     --btnText: 1.2em;
     --tableTitle: 1.3em;
     --tableText: 1.1em;

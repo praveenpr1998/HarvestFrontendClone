@@ -2,8 +2,8 @@
 
 @media (max-width: 767px)
 {
-    .primary-section {
-        height: 81vh;
+    .ao-primary-section {
+        height: 92vh;
         /*border: 2px solid red;*/
         overflow-y: scroll;
         -ms-overflow-style: none;
@@ -12,8 +12,8 @@
 
 @media (min-width: 768px) and (max-width: 991px)
 {
-    .primary-section {
-        height: 87vh;
+    .ao-primary-section {
+        height: 94vh;
         /*border: 2px solid red;*/
         overflow-y: scroll;
         -ms-overflow-style: none;
@@ -22,15 +22,15 @@
 
 @media (min-width: 992px)
 {
-    .primary-section {
-        height: 88vh;
+    .ao-primary-section {
+        height: 91vh;
         /*border: 2px solid red;*/
         overflow-y: scroll;
         -ms-overflow-style: none;
     }
 }
 
-.primary-section::-webkit-scrollbar {
+.ao-primary-section::-webkit-scrollbar {
     display: none;
 }
 

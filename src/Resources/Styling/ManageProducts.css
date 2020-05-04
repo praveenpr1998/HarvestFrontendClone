@@ -2,31 +2,55 @@
 
 @media (max-width: 767px)
 {
-    .primary-section {
-        height: 81vh;
+    .mp-primary-section {
+        height: 90vh;
         /*border: 2px solid red;*/
         overflow-y: scroll;
         -ms-overflow-style: none;
+    }
+    .add-product-btn {
+        width: 75%;
+        margin: 10px 0;
+        padding: 10px 0;
+        background-color: var(--primaryGreenRegular);
+        color: var(--text-light);
+        border:none;
     }
 }
 
 @media (min-width: 768px) and (max-width: 991px)
 {
-    .primary-section {
-        height: 87vh;
+    .mp-primary-section {
+        height: 90vh;
         /*border: 2px solid red;*/
         overflow-y: scroll;
         -ms-overflow-style: none;
+    }
+    .add-product-btn {
+        width: 25%;
+        margin: 10px 0;
+        padding: 10px 0;
+        background-color: var(--primaryGreenRegular);
+        color: var(--text-light);
+        border:none;
     }
 }
 
 @media (min-width: 992px)
 {
-    .primary-section {
+    .mp-primary-section {
         height: 88vh;
         /*border: 2px solid red;*/
         overflow-y: scroll;
         -ms-overflow-style: none;
+    }
+    .add-product-btn {
+        width: 25%;
+        margin: 10px 0;
+        padding: 10px 0;
+        background-color: var(--primaryGreenRegular);
+        color: var(--text-light);
+        border:none;
     }
 }
 
@@ -105,6 +129,14 @@ tr:nth-child(odd) {
     background-color: var(--modalInputBg);
 }
 
+.mp-dropDown {
+    width: 100%;
+    background: var(--modalInputBg);
+    padding: 8px 5px;
+    border: none;
+    margin: 0 0 15px 0;
+}
+
 .modal-edit-btn {
     width: 100%;
     margin: 10px 0;
@@ -119,15 +151,6 @@ tr:nth-child(odd) {
     margin: 10px 0;
     padding: 10px 0;
     background-color: var(--btnRed);
-    color: var(--text-light);
-    border:none;
-}
-
-.add-product-btn {
-    width: 50%;
-    margin: 10px 0;
-    padding: 10px 0;
-    background-color: var(--primaryGreenRegular);
     color: var(--text-light);
     border:none;
 }
