@@ -43,7 +43,7 @@ class Login extends Component{
         if(!checkValidity){
             fetch(GLOBAL.BASE_URL+"auth/login/",{
                 method:"POST",
-                body:JSON.stringify({secretKey:this.state.secretKey,deviceId:"123"}),
+                body:JSON.stringify({secretKey:this.state.secretKey}),
             })
             .then(res => res.json())
             .then(
