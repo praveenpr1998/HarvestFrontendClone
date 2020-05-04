@@ -1,0 +1,58 @@
+@import 'Variables.css';
+
+.navBar {
+    background-color: var(--navBarBG);
+    padding: 15px 15px 15px 25px;
+    /*border: 2px solid yellow;*/
+}
+
+.navLink-inactive {
+    color: var(--navLinkGrey);
+    font-size: var(--navLinkFont);
+    margin: 0 0 0 18px;
+}
+
+.navLink-active {
+    color: var(--primaryGreenRegular);
+    font-size: var(--navLinkFont);
+    margin: 0 0 0 18px;
+}
+
+.navLink-inactive:hover {
+    color: var(--primaryGreenMedium);
+    text-decoration: none;
+}
+
+.navLink-active {
+    text-decoration: none;
+}
+
+
+
+@media (max-width: 767px)
+{
+    .img-div {
+        margin: 0 0 15px 0;
+    }
+
+    .logo-img {
+        width: 20vw;
+        /*height: 4vh;*/
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px)
+{
+    .logo-img {
+        width: 10vw;
+        /*height: 4vh;*/
+    }
+}
+
+@media (min-width: 992px)
+{
+    .logo-img {
+        width: 8vw;
+        /*height: 4vh;*/
+    }
+}

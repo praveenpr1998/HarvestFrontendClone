@@ -1,0 +1,31 @@
+:root {
+    /* COLORS */
+    --navBarBG: #F2F2F2;
+    --navLinkGrey: #A6A6A6;
+    --primaryGreenRegular: #70BA63;
+    --primaryGreenMedium: #87C87E;
+    --primaryGreenLight: #ADD8A9;
+    --text-light: #FFFFFF;
+    --text-dark: #353535;
+    --tableBgGrey: #F2F2F2;
+    --modalInputBg: #F2F2F2;
+    --btnRed: #FF0000;
+    --primaryOrangeRegular: #EF964D;
+    --primaryOrangeMedium: #FBB165;
+    --primaryOrangeLight: #FED8B3;
+
+    /* FONT SIZING */
+    --navLinkFont: 1.1em;
+    --titleText: 1.3em;
+    --dateText: 1.2em;
+    --itemText: 1.5em;
+    --btnText: 1.2em;
+    --tableTitle: 1.3em;
+    --tableText: 1.1em;
+    --orderTotalText: 1.5em;
+    --modal-input-field: 1.3em;
+    --emptyMessage: 2em;
+
+    /* ELEMENT SIZING */
+    --order-box-border-radius: 0.9em;
+}

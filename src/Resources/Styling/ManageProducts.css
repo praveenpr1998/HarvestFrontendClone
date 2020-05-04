@@ -1,0 +1,133 @@
+@import 'Variables.css';
+
+@media (max-width: 767px)
+{
+    .primary-section {
+        height: 81vh;
+        /*border: 2px solid red;*/
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px)
+{
+    .primary-section {
+        height: 87vh;
+        /*border: 2px solid red;*/
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+    }
+}
+
+@media (min-width: 992px)
+{
+    .primary-section {
+        height: 88vh;
+        /*border: 2px solid red;*/
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+    }
+}
+
+.mp-primary-section::-webkit-scrollbar {
+    display: none;
+}
+
+.no-products-msg {
+    font-size: var(--emptyMessage);
+    color: var(--primaryOrangeRegular);
+}
+
+.product-section {
+    width: 75%;
+    margin: 15px 0;
+}
+
+.category-title-text {
+    font-size: var(--titleText);
+    color: var(--primaryGreenRegular)
+}
+
+.products-table {
+    width: 100%;
+    margin: 15px 0;
+
+}
+
+th {
+    border: 2px solid var(--primaryGreenRegular);
+    text-align: center;
+    background-color: var(--primaryGreenRegular);
+    color: var(--text-light);
+    font-size: var(--tableTitle);
+    font-weight: normal;
+}
+
+td {
+    border: 2px solid var(--primaryGreenLight);
+    text-align: center;
+    font-size: var(--tableText);
+}
+
+tr:nth-child(odd) {
+    background-color: var(--tableBgGrey);
+}
+
+.t-name-column {
+    max-width: 20vw;
+    word-wrap: break-word;
+}
+
+.t-options-column-edit {
+    cursor: pointer;
+}
+
+.modal-header-text {
+    color: var(--primaryGreenRegular);
+}
+
+.field-section {
+    width: 100%;
+    margin: 0 0 15px 0;
+}
+
+.field-text {
+    font-size: var(--modal-input-field);
+    color: var(--text-dark);
+}
+
+.modal-text-input {
+    width: 100%;
+    margin: 0 0 15px 0;
+    padding: 10px 10px;
+    border: none;
+    background-color: var(--modalInputBg);
+}
+
+.modal-edit-btn {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 0;
+    background-color: var(--primaryGreenRegular);
+    color: var(--text-light);
+    border:none;
+}
+
+.modal-delete-btn {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 0;
+    background-color: var(--btnRed);
+    color: var(--text-light);
+    border:none;
+}
+
+.add-product-btn {
+    width: 50%;
+    margin: 10px 0;
+    padding: 10px 0;
+    background-color: var(--primaryGreenRegular);
+    color: var(--text-light);
+    border:none;
+}

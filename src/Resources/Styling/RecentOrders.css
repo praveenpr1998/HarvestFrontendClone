@@ -1,0 +1,249 @@
+@import 'Variables.css';
+
+@media (max-width: 767px)
+{
+    .primary-section {
+        height: 81vh;
+        /*border: 2px solid red;*/
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px)
+{
+    .primary-section {
+        height: 100vh;
+        /*border: 2px solid red;*/
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+    }
+}
+
+@media (min-width: 992px)
+{
+    .primary-section {
+        height: 88vh;
+        /*border: 2px solid red;*/
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+    }
+}
+
+.primary-section::-webkit-scrollbar {
+    display: none;
+}
+
+.selection-section {
+    margin: 0.8em 0 0.8em 0;
+}
+
+.selection-seperator {
+    padding: 0 25px 0 25px;
+    color: var(--primaryGreenRegular);
+}
+
+.active-btn {
+    border: none;
+    background: none;
+    color: var(--primaryGreenRegular);
+    font-size: var(--titleText);
+}
+
+.inactive-btn {
+    border: none;
+    background: none;
+    font-size: var(--titleText);
+}
+
+.active-btn:hover {
+    color: var(--primaryGreenLight);
+}
+
+.inactive-btn:hover {
+    color: var(--primaryGreenLight);
+}
+
+.active-btn:focus {
+    color: var(--primaryGreenRegular);
+    outline: none;
+}
+
+.inactive-btn:focus {
+    color: var(--primaryGreenRegular);
+    outline: none;
+}
+
+.order-box {
+    width: 75%;
+    border: 2px solid var(--primaryGreenRegular);
+    margin: 15px 0 15px 0;
+    /*border-radius: var(--order-box-border-radius);*/
+}
+
+.title-section {
+    padding: 0.2em 0.8em 0.2em 0.8em;
+    width: 100%;
+    background-color: var(--primaryGreenRegular);
+}
+
+.user-name {
+    color: var(--text-light);
+    font-size: var(--titleText);
+}
+
+.user-phone-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.phone-img {
+    width: 1.2em;
+}
+
+.user-phone {
+    margin: 0 0 5px 5px;
+    color: var(--text-light);
+    font-size: var(--titleText);
+}
+
+.date-section {
+    width: 100%;
+    padding: 0 0.8em 0 0;
+}
+
+.order-date {
+    font-size: var(--dateText);
+}
+
+.order-list-section {
+    width: 100%;
+    padding: 0 0 0 0.8em;
+}
+
+.order-item-section {
+    width: 100%;
+}
+
+.order-item {
+    font-size: var(--itemText);
+}
+
+.order-total-section {
+    /* Spaced according to other elements with space on the right */
+    /*margin: 15px 0.8em 15px 0;*/
+
+    /* No Space on the right */
+    margin: 15px 0;
+    padding: 5px 0 5px 15px;
+    background-color: var(--primaryGreenRegular);
+}
+
+.order-total-text {
+    font-size: var(--orderTotalText);
+    color: var(--text-light);
+}
+
+
+.btn-section {
+    width: 75%;
+    margin: 10px 0 10px 0;
+}
+
+.mark-as-delivered-btn {
+    width: 100%;
+    border: none;
+    padding: 10px 0 10px 0;
+    background-color: var(--primaryGreenRegular);
+    color: var(--text-light);
+    font-size: var(--btnText);
+}
+
+.mark-as-delivered-btn:hover, .mark-as-delivered-btn:focus  {
+    width: 100%;
+    border: none;
+    background-color: var(--primaryGreenMedium);
+    color: var(--text-light);
+    font-size: var(--btnText);
+    outline: none;
+}
+
+/* Consolidated Order Page */
+.primary-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    padding: 15px 0 15px 0;
+}
+
+.category-text-section {
+    width: 75%;
+}
+
+.category-text {
+    font-size: var(--titleText);
+    color: var(--primaryGreenRegular);
+}
+
+.items-table {
+    width: 75%;
+}
+
+th {
+    border: 2px solid var(--primaryGreenRegular);
+    text-align: center;
+    background-color: var(--primaryGreenRegular);
+    color: var(--text-light);
+    font-size: var(--tableTitle);
+    font-weight: normal;
+}
+
+td {
+    border: 2px solid var(--primaryGreenLight);
+    text-align: center;
+    font-size: var(--tableText);
+}
+
+tr:nth-child(odd) {
+    background-color: var(--tableBgGrey);
+}
+
+.name-column {
+    max-width: 35vw;
+    word-wrap: break-word;
+}
+
+.qty-column {
+    width: 10vw;
+}
+
+.price-column {
+    width: 30vw;
+}
+
+.total-price-section {
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+        margin: 15px 0 0 0;
+}
+
+.total-price-text {
+    font-size: var(--titleText);
+}
+
+.total-price-amount {
+    padding: 0 50px 5px 50px;
+    margin: 0 0 0 10px;
+    font-size: var(--titleText);
+    color: var(--text-light);
+    background-color: var(--primaryGreenRegular);
+}
+
+
