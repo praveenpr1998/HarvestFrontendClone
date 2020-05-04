@@ -21,7 +21,7 @@ class Header extends Component{
             <div>
             <Navbar bg="white" expand="lg">
             <Navbar.Brand href="#home">
-            <img src={require("../images/Harvest Logo.png")} className="logoHome" alt="Logo"></img> 
+            <img src={require("../Resources/Images/Harvest Logo.png")} className="logoHome" alt="Logo"></img> 
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
