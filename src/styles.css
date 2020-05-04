@@ -227,12 +227,26 @@ input[name="secretKey"] {
     margin-top: 0px;
 }
 @media screen and (max-width: 780px) {
-.noitemimage{
-    width: 380px;
-    position: absolute;
-    left: 25%;
-}
-}
+    .noitemimage{
+        width: 380px;
+        margin-left:0px;
+        
+    }
+    }
+@media screen and (width: 768px  ) {
+    .noitemimage{
+        width: 380px;
+        margin-left:140px;
+        
+    }
+    }
+    @media screen and (width: 1024px  ) {
+        .noitemimage{
+            width: 580px;
+            margin-left:140px;
+            
+        }
+        }
 @media screen and (max-width: 780px) {
 .form-group{
     width: 150px;
@@ -403,8 +417,7 @@ input[name="secretKey"] {
     }
     .noitemimage{
         width: 300px;
-        position: absolute;
-    left: 8%;
+        margin-left: 20px;
     }
     .menu{
         color:'#43d8c9';
