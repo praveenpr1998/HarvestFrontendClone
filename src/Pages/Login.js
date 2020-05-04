@@ -3,7 +3,7 @@ import "../styles.css";
 import "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Spinner,Container} from "react-bootstrap"
-import Background from '../images/markus-winkler-HeqXGxnsnX4-unsplash.jpg';
+import Background from '../Resources/Images/markus-winkler-HeqXGxnsnX4-unsplash.jpg';
 const GLOBAL = require('../global');
 
 class Login extends Component{
@@ -79,7 +79,7 @@ class Login extends Component{
       return(
         <Container className="bootstrapcontainer"> 
             <div className="mainpage">
-                <img src={require("../images/Harvest Logo.png")} class="logo" alt="Logo"></img>       
+                <img src={require("../Resources/Images/Harvest Logo.png")} class="logo" alt="Logo"></img>       
                 <p className="quote">Harvest App is a web application .....</p>
             </div>       
             <div className="logocontainer">
