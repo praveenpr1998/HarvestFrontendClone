@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import Header from "../Components/Header.jsx"
 import "../styles.css";
-import {Card,Button,Spinner,Container} from "react-bootstrap"
-import Background from '../images/markus-winkler-HeqXGxnsnX4-unsplash.jpg';
+import {Card,Button,Spinner,Container,Toast} from "react-bootstrap"
 const GLOBAL = require('../global');
 
 class Home extends Component{
     state={
         token:"",
         allProducts:[],
-        isLoading:''
+        isLoading:'',
+        Toastshow:false
     }
     
     componentDidMount(){
@@ -93,10 +93,8 @@ class Home extends Component{
                     <Card.Body>
                     <img style={{width:100,height:80}} src="https://image.shutterstock.com/image-photo/red-apple-on-white-background-260nw-158989157.jpg" alt="productsimage" />
                     <Card.Title><p className="homecardprodname">{data.name}</p></Card.Title>
-                    <Card.Text >
                        <p className="homecardperunit">Price : ₹ {data.pricePerUnit}/ {data.price}</p>
-                    </Card.Text>
-                    <Button variant="success addbutton" onClick={()=>{this.addItem(data.id)}}>Add</Button>
+                    <Button variant="success addbutton" onClick={()=>{this.addItem(data.id);this.setState({Toastshow:true});}}>Add</Button>
                     </Card.Body>
                 </Card>
                 </div>)
@@ -108,9 +106,13 @@ class Home extends Component{
     render(){
         
         return(
-            <Container className="bootstrapcontainer" > 
+            <Container className="bootstrapcontainer" >
+                
             <Header />
-                {(this.state.isLoading)?<div style={{paddingTop:10,textAlign:'center'}}><Spinner animation="border" variant="success" /></div>:null}
+            <Toast onClose={() => this.setState({Toastshow:false})} show={this.state.Toastshow} className="toast">
+      <Toast.Body>Item Added</Toast.Body>
+    </Toast> 
+                {(this.state.isLoading)?<div  style={{paddingTop:20,textAlign:'center'}}><Spinner animation="border" variant="success" /></div>:null}
                 {this.dispayCards()}
             </Container>  
         )
