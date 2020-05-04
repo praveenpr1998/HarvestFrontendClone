@@ -15,7 +15,7 @@ class Header extends Component{
         history.push("/cart");
         window.location.reload();
     }
-
+      
     render(){
         return(
             <div>
@@ -29,7 +29,6 @@ class Header extends Component{
                 <Nav.Link href="/home"><p className="tabmenus">Home</p></Nav.Link>
                 <Nav.Link href="/cart"><p className="tabmenus">MyCart</p></Nav.Link>
                 <Nav.Link onClick={()=>this.logout()}  href="/"><p className="tabmenus">Logout</p></Nav.Link>
-                <Nav.Link href="/contact"><p className="tabmenus">Contact</p></Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Navbar>
