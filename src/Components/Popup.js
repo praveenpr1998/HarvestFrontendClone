@@ -7,7 +7,7 @@ import { createBrowserHistory } from "history";
 const history = createBrowserHistory();
 
 class Popup extends Component{
-    
+
     state={
         mobile:'',
         mobileError:'',
@@ -17,7 +17,7 @@ class Popup extends Component{
         placedPopup:false,
         isLoading:false
     }
-    
+
     onChange(e){
         this.setState({
           [e.target.name]: e.target.value
@@ -60,7 +60,6 @@ class Popup extends Component{
         .then(res => res.json())
         .then(
           (result) => {
-              console.log(result)
             if(result.message==="OrderPlaced"){
                 this.setState({isLoading:true})
                 localStorage.removeItem('itemsArray');

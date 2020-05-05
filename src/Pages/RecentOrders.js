@@ -53,7 +53,6 @@ class RecentOrders extends Component {
                     }
                 },
                 (error) => {
-                    console.log('ERROR MARKING AS DELIVERED', error);
                 }
             );
     };
@@ -247,7 +246,6 @@ class RecentOrders extends Component {
 
                 },
                 (error) => {
-                    console.log('RECENT ORDERS ERROR:::', error);
                 }
             );
     }

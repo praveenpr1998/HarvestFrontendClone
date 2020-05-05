@@ -140,7 +140,6 @@ class ManageProducts extends Component {
                         });
                     },
                     (error) => {
-                        console.log('ERROR editing::', error)
                     }
                 );
         }
@@ -173,7 +172,6 @@ class ManageProducts extends Component {
                     });
                 },
                 (error) => {
-                    console.log('ERROR deleting::', error)
                 }
             );
     };
@@ -249,7 +247,6 @@ class ManageProducts extends Component {
                         addPrice: 'Kilogram',
                         addPricePerUnit: 0,
                     });
-                    console.log('ERROR deleting::', error)
                 }
             );
         }
@@ -391,7 +388,6 @@ class ManageProducts extends Component {
                     }
                 },
                 (error) => {
-                    console.log('ERROR FETCHING PRODUCTS::', error);
                 }
             )
     }

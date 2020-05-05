@@ -36,7 +36,6 @@ class AllOrders extends Component {
         } else if(!this.state.allOrdersEmpty) {
             return(
                 this.state.order.map((orderItem, index = 0) => {
-                    console.log(orderItem)
                     return(
                         <div
                             className='d-flex flex-column align-items-center justify-content-center order-box'
@@ -129,7 +128,6 @@ class AllOrders extends Component {
                     }
                 },
                 (err) => {
-                    console.log('THE ERROR IS:::', err);
                 }
             );
 
