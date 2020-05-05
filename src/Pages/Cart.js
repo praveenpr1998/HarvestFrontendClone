@@ -102,12 +102,12 @@ class Cart extends Component{
                     <div   key={data['product-id']}>    
                         <Card className="actualcards">
                             <div className="row">
-                                <img src="https://image.shutterstock.com/image-photo/red-apple-on-white-background-260nw-158989157.jpg" className="cartimage" alt="products" />
+                                <img src={data['product-image']} className="cartimage" alt="products" />
                                 <p className="productname">{data['product-name']}</p>
                                 <p className="productperunit">{data['product-pricePerUnit']}/{data['product-price']}</p>
                                 <p className="productquantity">Quantity</p>
                                 <div className="quant">
-                                    <AiOutlinePlusSquare size="23" color="green" onClick={()=>{this.increment(data['product-id'])}}/>{data['product-quantity']}<AiOutlineMinusSquare size="23" color="green"  onClick={()=>{this.decrement(data['product-id'])}}/></div>
+                                    <AiOutlinePlusSquare size="23" color="green" onClick={()=>{this.increment(data['product-id'])}}/> {data['product-quantity']} <AiOutlineMinusSquare size="23" color="green"  onClick={()=>{this.decrement(data['product-id'])}}/></div>
                             </div>
                             <MdDelete size="23" className="delete" onClick={()=>{this.remove(data['product-id'])}} color="red"/>
                             <p className="producttotal">Price : ₹ {data['product-total']}</p>

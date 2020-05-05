@@ -323,6 +323,7 @@ class ManageProducts extends Component {
                                 <select
                                     value={this.state.editPrice}
                                     className='mp-dropDown'
+                                    style={{height:'40px'}}
                                     onChange={(event) => this.handlePriceChange(event)}
                                 >
                                     <option value="Kilogram">Kilogram</option>
@@ -401,6 +402,7 @@ class ManageProducts extends Component {
                                 <select
                                     value={this.state.addPricet}
                                     className='mp-dropDown'
+                                    style={{height:'40px'}}
                                     onChange={(event) => this.handleAddPriceChange(event)}
                                 >
                                     <option value="Kilogram">Kilogram</option>

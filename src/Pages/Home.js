@@ -75,6 +75,7 @@ class Home extends Component{
                newItem["product-pricePerUnit"]=result.data.pricePerUnit;
                newItem["product-quantity"]="1";
                newItem["product-id"]=result.data.id;
+               newItem["product-image"]=result.data.image;
                newItem["product-category"]=result.data.category;
                newItem['product-total']=result.data.pricePerUnit;
                oldItems.push(newItem);
@@ -92,7 +93,7 @@ class Home extends Component{
                 <div className="carddiv col-xs-12"  key={data.id}>
                 <Card className="cardalign">
                     <Card.Body>
-                    <img style={{width:100,height:80}} src="https://image.shutterstock.com/image-photo/red-apple-on-white-background-260nw-158989157.jpg" alt="productsimage" />
+                    <img style={{width:100,height:80}} src={data.image} alt="product-image" />
                     <Card.Title><p className="homecardprodname">{data.name}</p></Card.Title>
                        <p className="homecardperunit">Price : ₹ {data.pricePerUnit}/ {data.price}</p>
                     <Button variant="success addbutton" onClick={()=>{this.addItem(data.id);this.setState({Toastshow:true});setTimeout(()=>{this.setState({Toastshow:false})},500)}}>Add</Button>
