@@ -11,6 +11,10 @@ class AdminNavbar extends Component {
         super(props);
     }
 
+    logout(){
+        localStorage.removeItem("token");
+    }
+
     render() {
         return(
             <Navbar bg="white" expand="lg">
@@ -26,7 +30,7 @@ class AdminNavbar extends Component {
                                 activeClassName='navLink-active'
                                 className='navLink-inactive'
                             >
-                                Recent Orders
+                                Pending Orders
                             </RouterNavLink>
                         </Nav.Link>
                         <Nav.Link>
@@ -45,6 +49,16 @@ class AdminNavbar extends Component {
                                 className='navLink-inactive'
                             >
                                 Manage Products
+                            </RouterNavLink>
+                        </Nav.Link>
+                        <Nav.Link
+                            onClick={() => this.logout()}
+                        >
+                            <RouterNavLink
+                                to='/'
+                                className='navLink-inactive'
+                            >
+                                Logout
                             </RouterNavLink>
                         </Nav.Link>
                     </Nav>

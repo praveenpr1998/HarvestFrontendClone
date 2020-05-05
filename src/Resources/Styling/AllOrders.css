@@ -3,9 +3,9 @@
 @media (max-width: 767px)
 {
     .ao-primary-section {
-        height: 92vh;
+        /*height: 92vh;*/
         /*border: 2px solid red;*/
-        overflow-y: scroll;
+        /*overflow-y: scroll;*/
         -ms-overflow-style: none;
     }
 }
@@ -13,9 +13,9 @@
 @media (min-width: 768px) and (max-width: 991px)
 {
     .ao-primary-section {
-        height: 94vh;
+        /*height: 94vh;*/
         /*border: 2px solid red;*/
-        overflow-y: scroll;
+        /*overflow-y: scroll;*/
         -ms-overflow-style: none;
     }
 }
@@ -23,9 +23,9 @@
 @media (min-width: 992px)
 {
     .ao-primary-section {
-        height: 91vh;
+        /*height: 91vh;*/
         /*border: 2px solid red;*/
-        overflow-y: scroll;
+        /*overflow-y: scroll;*/
         -ms-overflow-style: none;
     }
 }
@@ -36,7 +36,7 @@
 
 .no-orders-msg {
     font-size: var(--emptyMessage);
-    color: var(--primaryOrangeRegular);
+    color: var(--titleTextGrey);
 }
 
 .all-orders-text {
@@ -52,7 +52,7 @@
 
 .order-box {
     width: 75%;
-    border: 2px solid var(--primaryGreenRegular);
+    border: 2px solid var(--orderBoxBorder);
     margin: 15px 0 15px 0;
     padding: 0 0 15px 0;
     /*border-radius: var(--order-box-border-radius);*/
@@ -61,7 +61,7 @@
 .title-section {
     padding: 0.2em 0.8em 0.2em 0.8em;
     width: 100%;
-    background-color: var(--primaryGreenRegular);
+    background-color: var(--titleBg);
 }
 
 .user-name {
@@ -113,7 +113,7 @@
     /* No Space on the right */
     margin: 15px 0;
     padding: 5px 0 5px 15px;
-    background-color: var(--primaryGreenRegular);
+    background-color: var(--titleBg);
 }
 
 .order-total-text {

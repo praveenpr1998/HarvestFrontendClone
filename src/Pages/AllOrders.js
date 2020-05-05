@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
-
-import AdminNavbar from "./AdminNavbar";
 import '../Resources/Styling/AllOrders.css';
 import phone from "../Resources/Images/phone.png";
+import { Spinner } from 'react-bootstrap';
+
+import AdminNavbar from "./AdminNavbar";
+
+const GLOBAL = require('../global');
 
 class AllOrders extends Component {
     constructor(props) {
         super(props);
         this.state = {
-        order: [],
-        allOrdersEmpty: true,
+            order: [],
+            allOrdersEmpty: true,
+            loading: true,
         }
     }
 
@@ -25,7 +29,11 @@ class AllOrders extends Component {
 
     // Displayed data
     displayedData = () => {
-        if(!this.state.allOrdersEmpty) {
+        if(this.state.loading) {
+            return(
+                <Spinner animation="border" variant="success" />
+            );
+        } else if(!this.state.allOrdersEmpty) {
             return(
                 this.state.order.map((orderItem, index = 0) => {
                     console.log(orderItem)
@@ -86,13 +94,16 @@ class AllOrders extends Component {
 
     // Component Life Cycle Methods
     componentDidMount() {
-        fetch('http://localhost:1337/orders/getAllOrders',
+        fetch(GLOBAL.BASE_URL+'orders/getAllOrders',
             {
-                method: 'GET',
+                method: 'POST',
                 mode: 'cors',
                 headers: {
                     'Content-Type': 'application/json'
-                }
+                },
+                body: JSON.stringify({
+                    token: localStorage.getItem('token')
+                })
             }
         )
             .then(res => res.json())
@@ -101,15 +112,20 @@ class AllOrders extends Component {
                     if(result.status === 200) {
                         if(result.allOrders.length === 0) {
                             this.setState({
-                                allOrderEmpty: true
+                                allOrderEmpty: true,
+                                loading: false
                             });
                         }
-                        else {
+                         else {
                             this.setState({
                                 allOrdersEmpty: false,
                                 order: result.allOrders,
+                                loading: false
                             });
                         }
+                    } else if(result.status === 401) {
+                        alert('Invalid User, Please login again');
+                        this.props.history.push("/");
                     }
                 },
                 (err) => {

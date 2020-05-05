@@ -3,9 +3,10 @@
 @media (max-width: 767px)
 {
     .mp-primary-section {
-        height: 90vh;
+        /*height: 90vh;*/
         /*border: 2px solid red;*/
-        overflow-y: scroll;
+        /*overflow-y: scroll;*/
+        overflow-x: hidden;
         -ms-overflow-style: none;
     }
     .add-product-btn {
@@ -21,9 +22,9 @@
 @media (min-width: 768px) and (max-width: 991px)
 {
     .mp-primary-section {
-        height: 90vh;
+        /*height: 90vh;*/
         /*border: 2px solid red;*/
-        overflow-y: scroll;
+        /*overflow-y: scroll;*/
         -ms-overflow-style: none;
     }
     .add-product-btn {
@@ -39,9 +40,10 @@
 @media (min-width: 992px)
 {
     .mp-primary-section {
-        height: 88vh;
+        /*height: 88vh;*/
         /*border: 2px solid red;*/
-        overflow-y: scroll;
+        /*overflow-y: scroll;*/
+        overflow-x: hidden;
         -ms-overflow-style: none;
     }
     .add-product-btn {
@@ -60,7 +62,7 @@
 
 .no-products-msg {
     font-size: var(--emptyMessage);
-    color: var(--primaryOrangeRegular);
+    color: var(--titleTextGrey);
 }
 
 .product-section {
@@ -98,14 +100,67 @@ tr:nth-child(odd) {
     background-color: var(--tableBgGrey);
 }
 
+.th-name-column {
+    max-width: 20vw;
+    word-wrap: break-word;
+    border: 2px solid var(--tableBorder);
+    text-align: center;
+    font-size: var(--tableText);
+}
+
+.th-options-column-edit {
+    cursor: pointer;
+    border: 2px solid var(--tableBorder);
+    text-align: center;
+    font-size: var(--tableText);
+    word-wrap: break-word;
+}
+.th-priceUnit-column {
+    cursor: pointer;
+    border: 2px solid var(--tableBorder);
+    text-align: center;
+    font-size: var(--tableText);
+    word-wrap: break-word;
+}
+.t-pricePerUnit-column {
+    cursor: pointer;
+    border: 2px solid var(--tableBorder);
+    text-align: center;
+    font-size: var(--tableText);
+    word-wrap: break-word;
+}
+
 .t-name-column {
     max-width: 20vw;
     word-wrap: break-word;
+    border: 2px solid var(--tableBorder);
+    text-align: center;
+    font-size: var(--tableText);
 }
 
 .t-options-column-edit {
     cursor: pointer;
+    border: 2px solid var(--tableBorder);
+    text-align: center;
+    font-size: var(--tableText);
+    word-wrap: break-word;
 }
+.t-priceUnit-column {
+    cursor: pointer;
+    border: 2px solid var(--tableBorder);
+    text-align: center;
+    font-size: var(--tableText);
+    word-wrap: break-word;
+}
+.t-pricePerUnit-column {
+    cursor: pointer;
+    border: 2px solid var(--tableBorder);
+    text-align: center;
+    font-size: var(--tableText);
+    word-wrap: break-word;
+}
+
+
 
 .modal-header-text {
     color: var(--primaryGreenRegular);

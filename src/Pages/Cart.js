@@ -25,7 +25,7 @@ class Cart extends Component{
         })
         .then(res => res.json())
         .then(
-          (result) => { 
+          (result) => {
             if(result.message==="Success"){
                 this.setState({isLoading:false})
                 this.setState({cartItems:JSON.parse(localStorage.getItem("itemsArray"))});
@@ -42,7 +42,7 @@ class Cart extends Component{
     async increment(id){
         var oldItems = JSON.parse(await localStorage.getItem('itemsArray')) || [];
         oldItems.map((data)=>{
-            
+
             if(data['product-id']===id){
                 data['product-quantity']=parseInt(data['product-quantity'])+1;
                 const dummy=data['product-pricePerUnit']*data['product-quantity'];
@@ -53,7 +53,7 @@ class Cart extends Component{
         localStorage.removeItem('itemsArray');
         this.setState({cartItems:oldItems})
         localStorage.setItem('itemsArray', JSON.stringify(this.state.cartItems));
-        this.displayCartitems();   
+        this.displayCartitems();
     }
 
     async decrement(id){
@@ -69,9 +69,9 @@ class Cart extends Component{
         localStorage.removeItem('itemsArray');
         this.setState({cartItems:oldItems})
         localStorage.setItem('itemsArray', JSON.stringify(this.state.cartItems));
-        this.displayCartitems();    
+        this.displayCartitems();
     }
-    
+
     async remove(id){
         var oldItems = JSON.parse(await localStorage.getItem('itemsArray')) || [];
         oldItems.map((data)=>{
@@ -82,13 +82,13 @@ class Cart extends Component{
         })
         this.setState({cartItems:oldItems})
         localStorage.setItem('itemsArray', JSON.stringify(this.state.cartItems));
-        this.displayCartitems();   
+        this.displayCartitems();
     }
 
     displayCartitems(){
         var TotalItems=0;
         var TotalPrice=0;
-        
+
         return(
         (this.state.cartItems===null)?(<img className="noitemimage" src={require("../Resources/Images/IMG-20200502-WA0028.jpg")} alt="NO items" />):
            (this.state.cartItems.length!==0)?
@@ -98,8 +98,8 @@ class Cart extends Component{
                 TotalItems=TotalItems+1;
                 TotalPrice=parseInt(data['product-total'])+TotalPrice;
                 return(
-                    <div className="cartcards" key={data['product-id']}> 
-                    <div key={data['product-id']}>    
+                    <div className="cartcards" key={data['product-id']}>
+                    <div key={data['product-id']}>
                         <Card style={{paddingTop:'15px', paddingBottom:'15px', borderRadius:'15px', marginLeft: '20px', marginRight: '20px'}}>
                             <div className="row">
                                 <img src={data['product-image']} className="cartimage" alt="products" />
@@ -107,7 +107,7 @@ class Cart extends Component{
                                 <p className="productperunit">{data['product-pricePerUnit']}/{data['product-price']}</p>
                                 <p className="productquantity">Quantity</p>
                                 <div className="quant">
-                                    <AiOutlinePlusSquare size="23" color="green" onClick={()=>{this.increment(data['product-id'])}}/> {data['product-quantity']} <AiOutlineMinusSquare size="23" color="green"  onClick={()=>{(data['product-quantity']>1)?(this.decrement(data['product-id'])):this.remove(data['product-id'])}}}/></div>
+                                    <AiOutlinePlusSquare size="23" color="green" onClick={()=>{this.increment(data['product-id'])}}/> {data['product-quantity']} <AiOutlineMinusSquare size="23" color="green"  onClick={()=>{(data['product-quantity']>1)?(this.decrement(data['product-id'])):this.remove(data['product-id'])}}/></div>
                             </div>
                             <MdDelete size="23" className="delete" onClick={()=>{this.remove(data['product-id'])}} color="red"/>
                             <p className="producttotal">Price : ₹ {data['product-total']}</p>
@@ -117,16 +117,16 @@ class Cart extends Component{
                 )
             })}
             <div className="summarybox">
-            <p className="mycart">Summary</p> 
-            <p className="total">TotalItems : {TotalItems}</p> 
-            <p className="total">TotalPrice : ₹ {TotalPrice}</p> 
+            <p className="mycart">Summary</p>
+            <p className="total">TotalItems : {TotalItems}</p>
+            <p className="total">TotalPrice : ₹ {TotalPrice}</p>
             <div className="checkout">
                 <Button className="btn btn-success" onClick={()=>{this.setState({modal:true})}}>Checkout</Button>
             </div>
             </div>
             </div>
             :<img className="noitemimage" src={require("../Resources/Images/IMG-20200502-WA0028.jpg")} alt="NO items" />
-        
+
         )
     }
 

@@ -2,13 +2,18 @@ import React, { Component } from 'react';
 import { MDBContainer, MDBModal, MDBModalBody, MDBModalHeader} from 'mdbreact';
 import AdminNavbar from "./AdminNavbar";
 import '../Resources/Styling/ManageProducts.css';
+import { Spinner } from "react-bootstrap";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+const GLOBAL = require('../global');
 let _ = require('lodash');
 
 class ManageProducts extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            loading: true,
             groupedProducts: {},
             categories: [],
             products: [],
@@ -31,9 +36,81 @@ class ManageProducts extends Component {
     };
 
     // Redering Methods
+    // Render Products
+    products = () => {
+        if(this.state.loading) {
+            return(
+                <Spinner animation="border" variant="success" />
+            );
+        } else {
+            return(
+                Object.keys(this.state.groupedProducts).map((key) => {
+                    return(
+                        <div className='product-section'>
+                                    <span className='category-title-text'>
+                                        { key }:
+                                    </span>
+                            <table className='products-table'>
+                                <tr>
+                                    <th >Name</th>
+                                    <th >Price Unit</th>
+                                    <th >Price Per Unit</th>
+                                    <th>Options</th>
+                                </tr>
+                                {
+                                    this.state.groupedProducts[key].map((product) => {
+                                        return(
+                                            <tr>
+                                                <td className='t-name-column'>{ product.name }</td>
+                                                <td className='t-priceUnit-column'>{ product.price }</td>
+                                                <td className='t-pricePerUnit-column'>{ product.pricePerUnit}</td>
+                                                <td
+                                                    className='t-options-column-edit'
+                                                    onClick={() => this.toggleModalEdit(product)}
+                                                >
+                                                    Edit
+                                                </td>
+                                            </tr>
+                                        )
+                                    })
+                                }
+                            </table>
+                        </div>
+                    )
+                })
+            );
+        }
+    };
+
+    // Non-Rendering Methods
     // Edit Product Method
     editProduct = () => {
-        fetch('http://localhost:1337/products/editProduct', {
+        if(this.state.editName === '' ||
+            this.state.editName === '' ||
+            this.state.editName === '' ||
+            this.state.editName === '' ||
+            this.state.editName === ''
+        ) {
+            toast.error(' Please Fill All the details', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+            });
+        } else if(isNaN(this.state.editPricePerUnit)) {
+            toast.error('Price Per Unit must be a Number', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+            });
+        } else {
+
+        fetch(GLOBAL.BASE_URL+'products/editProduct', {
             method: 'PATCH',
             mode: 'cors',
             headers: {'Content-Type': 'application/json'},
@@ -53,16 +130,25 @@ class ManageProducts extends Component {
                             this.toggleModal();
                             this.componentDidMount();
                         }
+                        toast.success(' Product Details Updated', {
+                            position: "top-right",
+                            autoClose: 5000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                        });
                     },
                     (error) => {
                         console.log('ERROR editing::', error)
                     }
                 );
+        }
     };
 
     // Delete Product Method
     deleteProduct = () => {
-        fetch('http://localhost:1337/products/deleteProduct', {
+        fetch(GLOBAL.BASE_URL+'products/deleteProduct', {
             method: 'DELETE',
             mode: 'cors',
             headers: {'Content-Type': 'application/json'},
@@ -77,6 +163,14 @@ class ManageProducts extends Component {
                         this.toggleModal();
                         this.componentDidMount();
                     }
+                    toast.error(' Product Deleted', {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                    });
                 },
                 (error) => {
                     console.log('ERROR deleting::', error)
@@ -86,8 +180,32 @@ class ManageProducts extends Component {
 
     // Add Product Method
     addProduct = () => {
-        console.log('FETCH CALL');
-        fetch('http://localhost:1337/products/createProduct', {
+        if(this.state.addName === '' ||
+            this.state.addCategory === '' ||
+            this.state.addPrice === '' ||
+            this.state.addPricePerUnit === '' ||
+            this.state.addImage === ''
+        ) {
+            toast.error(' Please Fill All the details', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+            });
+        } else if(isNaN(this.state.addPricePerUnit)) {
+            toast.error('Price Per Unit must be a Number', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+            });
+        } else {
+
+        fetch(GLOBAL.BASE_URL+'products/createProduct', {
             method: 'POST',
             mode: 'cors',
             headers: {'Content-Type': 'application/json'},
@@ -103,32 +221,38 @@ class ManageProducts extends Component {
             .then(res => res.json())
             .then(
                 (result) => {
+                    this.setState({
+                        addName: '',
+                        addImage: '',
+                        addCategory: '',
+                        addPrice: 'Kilogram',
+                        addPricePerUnit: 0,
+                    });
                     if(result.status === 200) {
                         this.toggleAddModal();
                         this.componentDidMount();
                     }
+                    toast.error('Product Added', {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                    });
                 },
                 (error) => {
+                    this.setState({
+                        addName: '',
+                        addImage: '',
+                        addCategory: '',
+                        addPrice: 'Kilogram',
+                        addPricePerUnit: 0,
+                    });
                     console.log('ERROR deleting::', error)
                 }
             );
-    };
-
-    // Non-Rendering Methods
-    // Generating the categories
-    generateCategories = () => {
-        console.log('THE STATE PROD from gen cate::', this.state.products);
-        let catArray = [];
-        this.state.products.map((item) => {
-            if(!catArray.includes(item.category)) {
-                catArray.push(item.category);
-            }
-        });
-        this.setState({
-            catList: catArray
-        }, () => {
-            console.log('uipdated cat arr;:', this.state.catList);
-        });
+        }
     };
 
     // Toggling the Bootstrap modal - Add Product Modal
@@ -235,10 +359,13 @@ class ManageProducts extends Component {
     // Component Lifecycle Methods
     // Component-Did-Mount method
     componentDidMount() {
-        fetch('http://localhost:1337/products/getAllProducts',{
-            method: 'GET',
+        fetch(GLOBAL.BASE_URL+'products/getAllProducts',{
+            method: 'POST',
             mode: 'cors',
-            headers: {'Content-Type': 'application/json'}
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                token: localStorage.getItem('token')
+            })
         })
             .then(res => res.json())
             .then(
@@ -249,13 +376,18 @@ class ManageProducts extends Component {
                             this.setState({
                                 productsEmpty: false,
                                 groupedProducts: groupedProducts,
+                                loading:false,
                             });
                         } else {
                             this.setState({
                                 productsEmpty: true,
                                 groupedProducts: result,
+                                loading: false,
                             });
                         }
+                    } else if(result.status === 401) {
+                        alert('Invalid User, Please login again');
+                        this.props.history.push("/");
                     }
                 },
                 (error) => {
@@ -268,6 +400,7 @@ class ManageProducts extends Component {
     render() {
         return(
             <div className='mp-primary-section'>
+                <ToastContainer />
                 <AdminNavbar />
                 {/* Edit Product Modal */}
                 <MDBContainer>
@@ -313,21 +446,13 @@ class ManageProducts extends Component {
                                 <div className='field-section'>
                                     <span className='field-text'>Price Unit:</span>
                                 </div>
-                                {/*<input*/}
-                                {/*    type='text'*/}
-                                {/*    value={ this.state.editPriceUnit }*/}
-                                {/*    placeholder='Product Price unit'*/}
-                                {/*    className='modal-text-input'*/}
-                                {/*    onChange={(event) => this.handlePriceUnitChange(event)}*/}
-                                {/*/>*/}
                                 <select
                                     value={this.state.editPrice}
                                     className='mp-dropDown'
-                                    style={{height:'40px'}}
                                     onChange={(event) => this.handlePriceChange(event)}
                                 >
-                                    <option value="Kg">Kg</option>
-                                    <option value="1 Nos">1 Nos</option>
+                                    <option value="Kilogram">Kilogram</option>
+                                    <option value="Individual">Individual</option>
                                 </select>
                                 <div className='field-section'>
                                     <span className='field-text'>Price per Unit:</span>
@@ -402,11 +527,10 @@ class ManageProducts extends Component {
                                 <select
                                     value={this.state.addPricet}
                                     className='mp-dropDown'
-                                    style={{height:'40px'}}
                                     onChange={(event) => this.handleAddPriceChange(event)}
                                 >
-                                    <option value="Kg">Kg</option>
-                                    <option value="1 Nos">1 Nos</option>
+                                    <option value="Kilogram">Kilogram</option>
+                                    <option value="Individual">Individual</option>
                                 </select>
                                 <div className='field-section'>
                                     <span className='field-text'>Price per Unit:</span>
@@ -436,84 +560,15 @@ class ManageProducts extends Component {
                         Add Product
                     </button>
                     {
-                        this.state.productsEmpty &&
+                        this.state.productsEmpty && !this.state.loading &&
                         <div className='no-products-msg'>
                             No Products Available
                         </div>
                     }
                     {
                         !this.state.productsEmpty &&
-                        Object.keys(this.state.groupedProducts).map((key) => {
-                            return(
-                                <div className='product-section'>
-                                    <span className='category-title-text'>
-                                        { key }:
-                                    </span>
-                                    <table className='products-table'>
-                                        <tr>
-                                            <th className='t-name-column'>Name</th>
-                                            <th className='t-priceUnit-column'>Price Unit</th>
-                                            <th className='t-pricePerUnit-column'>Price Per Unit</th>
-                                            <th className='t-options-column'>Options</th>
-                                        </tr>
-                                        {
-                                            this.state.groupedProducts[key].map((product) => {
-                                                return(
-                                                    <tr>
-                                                        <td className='t-name-column'>{ product.name }</td>
-                                                        <td className='t-priceUnit-column'>{ product.price }</td>
-                                                        <td className='t-pricePerUnit-column'>{ product.pricePerUnit}</td>
-                                                        <td
-                                                            className='t-options-column-edit'
-                                                            onClick={() => this.toggleModalEdit(product)}
-                                                        >
-                                                            Edit
-                                                        </td>
-                                                    </tr>
-                                                )
-                                            })
-                                        }
-                                    </table>
-                                </div>
-                            )
-                        })
+                        this.products()
 
-                        // this.state.catList.map((categoryItem) => {
-                        //     return (
-                        //         <div className='product-section'>
-                        //             <span className='category-title-text'>
-                        //                 { categoryItem }:
-                        //             </span>
-                        //             <table className='products-table'>
-                        //                 <tr>
-                        //                     <th className='t-name-column'>Name</th>
-                        //                     <th className='t-priceUnit-column'>Price Unit</th>
-                        //                     <th className='t-pricePerUnit-column'>Price Per Unit</th>
-                        //                     <th className='t-options-column'>Options</th>
-                        //                 </tr>
-                        //             {
-                        //                 this.state.products.map((product) => {
-                        //                     if(product.category === categoryItem) {
-                        //                         return(
-                        //                             <tr>
-                        //                                 <td className='t-name-column'>{ product.name }</td>
-                        //                                 <td className='t-priceUnit-column'>{ product.priceUnit }</td>
-                        //                                 <td className='t-pricePerUnit-column'>{ product.pricePerUnit}</td>
-                        //                                 <td
-                        //                                     className='t-options-column-edit'
-                        //                                     onClick={() => this.toggleModalEdit(product)}
-                        //                                 >
-                        //                                     Edit
-                        //                                 </td>
-                        //                             </tr>
-                        //                         )
-                        //                     }
-                        //                 })
-                        //             }
-                        //             </table>
-                        //         </div>
-                        //     )
-                        // })
                     }
                 </div>
             </div>

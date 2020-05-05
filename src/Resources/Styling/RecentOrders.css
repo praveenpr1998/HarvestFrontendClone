@@ -7,7 +7,7 @@
 @media (max-width: 767px)
 {
     .primary-section {
-        height: 90vh;
+        /*height: 90vh;*/
         /*border: 2px solid red;*/
         overflow-y: scroll;
         -ms-overflow-style: none;
@@ -39,7 +39,7 @@
 @media (min-width: 768px) and (max-width: 991px)
 {
     .primary-section {
-        height: 100vh;
+        /*height: 100vh;*/
         /*border: 2px solid red;*/
         overflow-y: scroll;
         -ms-overflow-style: none;
@@ -73,7 +73,7 @@
 @media (min-width: 992px)
 {
     .primary-section {
-        height: 90vh;
+        /*height: 90vh;*/
         /*border: 2px solid red;*/
         overflow-y: scroll;
         overflow-x: hidden;
@@ -105,6 +105,11 @@
 
 .primary-section::-webkit-scrollbar {
     display: none;
+}
+
+.no-pending-orders-msg {
+    font-size: var(--emptyMessage);
+    color: var(--titleTextGrey);
 }
 
 .selection-section {
@@ -139,7 +144,7 @@
 .title-section {
     padding: 0.2em 0.8em 0.2em 0.8em;
     width: 100%;
-    background-color: var(--primaryGreenRegular);
+    background-color: var(--titleBg );
 }
 
 .user-name {
@@ -193,7 +198,7 @@
     /* No Space on the right */
     margin: 15px 0;
     padding: 5px 0 5px 15px;
-    background-color: var(--primaryGreenRegular);
+    background-color: var(--titleBg);
 }
 
 .order-total-text {
@@ -205,7 +210,7 @@
     width: 100%;
     border: none;
     padding: 10px 0 10px 0;
-    background-color: var(--primaryGreenRegular);
+    background-color: var(--primaryOrangeRegular);
     color: var(--text-light);
     font-size: var(--btnText);
 }
@@ -213,7 +218,30 @@
 .mark-as-delivered-btn:hover, .mark-as-delivered-btn:focus  {
     width: 100%;
     border: none;
-    background-color: var(--primaryGreenMedium);
+    background-color: var(--primaryOrangeMedium);
+    color: var(--text-light);
+    font-size: var(--btnText);
+    outline: none;
+}
+
+.download-orders-section {
+    width: 75%;
+}
+
+.download-orders-btn {
+    /*width: 100%;*/
+    border: none;
+    padding: 10px 15px;
+    background-color: var(--primaryOrangeRegular);
+    color: var(--text-light);
+    font-size: var(--btnText);
+}
+
+.download-orders-btn:hover, .download-orders-btn:focus  {
+    /*width: 100%;*/
+    border: none;
+    text-decoration: none;
+    background-color: var(--primaryOrangeMedium);
     color: var(--text-light);
     font-size: var(--btnText);
     outline: none;

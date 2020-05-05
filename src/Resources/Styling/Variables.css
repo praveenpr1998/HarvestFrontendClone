@@ -14,17 +14,20 @@
     --primaryOrangeMedium: #FBB165;
     --primaryOrangeLight: #FED8B3;
     --tableBorder: #737373;
+    --titleBg: #737373;
+    --orderBoxBorder: #737373;
+    --titleTextGrey: #737373;
 
     /* FONT SIZING */
     --navLinkFont: 1.1em;
-    --titleText: 1.3em;
+    --titleText: 1.2em;
     --dateText: 1.2em;
     --titleTextMob: 1.1em;
-    --itemText: 1.3em;
+    --itemText: 1.1em;
     --btnText: 1.2em;
     --tableTitle: 1.3em;
     --tableText: 1.1em;
-    --orderTotalText: 1.5em;
+    --orderTotalText: 1.2em;
     --modal-input-field: 1.3em;
     --emptyMessage: 2em;
 
