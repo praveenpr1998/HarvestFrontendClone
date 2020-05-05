@@ -87,22 +87,23 @@ class Home extends Component{
 
     dispayCards(){
         return(
-            <div className="row maincarddiv" >
-            {this.state.allProducts.map((data)=>{
-                return (
-                <div className="carddiv col-xs-12"  key={data.id}>
-                <Card className="cardalign">
-                    <Card.Body>
-                    <img style={{width:100,height:80}} src={data.image} alt="product-image" />
-                    <Card.Title><p className="homecardprodname">{data.name}</p></Card.Title>
-                       <p className="homecardperunit">Price : ₹ {data.pricePerUnit}/ {data.price}</p>
-                    <Button variant="success addbutton" onClick={()=>{this.addItem(data.id);this.setState({Toastshow:true});setTimeout(()=>{this.setState({Toastshow:false})},500)}}>Add</Button>
-                    </Card.Body>
-                </Card>
-                </div>)
-                 })
-                }
-            </div>)
+            <div className="row maincarddiv">
+                {this.state.allProducts.map((data)=>{
+                    return (
+                        <div className="carddiv col-xs-12"  key={data.id}>
+                            <Card className="cardalign" style={{borderRadius:'18px'}}>
+                                <Card.Body>
+                                    <img style={{width:100, height:80, paddingBottom: '10px'}} src={data.image} alt="product-image" />
+                                    <Card.Title><p className="homecardprodname">{data.name}</p></Card.Title>
+                                    <p className="homecardperunit">Price : ₹ {data.pricePerUnit}/ {data.price}</p>
+                                    <Button variant="success addbutton" onClick={()=>{this.addItem(data.id);this.setState({Toastshow:true});setTimeout(()=>{this.setState({Toastshow:false})},500)}}>Add</Button>
+                                </Card.Body>
+                            </Card>
+                        </div>
+                    )
+                })}
+            </div>
+        )
     } 
 
     render(){

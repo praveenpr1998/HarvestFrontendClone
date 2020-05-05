@@ -24,7 +24,7 @@ class ManageProducts extends Component {
             addName: '',
             addImage: '',
             addCategory: '',
-            addPrice: '',
+            addPrice: 'Kg',
             addPricePerUnit: 0,
             productsEmpty: true,
         };
@@ -326,8 +326,8 @@ class ManageProducts extends Component {
                                     style={{height:'40px'}}
                                     onChange={(event) => this.handlePriceChange(event)}
                                 >
-                                    <option value="Kilogram">Kilogram</option>
-                                    <option value="Individual">Individual</option>
+                                    <option value="Kg">Kg</option>
+                                    <option value="1 Nos">1 Nos</option>
                                 </select>
                                 <div className='field-section'>
                                     <span className='field-text'>Price per Unit:</span>
@@ -405,8 +405,8 @@ class ManageProducts extends Component {
                                     style={{height:'40px'}}
                                     onChange={(event) => this.handleAddPriceChange(event)}
                                 >
-                                    <option value="Kilogram">Kilogram</option>
-                                    <option value="Individual">Individual</option>
+                                    <option value="Kg">Kg</option>
+                                    <option value="1 Nos">1 Nos</option>
                                 </select>
                                 <div className='field-section'>
                                     <span className='field-text'>Price per Unit:</span>

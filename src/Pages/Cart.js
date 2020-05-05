@@ -99,8 +99,8 @@ class Cart extends Component{
                 TotalPrice=parseInt(data['product-total'])+TotalPrice;
                 return(
                     <div className="cartcards" key={data['product-id']}> 
-                    <div   key={data['product-id']}>    
-                        <Card className="actualcards">
+                    <div key={data['product-id']}>    
+                        <Card style={{paddingTop:'15px', paddingBottom:'15px', borderRadius:'15px', marginLeft: '20px', marginRight: '20px'}}>
                             <div className="row">
                                 <img src={data['product-image']} className="cartimage" alt="products" />
                                 <p className="productname">{data['product-name']}</p>
