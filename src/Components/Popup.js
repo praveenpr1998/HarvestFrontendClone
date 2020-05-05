@@ -4,6 +4,7 @@ import "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal,Button,Spinner } from 'react-bootstrap';
 import { createBrowserHistory } from "history";
+const GLOBAL = require('../global');
 const history = createBrowserHistory();
 
 class Popup extends Component{
@@ -53,7 +54,7 @@ class Popup extends Component{
         const checkValidity=this.validate();
         if(!checkValidity){
             this.setState({isLoading:true})
-        fetch("http://localhost:1337/users/addUser",{
+        fetch(GLOBAL.BASE_URL+"users/addUser",{
             method:"POST",
             body:JSON.stringify({mobile:this.state.mobile,name:this.state.name,items:JSON.parse(localStorage.getItem("itemsArray"))}),
         })
