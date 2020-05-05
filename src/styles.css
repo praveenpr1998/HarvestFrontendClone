@@ -69,9 +69,16 @@ input[name="secretKey"] {
     color: yellow;
 }
 .row.maincarddiv{
-    padding-top: 50px;
+    padding-top: 30px;
     position: relative;
    
+}
+.addbutton{
+    width: 60px;
+    height: 36 px;
+    position: absolute;
+    bottom: 19px;
+    right: 66px;
 }
 .contact{
     text-align: center;
@@ -113,15 +120,16 @@ input[name="secretKey"] {
     padding-top: 20px;
 }
 .cartimage{
-    width: 100px;
-    height: 100px;
-    padding-left: 18px;
+    width: 90px;
+    height: 90px;
+    margin-left: 38px;
+    margin-bottom: 5px;
 
 }
 .productname{
     font-size: 20px;
     font-weight: bold;
-    padding-left: 65px;
+    padding-left: 38px;
     font-family: 'Roboto', sans-serif;
 }
 .producthome{
@@ -138,7 +146,7 @@ input[name="secretKey"] {
 }
 .productquantity{
     font-size: 20px;
-    bottom:20px;
+    bottom:30px;
     left: 150px;
     position: absolute;
     font-family: 'Roboto', sans-serif;
@@ -158,7 +166,7 @@ input[name="secretKey"] {
 
 .quant{
     position: absolute;
-    bottom: 37px;
+    bottom: 46px;
     left:270px;
 }
 .btn.btn-info.btn-sm.cartButtons{
@@ -186,8 +194,8 @@ input[name="secretKey"] {
 .cardalign{
     text-align: center;
     width: 200px;
+    height: 260px;
 }
-
 .carddiv{
     padding-left: 70px;
     text-align:"center";
@@ -271,6 +279,12 @@ input[name="secretKey"] {
     padding-left: 20px;
     padding-top: 20px;
 }
+.addbutton{
+    width: 60px;
+    position: absolute;
+    bottom: 19px;
+    right: 59px;
+}
 
 .menu{
     color:'#43d8c9';
@@ -324,25 +338,25 @@ input[name="secretKey"] {
     font-family: 'Roboto', sans-serif;
 }
 .carddiv{
-    padding-left: 20px;
+    padding-left: 18    px;
 }
 .quote{
     font-size: 18px;
     font-family: 'Roboto', sans-serif;
 }
 .productquantity{
-    font-size: 18px;
-    bottom:30px;
+    font-size: 15px;
+    bottom:25px;
     left: 100px;
     position: absolute;
     font-family: 'Roboto', sans-serif;
 }
 .productname{
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     padding-left: 20px;
     font-family: 'Roboto', sans-serif;
-   
+   padding-bottom: 30px;
 }
 .us{
     text-align: center;
@@ -355,39 +369,40 @@ input[name="secretKey"] {
     position: relative;
 }
 .producttotal{
-    font-size: 17px;
-   bottom:0px;
+    font-size: 16px;
+   bottom:-5px;
    left:100px;
     position: absolute;
     font-family: 'Roboto', sans-serif; 
 }
 .productperunit{
-    font-size: 18px;
-    right: 16px;
+    font-size: 11px;
+    right: 5px;
     position: absolute;
     font-family: 'Roboto', sans-serif;
 }
 
 .quant{
     position: absolute;
-    bottom: 47px;
-    left:190px;
+    bottom: 40px;
+    left:170px;
 }
 .delete{
     position: absolute;
     bottom: 36px;
-    left:320px;
+    left:300px;
 }
 .cartimage{
-    width: 95px;
-    height: 90px;
+    width: 80px;
+    height: 70px;
+    margin-left: 20px;
 }
 }
 @media screen and (max-width: 400px) {
     .delete{
         position: absolute;
         bottom: 36px;
-        left:270px;
+        left:250px;
     }
     .toast{
         position: absolute;
@@ -397,6 +412,12 @@ input[name="secretKey"] {
         left: 30%;
         margin-top: 3px;
         text-align: center;
+    }
+    .addbutton{
+        width: 60px;
+        position: absolute;
+        bottom: 19px;
+        right: 50px;
     }
     .allmenu{
         padding-top: 3px;
@@ -416,6 +437,7 @@ input[name="secretKey"] {
         width: 300px;
         margin-left: 20px;
     }
+    
     .menu{
         color:'#43d8c9';
         padding-right:10px;
@@ -451,8 +473,7 @@ input[name="secretKey"] {
     }
     .cartcards{
         padding-top: 0px;
-        
-        padding-bottom: 10px;
+        padding-bottom: 8px;
        padding-left: 0px;
     }
     
@@ -462,8 +483,8 @@ input[name="secretKey"] {
     }
     .cardalign{
         text-align: center;
-        width: 150px;
-        height: 250px;
+        width: 165px;
+        height: 245px;
     }
     .total{
         font-size: 14px;
@@ -472,23 +493,23 @@ input[name="secretKey"] {
         font-family: 'Roboto', sans-serif;
     }
     .carddiv{
-        padding-left: 20px;
+        padding-left: 10px;
     }
     .quote{
         font-size: 18px;
         font-family: 'Roboto', sans-serif;
     }
     .productquantity{
-        font-size: 16px;
-        bottom:30px;
-        left: 87px;
+        font-size: 15px;
+        bottom:20px;
+        left: 75px;
         position: absolute;
         font-family: 'Roboto', sans-serif;
     }
     .productname{
-        font-size: 16px;
+        font-size: 15px;
         font-weight: bold;
-        padding-left: 20px;
+        padding-left: 10px;
         font-family: 'Roboto', sans-serif;
        
     }
@@ -503,30 +524,32 @@ input[name="secretKey"] {
         position: relative;
     }
     .producttotal{
-        font-size: 17px;
-       bottom:0px;
-       left:90px;
+        font-size: 15px;
+       bottom:-8px;
+       left:75px;
         position: absolute;
         font-family: 'Roboto', sans-serif; 
     }
     .productperunit{
-        font-size: 16px;
+        font-size: 11.5px;
         right: 6px;
         position: absolute;
         font-family: 'Roboto', sans-serif;
     }
     .homecardperunit{
         font-family: 'Roboto', sans-serif;
-        font-size: 14px; 
+        font-size: 12px; 
     }
     .quant{
         position: absolute;
-        bottom: 47px;
-        left:160px;
+        bottom: 38px;
+        left:145px;
     }
     .cartimage{
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
+        margin-bottom: 0px;
+
     }
     
 
@@ -589,7 +612,7 @@ input[name="secretKey"] {
     }
     .cardalign{
         text-align: center;
-        width: 130px;
+        width: 135px;
         height: 230px;
     }
     .total{
@@ -643,15 +666,18 @@ input[name="secretKey"] {
     }
     .homecardperunit{
         font-family: 'Roboto', sans-serif;
-        font-size: 11px; 
+        font-size: 10px; 
     }
     .homecardprodname{
-        font-size: 18px;
+        font-size: 15px;
         font-family: 'Roboto', sans-serif;
     }
     .addbutton{
         width: 60px;
         height: 35px;
+        position: absolute;
+        left: 36px;
+
     }
     .quant{
         position: absolute;
@@ -659,8 +685,9 @@ input[name="secretKey"] {
         left:160px;
     }
     .cartimage{
-        width: 90px;
-        height: 90px;
+        width: 50px;
+        height: 50px;
+        margin-bottom: 0px;
     }
     
 }
