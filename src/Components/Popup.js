@@ -32,7 +32,13 @@ class Popup extends Component{
               isError = true;
               this.setState({
                   mobileError:"Mobile cannot be empty"
-              })}else{this.setState({
+              })}
+              else if(this.state.mobile.length!==0) {
+                isError = true;
+                this.setState({
+                    mobileError:"Must be a 10 digit number"
+                })}
+                else{this.setState({
                   mobileError:''})}
             if (this.state.name.length===0) {
               isError = true;
