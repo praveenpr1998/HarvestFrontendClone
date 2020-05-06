@@ -83,14 +83,14 @@ input[name="secretKey"] {
 .contact{
     text-align: center;
     margin: 0;
-    padding-top: 110px;   
+    padding-top: 80px;   
 }
 .quote{
     font-family: 'Roboto', sans-serif;
-    font-size: 30px;
+    font-size: 18px;
     padding-top: 20px;
     padding-bottom: 20px;
-  
+    color: #737373;
 }
 .logo{
     width:200px;

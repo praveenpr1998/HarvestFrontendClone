@@ -4,7 +4,7 @@ import '../Resources/Styling/RecentOrders.css';
 import phone from '../Resources/Images/phone.png';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Spinner } from "react-bootstrap";
+import { Spinner, Container } from "react-bootstrap";
 const GLOBAL = require('../global');
 
 let _ = require('lodash');
@@ -126,53 +126,28 @@ class RecentOrders extends Component {
             return(
                 this.state.order.map((orderItem) => {
                     return(
-                        <div className='d-flex flex-column align-items-center justify-content-center order-box'>
-                            <div className='d-flex flex-row align-items-center justify-content-between title-section'>
-                            <span className='user-name'>
-                                { orderItem.userName }
-                            </span>
-                                <div className='user-phone-section'>
-                                    <img
-                                        src={phone}
-                                        className='phone-img'
-                                    />
-                                    <span className='user-phone'>
-                                    : { orderItem.userMobileNo }
-                                </span>
-                                </div>
+                        <Container className="bootstrapcontainer" style={{border:'0.5px solid #d4caca', borderRadius:'15px', marginTop:'15px', padding: '15px', lineHeight:2, backgroundColor: '#F6F6F6'}}>
+                            <div style={{display:'flex'}}>
+                                <div style={{display:'flex', flex:1, fontWeight:'bold'}}>{orderItem.userName} - {orderItem.userMobileNo}</div>
+                                <div style={{display:'flex', flex:1, justifyContent:'flex-end'}}>{orderItem.orderDate}</div>
                             </div>
-                            <div className='d-flex flex-row align-items-center justify-content-end date-section'>
-                            <span className='order-date'>
-                                {orderItem.orderDate    }
-                            </span>
-                            </div>
-                            <div className='order-list-section'>
-                                {
-                                    orderItem.items.map(( cartItem ) => {
-                                        return(
-                                            <div className='order-item-section'>
-                                            <span className='order-item'>
-                                                { cartItem['product-name'] } - { cartItem['product-quantity'] } - ₹{ cartItem['product-pricePerUnit'] * cartItem['product-quantity'] }
-                                            </span>
-                                            </div>
-                                        )
-                                    })
-                                }
-                                <div className='order-total-section'>
-                                <span className='order-total-text'>
-                                    Total: ₹{ this.orderTotal(orderItem) }
-                                </span>
-                                </div>
-                            </div>
-                            <div className='btn-section'>
+                            <hr style={{backgroundColor: '#d4caca', marginTop: '0.5rem', marginBottom: '0.5rem'}}></hr>
+                            {
+                                orderItem.items.map((cartItem) => {
+                                    return(
+                                        <li>{ cartItem['product-name'] } - { cartItem['product-quantity'] } - ₹{ cartItem['product-pricePerUnit'] * cartItem['product-quantity'] }</li>
+                                    )
+                                })
+                            }
+                            <div style={{fontWeight:'bold', textAlign:'center', margin:'5px'}}>Total: ₹ {this.orderTotal(orderItem)}</div>
+                            <div style={{textAlign:'center'}}>
                                 <button
-                                    className='mark-as-delivered-btn'
-                                    onClick={ () => this.markAsDelivered(orderItem) }
-                                >
-                                    Mark as Delivered
+                                    style={{backgroundColor:'#87c97d', color:'#fff', borderRadius:'8px', padding:'0px 40px'}}
+                                    onClick={() => this.markAsDelivered(orderItem)}>
+                                        Mark as Delivered
                                 </button>
                             </div>
-                        </div>
+                        </Container>
                     );
                 })
             );
@@ -192,12 +167,12 @@ class RecentOrders extends Component {
                 Object.keys(this.state.groupedProducts).map((key) => {
                     return(
                         <div className='primary-area '>
-                            <div className='category-text-section'> <span className='category-text'>    { key }:    </span>
+                            <div className='category-text-section' style={{margin:'5px'}}> <span className='category-text' style={{fontWeight:'bold', color:'#737373', fontSize:'16px'}}>    { key }:    </span>
                             </div>
                             <table className='items-table'>
                                 <tr>
                                     <th className='name-column-th'>Name</th>
-                                    <th className='qty-column-th'>Total Quantity</th>
+                                    <th className='qty-column-th'>Total Qty</th>
                                     <th className='price-column-th'>Total Price (₹)</th>
                                 </tr>
                                 {
@@ -257,7 +232,7 @@ class RecentOrders extends Component {
                 <ToastContainer />
                 <AdminNavbar />
                 <div className='d-flex flex-column align-items-center justify-content-center'>
-                    <div className='d-flex flex-row align-items-center justify-content-center selection-section'>
+                    <div className='d-flex flex-row align-items-center justify-content-center selection-section' style={{paddingTop:'20px'}}>
                         <button
                             className={(this.state.recentOrders ? 'active-btn' : 'inactive-btn' )}
                             onClick={() => this.recentOrdersBtn()}
@@ -272,13 +247,11 @@ class RecentOrders extends Component {
                             Consolidated Orders
                         </button>
                     </div>
-                    <div
-                        className='download-orders-section'
-                    >
+                    <div className='download-orders-section' style={{margin:'15px 0px'}}>
                         <a href={ GLOBAL.BASE_URL+"orders/downloadOrderReport" }
-                           target="blank"
+                            target="blank"
                             className='download-orders-btn'
-                        >
+                            style={{borderRadius:'10px', fontSize:'14px'}}>
                             Download Reports
                         </a>
                     </div>

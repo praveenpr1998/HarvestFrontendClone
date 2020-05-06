@@ -104,7 +104,7 @@ class Cart extends Component{
                             <div className="row">
                                 <img src={data['product-image']} className="cartimage" alt="products" />
                                 <p className="productname">{data['product-name']}</p>
-                                <p className="productperunit">{data['product-pricePerUnit']}/{data['product-price']}</p>
+                                <p className="productperunit">₹ {data['product-pricePerUnit']} / {data['product-price']}</p>
                                 <p className="productquantity">Quantity</p>
                                 <div className="quant">
                                     <AiOutlinePlusSquare size="23" color="green" onClick={()=>{this.increment(data['product-id'])}}/> {data['product-quantity']} <AiOutlineMinusSquare size="23" color="green"  onClick={()=>{(data['product-quantity']>1)?(this.decrement(data['product-id'])):this.remove(data['product-id'])}}/></div>

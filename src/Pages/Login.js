@@ -80,7 +80,7 @@ class Login extends Component{
         <Container className="bootstrapcontainer"> 
             <div className="mainpage">
                 <img src={require("../Resources/Images/Harvest Logo.png")} class="logo" alt="Logo"></img>       
-                <p className="quote">Harvest App is a web application .....</p>
+                {/* <p className="quote">Harvest App is a web application .....</p> */}
             </div>       
             <div className="logocontainer">
             <div style={{paddingBottom:20}}>
@@ -107,7 +107,7 @@ class Login extends Component{
             } 
             </div> 
             <div className="contact">
-                <p className="quote">For assistance contact/....</p>
+                <p className="quote">For any inquiries or questions regarding our store, products and prices, please contact us by email <a style={{"color":"#FBB165"}} href="mailto:harvestapp@thinkcodesoft.com">harvestapp@thinkcodesoft.com.</a></p>
             </div>
         </Container>
       )

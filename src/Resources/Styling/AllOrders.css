@@ -45,7 +45,7 @@
 }
 
 .all-orders-hr {
-    border: 2px solid var(--primaryGreenLight);
+    border: 2px solid #ef964d;
     width: 74.5%;
     /*margin: 0 0 .5em 0;*/
 }

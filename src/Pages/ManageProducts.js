@@ -47,7 +47,7 @@ class ManageProducts extends Component {
                 Object.keys(this.state.groupedProducts).map((key) => {
                     return(
                         <div className='product-section'>
-                                    <span className='category-title-text'>
+                                    <span className='category-title-text' style={{color:'#000'}}>
                                         { key }:
                                     </span>
                             <table className='products-table'>
@@ -551,8 +551,8 @@ class ManageProducts extends Component {
                 <div className='d-flex flex-column align-items-center justify-content-center primary-area'>
                     <button
                         className='add-product-btn'
-                        onClick={() => this.toggleAddModal()}
-                    >
+                        style={{padding: '5px 20px', marginTop: '20px', borderRadius: '8px'}}
+                        onClick={() => this.toggleAddModal()}>
                         Add Product
                     </button>
                     {
