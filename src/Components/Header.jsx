@@ -4,16 +4,29 @@ import "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Navbar,Nav} from "react-bootstrap";
 import { createBrowserHistory } from "history";
+const GLOBAL = require('../global');
 const history = createBrowserHistory();
 
 class Header extends Component{
-    logout(){
+    state={
+    token:''
+  }
+    async logout(){
+      this.setState({token:localStorage.getItem("token")},()=>{
+        fetch(GLOBAL.BASE_URL+"users/removeUser",{
+        method:"POST",
+        body:JSON.stringify({token:this.state.token}),
+    })
+    .then(res => res.json())
+    .then(
+      (result) => { 
+        if(result.message==="Success"){
         localStorage.removeItem("token");
-    }
-
-    moveHome(){
-        history.push("/cart");
+        history.push("/");
         window.location.reload();
+        }
+      });
+    })
     }
       
     render(){
@@ -28,7 +41,7 @@ class Header extends Component{
               <Nav className="ml-auto">
                 <Nav.Link href="/home"><p className="tabmenus">Home</p></Nav.Link>
                 <Nav.Link href="/cart"><p className="tabmenus">MyCart</p></Nav.Link>
-                <Nav.Link onClick={()=>this.logout()}  href="/"><p className="tabmenus">Logout</p></Nav.Link>
+                <Nav.Link onClick={()=>this.logout()}  href="#"><p className="tabmenus">Logout</p></Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Navbar>
