@@ -85,7 +85,7 @@ class Home extends Component{
         } 
     }
 
-    dispayCards(){
+     dispayCards(){
         return(
             <div className="row maincarddiv">
                 {this.state.allProducts.map((data)=>{
@@ -94,9 +94,12 @@ class Home extends Component{
                             <Card className="cardalign" style={{borderRadius:'18px'}}>
                                 <Card.Body>
                                     <img style={{width:100, height:80, paddingBottom: '10px'}} src={data.image} alt="product-image" />
-                                    <Card.Title><p className="homecardprodname">{data.name}</p></Card.Title>
-                                    <p className="homecardperunit">Price : ₹ {data.pricePerUnit} / {data.price}</p>
-                                    <Button variant="success addbutton" onClick={()=>{this.addItem(data.id);this.setState({Toastshow:true});setTimeout(()=>{this.setState({Toastshow:false})},500)}}>Add</Button>
+                                    <Card.Title><p className="homecardprodname">{data.name}<p style={{color:GLOBAL.BASE_COLORS.MEDIUM_PEACH}} className="homecardproddescription">{data.description}</p></p></Card.Title>
+                                    <p className="homecardperunit">Price : ₹ {data.pricePerUnit} / kg</p>
+                                    {(data.availability==="true")?
+                                        <Button value={data.id} variant="success addbutton" onClick={()=>{this.addItem(data.id);this.setState({Toastshow:true});setTimeout(()=>{this.setState({Toastshow:false})},500)}}>Add</Button>:
+                                        <p className="outofstock" style={{color:'red',fontFamily:'roboto'}}>Out-Of-Stock</p>   
+                                    }
                                 </Card.Body>
                             </Card>
                         </div>
