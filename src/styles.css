@@ -9,7 +9,10 @@ input[name="secretKey"] {
     min-width: 250px;
     border: 0.5px solid #dcd6d6;
 }
+.homecardproddescription{
+font-size: 14px;
 
+}
 .mainpage{
     text-align: center;
     margin: 0;
@@ -80,6 +83,7 @@ input[name="secretKey"] {
     bottom: 19px;
     right: 66px;
 }
+
 .contact{
     text-align: center;
     margin: 0;
@@ -194,7 +198,7 @@ input[name="secretKey"] {
 .cardalign{
     text-align: center;
     width: 200px;
-    height: 260px;
+    height: 270px;
 }
 .carddiv{
     padding-left: 70px;
@@ -484,7 +488,7 @@ input[name="secretKey"] {
     .cardalign{
         text-align: center;
         width: 165px;
-        height: 245px;
+        height: 260px;
     }
     .total{
         font-size: 14px;
@@ -613,7 +617,10 @@ input[name="secretKey"] {
     .cardalign{
         text-align: center;
         width: 135px;
-        height: 230px;
+        height: 247px;
+    }
+    .outofstock{
+        font-size: 15px;
     }
     .total{
         font-size: 13px;
