@@ -24,15 +24,19 @@ class ManageProducts extends Component {
             editName: '',
             editImage: '',
             editCategory: '',
+            editDescription: '',
             editPrice: '',
             editPriceOthers: '',
             editPricePerUnit: 0,
+            editAvailability: '',
             addName: '',
             addImage: '',
             addCategory: '',
+            addDescription: '',
             addPrice: 'Kg',
             addPriceOthers: '',
             addPricePerUnit: 0,
+            addAvailability: 'in-stock',
             productsEmpty: true,
         };
     };
@@ -64,7 +68,7 @@ class ManageProducts extends Component {
                                         return(
                                             <tr>
                                                 <td className='t-name-column'>{ product.name }</td>
-                                                <td className='t-priceUnit-column'>{ product.price } { (product.price === 'others') ? ' - ' : ''} { product.priceOthers }</td>
+                                                <td className='t-priceUnit-column'> { (product.price === 'others') ?  product.priceOthers  : product.price}</td>
                                                 <td className='t-pricePerUnit-column'>{ product.pricePerUnit}</td>
                                                 <td
                                                     className='t-options-column-edit'
@@ -129,10 +133,12 @@ class ManageProducts extends Component {
                         id: this.state.editId,
                         name: this.state.editName,
                         category: this.state.editCategory,
+                        description: this.state.editDescription,
                         image: this.state.editImage,
                         price: this.state.editPrice,
                         priceOthers: this.state.editPriceOthers,
-                        pricePerUnit: this.state.editPricePerUnit
+                        pricePerUnit: this.state.editPricePerUnit,
+                        availability: this.state.editAvailability,
                     })
                 })
                     .then(res => res.json())
@@ -142,9 +148,11 @@ class ManageProducts extends Component {
                                 this.setState({
                                     editName: '',
                                     editCategory: '',
-                                    editPrice: 'Kilogram',
+                                    editPrice: '',
                                     editPriceOthers: '',
                                     editPricePerUnit: 0,
+                                    editDescription: '',
+                                    editAvailability: '',
                                 });
                                 this.toggleModal();
                                 this.componentDidMount();
@@ -240,10 +248,12 @@ class ManageProducts extends Component {
                     body: JSON.stringify({
                         name: this.state.addName,
                         category: this.state.addCategory,
+                        description: this.state.addDescription,
                         image: this.state.addImage,
                         price: this.state.addPrice,
                         priceOthers: this.state.addPriceOthers,
                         pricePerUnit: this.state.addPricePerUnit,
+                        availability: this.state.addAvailability,
                         sellers: []
                     })
                 })
@@ -254,9 +264,11 @@ class ManageProducts extends Component {
                                 addName: '',
                                 addImage: '',
                                 addCategory: '',
+                                addDescription: '',
                                 addPrice: 'Kilogram',
                                 addPriceOthers: '',
                                 addPricePerUnit: 0,
+                                addAvailability: 'in-stock',
                             });
                             if(result.status === 200) {
                                 this.toggleAddModal();
@@ -276,8 +288,12 @@ class ManageProducts extends Component {
                                 addName: '',
                                 addImage: '',
                                 addCategory: '',
+                                addDescription: '',
                                 addPrice: 'Kilogram',
+                                addPriceOthers: '',
                                 addPricePerUnit: 0,
+                                addAvailability: 'in-stock',
+
                             });
                         }
                     );
@@ -310,9 +326,12 @@ class ManageProducts extends Component {
             editId: product.id,
             editName: product.name,
             editCategory: product.category,
+            editDescription: product.description,
             editImage: product.image,
             editPrice: product.price,
+            editPriceOthers: product.priceOthers,
             editPricePerUnit: product.pricePerUnit,
+            editAvailability: product.availability,
             modal: !this.state.modal,
         });
     };
@@ -463,6 +482,16 @@ class ManageProducts extends Component {
                                     onChange={(event) => this.handleCategoryChange(event)}
                                 />
                                 <div className='field-section'>
+                                    <span className='field-text'>Description:</span>
+                                </div>
+                                <input
+                                    type='text'
+                                    value={ this.state.editDescription }
+                                    placeholder='Product Description'
+                                    className='modal-text-input'
+                                    onChange={(event) => this.setState({ editDescription: event.target.value })}
+                                />
+                                <div className='field-section'>
                                     <span className='field-text'>Image:</span>
                                 </div>
                                 <input
@@ -485,16 +514,6 @@ class ManageProducts extends Component {
                                     <option value="pc">Pc</option>
                                     <option value="others">Others</option>
                                 </select>
-                                {/*<div className='field-section'>
-                                    <span className='field-text'>Price per Unit:</span>
-                                </div>
-                                <input
-                                    type='text'
-                                    value={ this.state.editPricePerUnit }
-                                    placeholder='Product Price per Unit'
-                                    className='modal-text-input'
-                                    onChange={(event) => this.handlePricePerUnitChange(event)}
-                                />*/}
                                 {
                                     this.state.editPrice === 'others' &&
                                     <div style={{ width: '100%' }}>
@@ -511,6 +530,17 @@ class ManageProducts extends Component {
                                         />
                                     </div>
                                 }
+                                <div className='field-section'>
+                                    <span className='field-text'>Availability:</span>
+                                </div>
+                                <select
+                                    value={this.state.editAvailability}
+                                    className='mp-dropDown'
+                                    onChange={(event) => this.setState({ editAvailability: event.target.value })}
+                                >
+                                    <option value="in-stock">In Stock</option>
+                                    <option value="out-of-stock">Out of Stock</option>
+                                </select>
                                 <button
                                     className='modal-edit-btn'
                                     onClick={() => this.editProduct()}
@@ -557,6 +587,16 @@ class ManageProducts extends Component {
                                     placeholder='Product Category'
                                     className='modal-text-input'
                                     onChange={(event) => this.handleAddCategoryChange(event)}
+                                />
+                                <div className='field-section'>
+                                    <span className='field-text'>Description:</span>
+                                </div>
+                                <input
+                                    type='text'
+                                    value={ this.state.addDescription }
+                                    placeholder='Product Description'
+                                    className='modal-text-input'
+                                    onChange={(event) => this.setState({ addDescription: event.target.value })}
                                 />
                                 <div className='field-section'>
                                     <span className='field-text'>Image:</span>
@@ -607,6 +647,17 @@ class ManageProducts extends Component {
                                     className='modal-text-input'
                                     onChange={(event) => this.handleAddPricePerUnitChange(event)}
                                 />
+                                <div className='field-section'>
+                                    <span className='field-text'>Availability:</span>
+                                </div>
+                                <select
+                                    value={this.state.addAvailability}
+                                    className='mp-dropDown'
+                                    onChange={(event) => this.setState({ addAvailability: event.target.value })}
+                                >
+                                    <option value="in-stock">In Stock</option>
+                                    <option value="out-of-stock">Out of Stock</option>
+                                </select>
                                 <button
                                     className='modal-edit-btn'
                                     onClick={() => this.addProduct()}
