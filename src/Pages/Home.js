@@ -103,7 +103,8 @@ class Home extends Component{
                                 <Card.Body>
                                     <img style={{width:100, height:80, paddingBottom: '10px'}} src={data.image} alt="product-image" />
                                     <Card.Title><p className="homecardprodname">{data.name}<p style={{color:GLOBAL.BASE_COLORS.MEDIUM_PEACH}} className="homecardproddescription">{data.description}</p></p></Card.Title>
-                                    <p className="homecardperunit">Price : ₹ {data.pricePerUnit} / {data.price}</p>
+                                     {(data.price==="others")?<p className="homecardperunit">Price : ₹ {data.pricePerUnit} / {data.priceOthers}</p>
+                                    :<p className="homecardperunit">Price : ₹ {data.pricePerUnit} / {data.price}</p>}
                                     {(data.availability==="in-stock")?
                                         <Button value={data.id} variant="success addbutton" onClick={()=>{this.addItem(data.id);this.setState({Toastshow:true});setTimeout(()=>{this.setState({Toastshow:false})},500)}}>Add</Button>:
                                         <p className="outofstock" style={{color:'red',fontFamily:'roboto'}}>Out-Of-Stock</p>   
