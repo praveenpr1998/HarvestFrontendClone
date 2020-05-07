@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import Header from "../Components/Header.jsx"
 import "../styles.css";
-import {Card,Button,Spinner,Container,Toast} from "react-bootstrap"
+import {Card,Button,Spinner,Container} from "react-bootstrap";
+import { ToastContainer, toast } from 'react-toastify';
 const GLOBAL = require('../global');
 
 class Home extends Component{
     state={
         token:"",
         allProducts:[],
-        isLoading:'',
-        Toastshow:false
+        isLoading:''
     }
     
     componentDidMount(){
@@ -51,6 +51,14 @@ class Home extends Component{
                 }
                 return null;
             })
+            toast.success('Item Added', {
+            position: "top-right",
+            autoClose: 1000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+        });
         }
         if(!found){
             var newItem = {
@@ -113,11 +121,8 @@ class Home extends Component{
         
         return(
             <Container className="bootstrapcontainer" >
-                
+                   <ToastContainer />    
             <Header />
-            <Toast onClose={() => this.setState({Toastshow:false})} show={this.state.Toastshow} className="toast">
-      <Toast.Body>Item Added</Toast.Body>
-    </Toast> 
                 {(this.state.isLoading)?<div  style={{paddingTop:20,textAlign:'center'}}><Spinner animation="border" variant="success" /></div>:null}
                 {this.dispayCards()}
             </Container>  
