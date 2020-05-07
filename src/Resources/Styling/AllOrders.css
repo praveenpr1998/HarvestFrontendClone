@@ -35,8 +35,13 @@
 }
 
 .no-orders-msg {
+    margin: 2em 0;
     font-size: var(--emptyMessage);
     color: var(--titleTextGrey);
+}
+
+.ao-items-list {
+    margin: 0 0 0 0.938em;
 }
 
 .all-orders-text {

@@ -127,7 +127,7 @@ class RecentOrders extends Component {
                 this.state.order.map((orderItem) => {
                     return(
                         <Container className="bootstrapcontainer" style={{border:'0.5px solid #d4caca', borderRadius:'15px', marginTop:'15px', padding: '15px', lineHeight:2, backgroundColor: '#F6F6F6'}}>
-                            <div style={{display:'flex'}}>
+                            <div style={{display:'flex', margin: '0 0.938em'}}>
                                 <div style={{display:'flex', flex:1, fontWeight:'bold'}}>{orderItem.userName} - {orderItem.userMobileNo}</div>
                                 <div style={{display:'flex', flex:1, justifyContent:'flex-end'}}>{orderItem.orderDate}</div>
                             </div>
@@ -135,14 +135,16 @@ class RecentOrders extends Component {
                             {
                                 orderItem.items.map((cartItem) => {
                                     return(
-                                        <li>{ cartItem['product-name'] } - { cartItem['product-quantity'] } - ₹{ cartItem['product-pricePerUnit'] * cartItem['product-quantity'] }</li>
+                                        <li className='ro-items-list'>
+                                            { cartItem['product-name'] } - { cartItem['product-quantity'] } - ₹{ cartItem['product-pricePerUnit'] * cartItem['product-quantity'] }
+                                        </li>
                                     )
                                 })
                             }
                             <div style={{fontWeight:'bold', textAlign:'center', margin:'5px'}}>Total: ₹ {this.orderTotal(orderItem)}</div>
                             <div style={{textAlign:'center'}}>
                                 <button
-                                    style={{backgroundColor:'#87c97d', color:'#fff', borderRadius:'8px', padding:'0px 40px'}}
+                                    style={{backgroundColor:'#87c97d', color:'#fff', borderRadius:'8px', padding:'0px 40px', border: 'none'}}
                                     onClick={() => this.markAsDelivered(orderItem)}>
                                         Mark as Delivered
                                 </button>
@@ -247,14 +249,17 @@ class RecentOrders extends Component {
                             Consolidated Orders
                         </button>
                     </div>
-                    <div className='download-orders-section' style={{margin:'15px 0px'}}>
-                        <a href={ GLOBAL.BASE_URL+"orders/downloadOrderReport" }
-                            target="blank"
-                            className='download-orders-btn'
-                            style={{borderRadius:'10px', fontSize:'14px'}}>
-                            Download Reports
-                        </a>
-                    </div>
+                    {
+                        this.state.order.length !== 0 &&
+                        <div className='download-orders-section' style={{margin:'15px 0px'}}>
+                            <a href={ GLOBAL.BASE_URL+"orders/downloadOrderReport" }
+                               target="blank"
+                               className='download-orders-btn'
+                               style={{borderRadius:'10px', fontSize:'14px'}}>
+                                Download Reports
+                            </a>
+                        </div>
+                    }
                     {   this.state.recentOrders &&
                         this.pendingOrders()
                     }

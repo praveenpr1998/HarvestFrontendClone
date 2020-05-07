@@ -108,8 +108,13 @@
 }
 
 .no-pending-orders-msg {
+    margin: 4em 0;
     font-size: var(--emptyMessage);
     color: var(--titleTextGrey);
+}
+
+.ro-items-list {
+    margin: 0 0 0 0.938em;
 }
 
 .selection-section {

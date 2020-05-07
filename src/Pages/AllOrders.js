@@ -38,8 +38,8 @@ class AllOrders extends Component {
                 this.state.order.map((orderItem, index) => {
                     return(
                         <Container
-                            key={{index}} 
-                            className="bootstrapcontainer" 
+                            key={{index}}
+                            className="bootstrapcontainer"
                             style={{border:'0.5px solid #d4caca', borderRadius:'15px', marginTop:'15px', padding: '15px', lineHeight:2, backgroundColor: '#F6F6F6'}}>
                             <div style={{display:'flex'}}>
                                 <div style={{display:'flex', flex:1, fontWeight:'bold'}}>{orderItem.userName} - {orderItem.userMobileNo}</div>
@@ -49,7 +49,9 @@ class AllOrders extends Component {
                             {
                                 orderItem.items.map((cartItem) => {
                                     return(
-                                        <li>{ cartItem['product-name'] } - { cartItem['product-quantity'] } - ₹{ cartItem['product-pricePerUnit'] * cartItem['product-quantity'] }</li>
+                                        <li className='ao-items-list'>
+                                            { cartItem['product-name'] } - { cartItem['product-quantity'] } - ₹{ cartItem['product-pricePerUnit'] * cartItem['product-quantity'] }
+                                        </li>
                                     )
                                 })
                             }

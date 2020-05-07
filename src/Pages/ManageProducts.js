@@ -25,11 +25,13 @@ class ManageProducts extends Component {
             editImage: '',
             editCategory: '',
             editPrice: '',
+            editPriceOthers: '',
             editPricePerUnit: 0,
             addName: '',
             addImage: '',
             addCategory: '',
             addPrice: 'Kg',
+            addPriceOthers: '',
             addPricePerUnit: 0,
             productsEmpty: true,
         };
@@ -62,7 +64,7 @@ class ManageProducts extends Component {
                                         return(
                                             <tr>
                                                 <td className='t-name-column'>{ product.name }</td>
-                                                <td className='t-priceUnit-column'>{ product.price }</td>
+                                                <td className='t-priceUnit-column'>{ product.price } { (product.price === 'others') ? ' - ' : ''} { product.priceOthers }</td>
                                                 <td className='t-pricePerUnit-column'>{ product.pricePerUnit}</td>
                                                 <td
                                                     className='t-options-column-edit'
@@ -109,39 +111,58 @@ class ManageProducts extends Component {
                 draggable: true,
             });
         } else {
-
-        fetch(GLOBAL.BASE_URL+'products/editProduct', {
-            method: 'PATCH',
-            mode: 'cors',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                id: this.state.editId,
-                name: this.state.editName,
-                category: this.state.editCategory,
-                image: this.state.editImage,
-                price: this.state.editPrice,
-                pricePerUnit: this.state.editPricePerUnit
-            })
-        })
-                .then(res => res.json())
-                .then(
-                    (result) => {
-                        if(result.status === 200) {
-                            this.toggleModal();
-                            this.componentDidMount();
+            if(this.state.editPrice === 'others' && this.state.editPriceOthers === '') {
+                toast.error(' Please Fill All the details', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                });
+            } else {
+                fetch(GLOBAL.BASE_URL+'products/editProduct', {
+                    method: 'PATCH',
+                    mode: 'cors',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        id: this.state.editId,
+                        name: this.state.editName,
+                        category: this.state.editCategory,
+                        image: this.state.editImage,
+                        price: this.state.editPrice,
+                        priceOthers: this.state.editPriceOthers,
+                        pricePerUnit: this.state.editPricePerUnit
+                    })
+                })
+                    .then(res => res.json())
+                    .then(
+                        (result) => {
+                            if(result.status === 200) {
+                                this.setState({
+                                    editName: '',
+                                    editCategory: '',
+                                    editPrice: 'Kilogram',
+                                    editPriceOthers: '',
+                                    editPricePerUnit: 0,
+                                });
+                                this.toggleModal();
+                                this.componentDidMount();
+                            }
+                            toast.success(' Product Details Updated', {
+                                position: "top-right",
+                                autoClose: 5000,
+                                hideProgressBar: false,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                            });
+                        },
+                        (error) => {
                         }
-                        toast.success(' Product Details Updated', {
-                            position: "top-right",
-                            autoClose: 5000,
-                            hideProgressBar: false,
-                            closeOnClick: true,
-                            pauseOnHover: true,
-                            draggable: true,
-                        });
-                    },
-                    (error) => {
-                    }
-                );
+                    );
+            }
+
         }
     };
 
@@ -202,53 +223,65 @@ class ManageProducts extends Component {
                 draggable: true,
             });
         } else {
-
-        fetch(GLOBAL.BASE_URL+'products/createProduct', {
-            method: 'POST',
-            mode: 'cors',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                name: this.state.addName,
-                category: this.state.addCategory,
-                image: this.state.addImage,
-                price: this.state.addPrice,
-                pricePerUnit: this.state.addPricePerUnit,
-                sellers: []
-            })
-        })
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    this.setState({
-                        addName: '',
-                        addImage: '',
-                        addCategory: '',
-                        addPrice: 'Kilogram',
-                        addPricePerUnit: 0,
-                    });
-                    if(result.status === 200) {
-                        this.toggleAddModal();
-                        this.componentDidMount();
-                    }
-                    toast.error('Product Added', {
-                        position: "top-right",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                    });
-                },
-                (error) => {
-                    this.setState({
-                        addName: '',
-                        addImage: '',
-                        addCategory: '',
-                        addPrice: 'Kilogram',
-                        addPricePerUnit: 0,
-                    });
-                }
-            );
+            if(this.state.addPrice === 'others' && this.state.addPriceOthers === '') {
+                toast.error(' Please Fill All the details', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                });
+            } else {
+                fetch(GLOBAL.BASE_URL+'products/createProduct', {
+                    method: 'POST',
+                    mode: 'cors',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        name: this.state.addName,
+                        category: this.state.addCategory,
+                        image: this.state.addImage,
+                        price: this.state.addPrice,
+                        priceOthers: this.state.addPriceOthers,
+                        pricePerUnit: this.state.addPricePerUnit,
+                        sellers: []
+                    })
+                })
+                    .then(res => res.json())
+                    .then(
+                        (result) => {
+                            this.setState({
+                                addName: '',
+                                addImage: '',
+                                addCategory: '',
+                                addPrice: 'Kilogram',
+                                addPriceOthers: '',
+                                addPricePerUnit: 0,
+                            });
+                            if(result.status === 200) {
+                                this.toggleAddModal();
+                                this.componentDidMount();
+                            }
+                            toast.success('Product Added', {
+                                position: "top-right",
+                                autoClose: 5000,
+                                hideProgressBar: false,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                            });
+                        },
+                        (error) => {
+                            this.setState({
+                                addName: '',
+                                addImage: '',
+                                addCategory: '',
+                                addPrice: 'Kilogram',
+                                addPricePerUnit: 0,
+                            });
+                        }
+                    );
+            }
         }
     };
 
@@ -447,10 +480,12 @@ class ManageProducts extends Component {
                                     className='mp-dropDown'
                                     onChange={(event) => this.handlePriceChange(event)}
                                 >
-                                    <option value="Kilogram">Kilogram</option>
-                                    <option value="Individual">Individual</option>
+                                    <option value="Kg">Kilogram</option>
+                                    <option value="g">Grams</option>
+                                    <option value="pc">Pc</option>
+                                    <option value="others">Others</option>
                                 </select>
-                                <div className='field-section'>
+                                {/*<div className='field-section'>
                                     <span className='field-text'>Price per Unit:</span>
                                 </div>
                                 <input
@@ -459,7 +494,23 @@ class ManageProducts extends Component {
                                     placeholder='Product Price per Unit'
                                     className='modal-text-input'
                                     onChange={(event) => this.handlePricePerUnitChange(event)}
-                                />
+                                />*/}
+                                {
+                                    this.state.editPrice === 'others' &&
+                                    <div style={{ width: '100%' }}>
+                                        <div className='field-section'>
+                                            <span className='field-text'>Price Unit - Others:</span>
+                                        </div>
+                                        <input
+                                            type='text'
+                                            disabled={ this.state.editPrice !== 'others' }
+                                            value={ this.state.editPriceOthers }
+                                            placeholder='Price Unit Others - Eg:liters'
+                                            className='modal-text-input'
+                                            onChange={(event) => this.setState({ editPriceOthers: event.target.value })}
+                                        />
+                                    </div>
+                                }
                                 <button
                                     className='modal-edit-btn'
                                     onClick={() => this.editProduct()}
@@ -521,13 +572,31 @@ class ManageProducts extends Component {
                                     <span className='field-text'>Price Unit:</span>
                                 </div>
                                 <select
-                                    value={this.state.addPricet}
+                                    value={this.state.addPrice}
                                     className='mp-dropDown'
                                     onChange={(event) => this.handleAddPriceChange(event)}
                                 >
-                                    <option value="Kilogram">Kilogram</option>
-                                    <option value="Individual">Individual</option>
+                                    <option value="Kg">Kilogram</option>
+                                    <option value="g">Grams</option>
+                                    <option value="pc">Pc</option>
+                                    <option value="others">Others</option>
                                 </select>
+                                {
+                                    this.state.addPrice === 'others' &&
+                                    <div style={{ width: '100%' }}>
+                                        <div className='field-section'>
+                                            <span className='field-text'>Price Unit - Others:</span>
+                                        </div>
+                                        <input
+                                            type='text'
+                                            disabled={ this.state.addPrice !== 'others' }
+                                            value={ this.state.addPriceOthers }
+                                            placeholder='Price Unit Others - Eg:liters'
+                                            className='modal-text-input'
+                                            onChange={(event) => this.setState({ addPriceOthers: event.target.value })}
+                                        />
+                                    </div>
+                                }
                                 <div className='field-section'>
                                     <span className='field-text'>Price per Unit:</span>
                                 </div>
