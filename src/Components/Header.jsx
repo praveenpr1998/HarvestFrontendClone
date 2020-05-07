@@ -3,12 +3,13 @@ import "../styles.css";
 import "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Navbar,Nav} from "react-bootstrap";
+import { NavLink as RouterNavLink } from "react-router-dom" ;
 import { createBrowserHistory } from "history";
 const GLOBAL = require('../global');
 const history = createBrowserHistory();
 
 class Header extends Component{
-    state={
+  state={
     token:''
   }
     async logout(){
@@ -39,9 +40,33 @@ class Header extends Component{
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ml-auto">
-                <Nav.Link href="/home"><p className="tabmenus">Home</p></Nav.Link>
-                <Nav.Link href="/cart"><p className="tabmenus">MyCart</p></Nav.Link>
-                <Nav.Link onClick={()=>this.logout()}  href="#"><p className="tabmenus">Logout</p></Nav.Link>
+                <Nav.Link>
+                  <RouterNavLink
+                                    to='/home'
+                                    activeClassName=''
+                                    className='navLink-inactive'
+                                >
+                                    Home
+                                </RouterNavLink>
+                  </Nav.Link>
+                <Nav.Link >
+                <RouterNavLink
+                                    to='/cart'
+                                    activeClassName=''
+                                    className='navLink-inactive'
+                                >
+                                    My Cart
+                </RouterNavLink>
+              </Nav.Link>
+                <Nav.Link onClick={()=>this.logout()}  >
+                <RouterNavLink
+                                    to='/'
+                                    activeClassName='navLink-active'
+                                    className='navLink-inactive'
+                                >
+                                    Logout
+                                </RouterNavLink>
+                </Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Navbar>
