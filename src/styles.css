@@ -97,8 +97,8 @@ font-size: 14px;
     color: #737373;
 }
 .logo{
-    width:200px;
-    height:100px;
+    width:400px;
+    height:200px;
 }
 .bootstrapcontainer{
     width:100%;
@@ -271,6 +271,10 @@ font-size: 14px;
 .topcart{
     right: 100px;
     position: absolute;
+}
+.logo{
+    width:200px;
+    height:100px;
 }
 .toast{
     position: absolute;
