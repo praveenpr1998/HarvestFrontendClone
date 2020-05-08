@@ -55,7 +55,15 @@ class AllOrders extends Component {
                                     )
                                 })
                             }
-                            <div style={{fontWeight:'bold', textAlign:'right', margin:'5px'}}>Total: ₹ {this.orderTotal(orderItem)}</div>
+                            {/*<div style={{fontWeight:'bold', textAlign:'right', margin:'5px'}}>Total: ₹ {this.orderTotal(orderItem)}</div>*/}
+                            <div className='d-flex flex-row align-items-center justify-content-between'>
+                                <span className='ao-order-status-text'>
+                                    Order Status: { orderItem.orderStatus }
+                                </span>
+                                <span className='ao-order-total-text'>
+                                    Total: ₹ {this.orderTotal(orderItem)}
+                                </span>
+                            </div>
                         </Container>
                     );
                 })
@@ -121,6 +129,7 @@ class AllOrders extends Component {
                     </span>
                     <hr className='all-orders-hr'/>
                     { this.displayedData() }
+                    <hr className='all-orders-bottom-hr'/>
                 </div>
             </div>
         );

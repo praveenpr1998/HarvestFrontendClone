@@ -31,7 +31,8 @@ class ManageProducts extends Component {
             editAvailability: '',
             addName: '',
             addImage: '',
-            addCategory: '',
+            addCategory: 'Breads',
+            addCategoryOthers: '',
             addDescription: '',
             addPrice: 'Kg',
             addPriceOthers: '',
@@ -46,7 +47,12 @@ class ManageProducts extends Component {
     products = () => {
         if(this.state.loading) {
             return(
-                <Spinner animation="border" variant="success" />
+                <div className='mp-spinner-div'>
+                    <Spinner
+                        animation="border"
+                        variant="success"
+                    />
+                </div>
             );
         } else {
             return(
@@ -124,6 +130,15 @@ class ManageProducts extends Component {
                     pauseOnHover: true,
                     draggable: true,
                 });
+            } else if(this.state.editCategory === 'Others' && this.state.editCategoryOthers === '') {
+                toast.error(' Please Fill All the details', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                });
             } else {
                 fetch(GLOBAL.BASE_URL+'products/editProduct', {
                     method: 'PATCH',
@@ -132,7 +147,8 @@ class ManageProducts extends Component {
                     body: JSON.stringify({
                         id: this.state.editId,
                         name: this.state.editName,
-                        category: this.state.editCategory,
+                        category: (this.state.editCategory === 'Others') ? this.state.editCategoryOthers : this.state.category,
+                        // categoryOthers: this.state.editCategoryOthers,
                         description: this.state.editDescription,
                         image: this.state.editImage,
                         price: this.state.editPrice,
@@ -148,6 +164,7 @@ class ManageProducts extends Component {
                                 this.setState({
                                     editName: '',
                                     editCategory: '',
+                                    editCategoryOthers  : '',
                                     editPrice: '',
                                     editPriceOthers: '',
                                     editPricePerUnit: 0,
@@ -240,6 +257,15 @@ class ManageProducts extends Component {
                     pauseOnHover: true,
                     draggable: true,
                 });
+            } else if(this.state.addCategory === 'others' && this.state.addCategoryOthers === '') {
+                toast.error(' Please Fill All the details', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                });
             } else {
                 fetch(GLOBAL.BASE_URL+'products/createProduct', {
                     method: 'POST',
@@ -247,7 +273,7 @@ class ManageProducts extends Component {
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({
                         name: this.state.addName,
-                        category: this.state.addCategory,
+                        category: (this.state.addCategory === 'Others') ? this.state.addCategoryOthers : this.state.addCategory,
                         description: this.state.addDescription,
                         image: this.state.addImage,
                         price: this.state.addPrice,
@@ -263,7 +289,8 @@ class ManageProducts extends Component {
                             this.setState({
                                 addName: '',
                                 addImage: '',
-                                addCategory: '',
+                                addCategory: 'Breads',
+                                addCategoryOthers: '',
                                 addDescription: '',
                                 addPrice: 'Kilogram',
                                 addPriceOthers: '',
@@ -326,6 +353,7 @@ class ManageProducts extends Component {
             editId: product.id,
             editName: product.name,
             editCategory: product.category,
+            // editCategoryOthers: product.categoryOthers,
             editDescription: product.description,
             editImage: product.image,
             editPrice: product.price,
@@ -422,9 +450,11 @@ class ManageProducts extends Component {
                     if(result.status === 200) {
                         if(result.allProducts.length !== 0) {
                             let groupedProducts = _.groupBy(result.allProducts, 'category');
+                            let categories = Object.keys(groupedProducts);
                             this.setState({
                                 productsEmpty: false,
                                 groupedProducts: groupedProducts,
+                                categories: categories,
                                 loading:false,
                             });
                         } else {
@@ -455,9 +485,9 @@ class ManageProducts extends Component {
                     <MDBModal isOpen={ this.state.modal } toggle={() => this.toggleModal()}>
                         <MDBModalHeader
                             toggle={() =>this.toggleModal()}
-                            className='modal-header-text'
+
                         >
-                            Edit Product
+                            <span className='modal-header-text'>Edit Product</span>
                         </MDBModalHeader>
                         <MDBModalBody>
                             <div className='d-flex flex-column align-items-center justify-content-center'>
@@ -474,13 +504,42 @@ class ManageProducts extends Component {
                                 <div className='field-section'>
                                     <span className='field-text'>Category:</span>
                                 </div>
-                                <input
-                                    type='text'
+                                <select
                                     value={ this.state.editCategory }
-                                    placeholder='Product Category'
-                                    className='modal-text-input'
-                                    onChange={(event) => this.handleCategoryChange(event)}
-                                />
+                                    className='mp-dropDown'
+                                    onChange={(event) => this.setState({ editCategory: event.target.value })}
+                                >
+                                    {/*<option value="Breads">Breads</option>*/}
+                                    {/*<option value="Buns">Buns</option>*/}
+                                    {/*<option value="Pizza Base">Pizza Base</option>*/}
+                                    {/*<option value="Cakes">Cakes</option>*/}
+                                    {/*<option value="Fruits">Fruits</option>*/}
+                                    {/*<option value="Vegetables">Vegetables</option>*/}
+                                    {/*<option value="Millets">Millets</option>*/}
+                                    {
+                                        this.state.categories.map((category) => {
+                                            return (
+                                                <option value={category}>{category}</option>
+                                            );
+                                        })
+                                    }
+                                    <option value="Others">Others</option>
+                                </select>
+                                {
+                                    this.state.editCategory === 'Others' &&
+                                    <div style={{ width: '100%' }}>
+                                        <div className='field-section'>
+                                            <span className='field-text'>Category - Others:</span>
+                                        </div>
+                                        <input
+                                            type='text'
+                                            value={ this.state.editCategoryOthers }
+                                            placeholder='Product Category - Others'
+                                            className='modal-text-input'
+                                            onChange={(event) => this.setState({ editCategoryOthers: event.target.value })}
+                                        />
+                                    </div>
+                                }
                                 <div className='field-section'>
                                     <span className='field-text'>Description:</span>
                                 </div>
@@ -581,13 +640,42 @@ class ManageProducts extends Component {
                                 <div className='field-section'>
                                     <span className='field-text'>Category:</span>
                                 </div>
-                                <input
-                                    type='text'
+                                <select
                                     value={ this.state.addCategory }
-                                    placeholder='Product Category'
-                                    className='modal-text-input'
-                                    onChange={(event) => this.handleAddCategoryChange(event)}
-                                />
+                                    className='mp-dropDown'
+                                    onChange={(event) => this.setState({ addCategory: event.target.value })}
+                                >
+                                    {/*<option value="Breads">Breads</option>*/}
+                                    {/*<option value="Buns">Buns</option>*/}
+                                    {/*<option value="Pizza Base">Pizza Base</option>*/}
+                                    {/*<option value="Cakes">Cakes</option>*/}
+                                    {/*<option value="Fruits">Fruits</option>*/}
+                                    {/*<option value="Vegetables">Vegetables</option>*/}
+                                    {/*<option value="Millets">Millets</option>*/}
+                                    {
+                                        this.state.categories.map((category) => {
+                                            return (
+                                                <option value={category}>{category}</option>
+                                            );
+                                        })
+                                    }
+                                    <option value="Others">Others</option>
+                                </select>
+                                {
+                                    this.state.addCategory === 'Others' &&
+                                    <div style={{ width: '100%' }}>
+                                        <div className='field-section'>
+                                            <span className='field-text'>Category - Others:</span>
+                                        </div>
+                                        <input
+                                            type='text'
+                                            value={ this.state.addCategoryOthers }
+                                            placeholder='Product Category - Others'
+                                            className='modal-text-input'
+                                            onChange={(event) => this.setState({ addCategoryOthers: event.target.value })}
+                                        />
+                                    </div>
+                                }
                                 <div className='field-section'>
                                     <span className='field-text'>Description:</span>
                                 </div>

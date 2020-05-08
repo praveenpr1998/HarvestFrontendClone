@@ -57,6 +57,36 @@ class RecentOrders extends Component {
             );
     };
 
+    // Mark as Rejected - Reject Order
+    rejectOrder = (orderItem) => {
+        fetch(GLOBAL.BASE_URL+'orders/rejectOrder', {
+            method: 'POST',
+            mode: 'cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                orderId: orderItem.orderId,
+            }),
+        })
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    if(result.status === 200){
+                        this.componentDidMount();
+                            toast.success(' Order Rejected', {
+                                position: "top-right",
+                                autoClose: 5000,
+                                hideProgressBar: false,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                            });
+                    }
+                },
+                (error) => {
+                }
+            );
+    };
+
     // Recent Orders Button Clicked
     recentOrdersBtn = () => {
         this.setState({
@@ -142,11 +172,17 @@ class RecentOrders extends Component {
                                 })
                             }
                             <div style={{fontWeight:'bold', textAlign:'center', margin:'5px'}}>Total: ₹ {this.orderTotal(orderItem)}</div>
-                            <div style={{textAlign:'center'}}>
+                            <div className='co-btn-div' >
                                 <button
-                                    style={{backgroundColor:'#87c97d', color:'#fff', borderRadius:'8px', padding:'0px 40px', border: 'none'}}
+                                    className='mark-as-delivered-btn'
                                     onClick={() => this.markAsDelivered(orderItem)}>
                                         Mark as Delivered
+                                </button>
+
+                                <button
+                                    className='reject-order-btn'
+                                    onClick={() => this.rejectOrder(orderItem)}>
+                                        Reject Order
                                 </button>
                             </div>
                         </Container>

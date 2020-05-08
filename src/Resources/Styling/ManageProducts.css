@@ -1,5 +1,9 @@
 @import 'Variables.css';
 
+table {
+    table-layout: fixed;
+}
+
 @media (max-width: 767px)
 {
     .mp-primary-section {
@@ -60,6 +64,10 @@
     display: none;
 }
 
+.mp-spinner-div {
+    margin: 4em 0;
+}
+
 .no-products-msg {
     margin: 1.5em 0;
     font-size: var(--emptyMessage);
@@ -83,7 +91,8 @@
 }
 
 th {
-    border: 2px solid var(--primaryGreenRegular);
+    border: solid var(--primaryGreenRegular);
+    border-width:  0 0.5px 0.5px 0.5px ;
     text-align: center;
     background-color: var(--primaryGreenRegular);
     color: var(--text-light);
@@ -92,7 +101,7 @@ th {
 }
 
 td {
-    border: 2px solid var(--primaryGreenLight);
+    /*border: 0.5px solid var(--primaryGreenLight);*/
     text-align: center;
     font-size: var(--tableText);
 }
@@ -104,28 +113,25 @@ tr:nth-child(odd) {
 .th-name-column {
     max-width: 20vw;
     word-wrap: break-word;
-    border: 2px solid var(--tableBorder);
+    border: 0.5px solid var(--tableBorder);
     text-align: center;
     font-size: var(--tableText);
 }
 
 .th-options-column-edit {
-    cursor: pointer;
-    border: 2px solid var(--tableBorder);
+    border: 0.5px solid var(--tableBorder);
     text-align: center;
     font-size: var(--tableText);
     word-wrap: break-word;
 }
 .th-priceUnit-column {
-    cursor: pointer;
-    border: 2px solid var(--tableBorder);
+    border: 0.5px solid var(--tableBorder);
     text-align: center;
     font-size: var(--tableText);
     word-wrap: break-word;
 }
 .t-pricePerUnit-column {
-    cursor: pointer;
-    border: 2px solid var(--tableBorder);
+    border: 0.5px solid var(--tableBorder);
     text-align: center;
     font-size: var(--tableText);
     word-wrap: break-word;
@@ -134,37 +140,35 @@ tr:nth-child(odd) {
 .t-name-column {
     max-width: 20vw;
     word-wrap: break-word;
-    border: 2px solid var(--tableBorder);
+    border: 0.5px solid var(--tableBorder);
     text-align: center;
     font-size: var(--tableText);
 }
 
 .t-options-column-edit {
     cursor: pointer;
-    border: 2px solid var(--tableBorder);
+    border: 0.5px solid var(--tableBorder);
     text-align: center;
     font-size: var(--tableText);
     word-wrap: break-word;
+    text-decoration: underline;
 }
 .t-priceUnit-column {
-    cursor: pointer;
-    border: 2px solid var(--tableBorder);
+    border: 0.5px solid var(--tableBorder);
     text-align: center;
     font-size: var(--tableText);
     word-wrap: break-word;
 }
 .t-pricePerUnit-column {
-    cursor: pointer;
-    border: 2px solid var(--tableBorder);
+    border: 0.5px solid var(--tableBorder);
     text-align: center;
     font-size: var(--tableText);
     word-wrap: break-word;
 }
 
-
-
 .modal-header-text {
     color: var(--primaryGreenRegular);
+    font-size: var(--modal-header-text);
 }
 
 .field-section {
@@ -182,6 +186,7 @@ tr:nth-child(odd) {
     margin: 0 0 15px 0;
     padding: 10px 10px;
     border: none;
+    border-radius: 0.5em;
     background-color: var(--modalInputBg);
 }
 
@@ -189,8 +194,9 @@ tr:nth-child(odd) {
     width: 100%;
     height: 3.2em;
     background: var(--modalInputBg);
-    /*padding: 8px 5px;*/
+    padding: 0 5px 0 5px;
     border: none;
+    border-radius: 0.5em;
     margin: 0 0 15px 0;
 }
 
@@ -201,13 +207,15 @@ tr:nth-child(odd) {
     background-color: var(--primaryGreenRegular);
     color: var(--text-light);
     border:none;
+    border-radius: 0.5em;
 }
 
 .modal-delete-btn {
     width: 100%;
     margin: 10px 0;
     padding: 10px 0;
-    background-color: var(--btnRed);
+    background-color: var(--primaryOrangeRegular);
     color: var(--text-light);
     border:none;
+    border-radius: 0.5em;
 }

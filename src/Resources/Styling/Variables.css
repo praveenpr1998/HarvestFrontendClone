@@ -5,6 +5,7 @@
     --primaryGreenRegular: #70BA63;
     --primaryGreenMedium: #87C87E;
     --primaryGreenLight: #ADD8A9;
+    --light: #FFFFFF;
     --text-light: #FFFFFF;
     --text-dark: #353535;
     --tableBgGrey: #F2F2F2;
@@ -25,10 +26,11 @@
     --titleTextMob: 1.1em;
     --itemText: 1.1em;
     --btnText: 1.2em;
-    --tableTitle: 1.3em;
-    --tableText: 1.1em;
-    --orderTotalText: 1.2em;
-    --modal-input-field: 1.3em;
+    --tableTitle: 1.1rem;
+    --tableText: 1rem;
+    --orderTotalText: 1em;
+    --modal-header-text: 1.3rem;
+    --modal-input-field: 1rem;
     --emptyMessage: 1.5em;
 
     /* ELEMENT SIZING */

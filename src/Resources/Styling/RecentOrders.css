@@ -34,6 +34,13 @@
         padding: 0 10px 0 10px;
         color: var(--primaryGreenRegular);
     }
+
+    .co-btn-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991px)
@@ -68,6 +75,12 @@
         color: var(--primaryGreenRegular);
     }
 
+    .co-btn-div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 @media (min-width: 992px)
@@ -100,6 +113,13 @@
     .selection-seperator {
         padding: 0 25px 0 25px;
         color: var(--primaryGreenRegular);
+    }
+
+    .co-btn-div {
+        display: flex;
+        flex-direction: row ;
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -212,21 +232,21 @@
 }
 
 .mark-as-delivered-btn {
-    width: 100%;
+    background-color: var(--primaryGreenMedium);
+    color: var(--light);
+    border-radius: 8px;
+    padding: 0 2.5em;
+    margin: 0.5em 0.5em;
     border: none;
-    padding: 10px 0 10px 0;
-    background-color: var(--primaryOrangeRegular);
-    color: var(--text-light);
-    font-size: var(--btnText);
 }
 
-.mark-as-delivered-btn:hover, .mark-as-delivered-btn:focus  {
-    width: 100%;
-    border: none;
+.reject-order-btn {
     background-color: var(--primaryOrangeMedium);
-    color: var(--text-light);
-    font-size: var(--btnText);
-    outline: none;
+    color: var(--light);
+    border-radius: 8px;
+    padding: 0 3.7em;
+    margin: 0 0.5em;
+    border: none;
 }
 
 .download-orders-section {
@@ -276,7 +296,8 @@
 }
 
 th {
-    border: 2px solid var(--primaryGreenRegular);
+    border: solid var(--primaryGreenRegular);
+    border-width:  0 0.5px 0.5px 0.5px ;
     text-align: center;
     background-color: var(--primaryGreenRegular);
     color: var(--text-light);
@@ -292,7 +313,7 @@ tr:nth-child(odd) {
     background-color: var(--tableBgGrey);
 }
 .name-column {
-    border: 2px solid var(--tableBorder);
+    border: 0.5px solid var(--tableBorder);
     text-align: center;
     font-size: var(--tableText);
     max-width: 35vw;
@@ -300,21 +321,21 @@ tr:nth-child(odd) {
 }
 
 .qty-column {
-    border: 2px solid var(--tableBorder);
+    border: .5px solid var(--tableBorder);
     text-align: center;
     font-size: var(--tableText);
     width: 10vw;
 }
 
 .price-column {
-    border: 2px solid var(--tableBorder);
+    border: .5px solid var(--tableBorder);
     text-align: center;
     font-size: var(--tableText);
     width: 30vw;
 }
 
 .name-column-th {
-    border: 2px solid var(--primaryGreenRegular);
+    border: .5px solid var(--primaryGreenRegular);
     text-align: center;
     font-size: var(--tableText);
     max-width: 35vw;
@@ -322,20 +343,18 @@ tr:nth-child(odd) {
 }
 
 .qty-column-th {
-    border: 2px solid var(--primaryGreenRegular);
+    border: .5px solid var(--primaryGreenRegular);
     text-align: center;
     font-size: var(--tableText);
     width: 10vw;
 }
 
 .price-column-th {
-    border: 2px solid var(--primaryGreenRegular);
+    border: .5px solid var(--primaryGreenRegular);
     text-align: center;
     font-size: var(--tableText);
     width: 30vw;
 }
-
-
 
 .total-price-section {
     width: 75%;
