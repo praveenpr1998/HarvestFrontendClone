@@ -238,6 +238,11 @@ font-size: 14px;
     left: 700px;
     margin-top: 0px;
 }
+.topcart{
+    right: 290px;
+    position: absolute;
+    top: 25px;
+}
 @media screen and (max-width: 780px) {
     .noitemimage{
         width: 380px;
@@ -263,6 +268,10 @@ font-size: 14px;
 .form-group{
     width: 150px;
 }
+.topcart{
+    right: 100px;
+    position: absolute;
+}
 .toast{
     position: absolute;
     right: 10px;
@@ -271,6 +280,10 @@ font-size: 14px;
     left: 33%;
     margin-top: 5px;
     text-align: center;
+}
+.homecardperunit{
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px; 
 }
 .allmenu{
     padding-top: 8px;
