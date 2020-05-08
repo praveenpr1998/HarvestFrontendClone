@@ -4,6 +4,7 @@ import "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Navbar,Nav} from "react-bootstrap";
 import { NavLink as RouterNavLink } from "react-router-dom" ;
+import { FaShoppingBag } from 'react-icons/fa';
 import { createBrowserHistory } from "history";
 const GLOBAL = require('../global');
 const history = createBrowserHistory();
@@ -44,6 +45,13 @@ class Header extends Component{
                   <img src={require("../Resources/Images/Harvest Logo.png")} className="logoHome" alt="Logo"></img> 
                 </Navbar.Brand>
                 </RouterNavLink>
+                <div className="topcart"><RouterNavLink
+                          to='/cart'
+                          activeClassName=''
+                          className='navLink-inactive'
+                         >
+                            <FaShoppingBag color="green" size="28"/> 
+                         </RouterNavLink></div>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
