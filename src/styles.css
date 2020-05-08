@@ -243,6 +243,21 @@ font-size: 14px;
     position: absolute;
     top: 25px;
 }
+.homequant{
+    position: absolute;
+    bottom:28px;
+    left: 70px;
+}
+.outofstock{
+    position: absolute;
+    bottom:18px;
+    left: 55px;
+}
+.homecardperunit{
+    position: absolute;
+    bottom: 55px;
+    left: 40px;
+}
 @media screen and (max-width: 780px) {
     .noitemimage{
         width: 380px;
@@ -266,6 +281,21 @@ font-size: 14px;
 @media screen and (max-width: 780px) {
 .form-group{
     width: 150px;
+}
+.homecardperunit{
+    position: absolute;
+    bottom: 55px;
+    left: 35px;
+}
+.homequant{
+    position: absolute;
+    bottom:28px;
+    left: 58px;
+}
+.outofstock{
+    position: absolute;
+    bottom:13px;
+    left: 50px;
 }
 .topcart{
     right: 100px;
@@ -424,6 +454,12 @@ font-size: 14px;
         bottom: 36px;
         left:250px;
     }
+    
+    .homequant{
+        position: absolute;
+        bottom:28px;
+        left: 50px;
+    }
     .toast{
         position: absolute;
         right: 10px;
@@ -571,6 +607,11 @@ font-size: 14px;
         margin-bottom: 0px;
 
     }
+    .outofstock{
+        position: absolute;
+        bottom:8px;
+        left: 37px;
+    }
     
 
 }
@@ -580,6 +621,12 @@ font-size: 14px;
         bottom: 36px;
         left:250px;
     }
+    .homequant{
+        position: absolute;
+        bottom:18px;
+        left: 38px;
+    }
+
     .form-group{
         width: 150px;
     }
@@ -636,6 +683,9 @@ font-size: 14px;
         height: 247px;
     }
     .outofstock{
+        position: absolute;
+        bottom:8px;
+        left: 17px;
         font-size: 15px;
     }
     .total{
@@ -690,6 +740,9 @@ font-size: 14px;
     .homecardperunit{
         font-family: 'Roboto', sans-serif;
         font-size: 10px; 
+        position: absolute;
+        bottom: 50px;
+        left:29px;
     }
     .homecardprodname{
         font-size: 15px;
@@ -700,6 +753,7 @@ font-size: 14px;
         height: 35px;
         position: absolute;
         left: 36px;
+        bottom: 10px;
 
     }
     .quant{
