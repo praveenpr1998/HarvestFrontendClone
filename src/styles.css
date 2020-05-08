@@ -454,7 +454,11 @@ font-size: 14px;
         bottom: 36px;
         left:250px;
     }
-    
+    .topcart{
+        right: 90px;
+        top: 15px;
+        position: absolute;
+    }
     .homequant{
         position: absolute;
         bottom:28px;
@@ -626,7 +630,11 @@ font-size: 14px;
         bottom:18px;
         left: 38px;
     }
-
+    .topcart{
+        right: 80px;
+        top: 15px;
+        position: absolute;
+    }
     .form-group{
         width: 150px;
     }
