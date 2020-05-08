@@ -261,7 +261,6 @@ font-size: 14px;
         .noitemimage{
             width: 580px;
             margin-left:140px;
-            
         }
         }
 @media screen and (max-width: 780px) {
@@ -273,8 +272,8 @@ font-size: 14px;
     position: absolute;
 }
 .logo{
-    width:200px;
-    height:100px;
+    width:280px;
+    height:150px;
 }
 .toast{
     position: absolute;
