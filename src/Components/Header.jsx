@@ -60,7 +60,7 @@ class Header extends Component{
               </Nav.Link>
                 <Nav.Link onClick={()=>this.logout()}  >
                 <RouterNavLink
-                                    to='/'
+                                    to='#'
                                     activeClassName='navLink-active'
                                     className='navLink-inactive'
                                 >
