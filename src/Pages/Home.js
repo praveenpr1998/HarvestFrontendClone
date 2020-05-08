@@ -64,6 +64,7 @@ class Home extends Component{
             var newItem = {
             'product-name': '',
             'product-price': '',
+            'product-priceOthers':'',
             'product-pricePerUnit':'',
             'product-quantity':'',
             'product-image':'',
@@ -80,6 +81,7 @@ class Home extends Component{
             if(result.message==="Success"){
                newItem["product-name"]=result.data.name;
                newItem["product-price"]=result.data.price;
+               newItem['product-priceOthers']=result.data.priceOthers;
                newItem["product-pricePerUnit"]=result.data.pricePerUnit;
                newItem["product-quantity"]="1";
                newItem["product-id"]=result.data.id;
