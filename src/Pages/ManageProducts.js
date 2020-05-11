@@ -147,7 +147,7 @@ class ManageProducts extends Component {
                     body: JSON.stringify({
                         id: this.state.editId,
                         name: this.state.editName,
-                        category: (this.state.editCategory === 'Others') ? this.state.editCategoryOthers : this.state.category,
+                        category: (this.state.editCategory === 'Others') ? this.state.editCategoryOthers : this.state.editCategory,
                         // categoryOthers: this.state.editCategoryOthers,
                         description: this.state.editDescription,
                         image: this.state.editImage,

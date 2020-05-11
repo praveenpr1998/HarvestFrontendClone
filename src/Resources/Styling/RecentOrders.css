@@ -2,6 +2,7 @@
 
 :root {
     overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 @media (max-width: 767px)
@@ -9,7 +10,8 @@
     .primary-section {
         /*height: 90vh;*/
         /*border: 2px solid red;*/
-        overflow-y: scroll;
+        overflow-y: hidden;
+        overflow-x: hidden;
         -ms-overflow-style: none;
     }
     .btn-section {
@@ -48,7 +50,8 @@
     .primary-section {
         /*height: 100vh;*/
         /*border: 2px solid red;*/
-        overflow-y: scroll;
+        overflow-y: hidden;
+        overflow-x: hidden;
         -ms-overflow-style: none;
     }
 
@@ -88,7 +91,7 @@
     .primary-section {
         /*height: 90vh;*/
         /*border: 2px solid red;*/
-        overflow-y: scroll;
+        overflow-y: hidden;
         overflow-x: hidden;
         -ms-overflow-style: none;
     }

@@ -1,5 +1,9 @@
 @import 'Variables.css';
 
+:root {
+    overflow-y: auto;
+}
+
 table {
     table-layout: fixed;
 }
