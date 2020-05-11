@@ -50,7 +50,7 @@ class Header extends Component{
                           activeClassName=''
                           className='navLink-inactive'
                          >
-                            <FaShoppingBag color="green" size="28"/> 
+                            <FaShoppingBag color="green" size="24"/> 
                          </RouterNavLink></div>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
