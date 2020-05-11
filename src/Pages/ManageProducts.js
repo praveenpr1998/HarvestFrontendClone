@@ -31,7 +31,7 @@ class ManageProducts extends Component {
             editAvailability: '',
             addName: '',
             addImage: '',
-            addCategory: 'Breads',
+            addCategory: '',
             addCategoryOthers: '',
             addDescription: '',
             addPrice: 'Kg',
@@ -452,6 +452,7 @@ class ManageProducts extends Component {
                             let groupedProducts = _.groupBy(result.allProducts, 'category');
                             let categories = Object.keys(groupedProducts);
                             this.setState({
+                                addCategory: categories[0],
                                 productsEmpty: false,
                                 groupedProducts: groupedProducts,
                                 categories: categories,
@@ -459,6 +460,7 @@ class ManageProducts extends Component {
                             });
                         } else {
                             this.setState({
+                                addCategory: 'Others',
                                 productsEmpty: true,
                                 groupedProducts: result,
                                 loading: false,
