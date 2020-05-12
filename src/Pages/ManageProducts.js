@@ -183,7 +183,15 @@ class ManageProducts extends Component {
                                 draggable: true,
                             });
                         },
-                        (error) => {
+                        function (error) {
+                            toast.error('Error Editing Product! Please try again later', {
+                                position: "top-right",
+                                autoClose: 5000,
+                                hideProgressBar: false,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                            });
                         }
                     );
             }
@@ -218,6 +226,14 @@ class ManageProducts extends Component {
                     });
                 },
                 (error) => {
+                    toast.error('Error Deleting Product! Please try again later', {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                    });
                 }
             );
     };
@@ -311,6 +327,14 @@ class ManageProducts extends Component {
                             });
                         },
                         (error) => {
+                            toast.error('Error adding Product! Please try again later', {
+                                position: "top-right",
+                                autoClose: 5000,
+                                hideProgressBar: false,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                            });
                             this.setState({
                                 addName: '',
                                 addImage: '',
@@ -353,7 +377,6 @@ class ManageProducts extends Component {
             editId: product.id,
             editName: product.name,
             editCategory: product.category,
-            // editCategoryOthers: product.categoryOthers,
             editDescription: product.description,
             editImage: product.image,
             editPrice: product.price,
@@ -362,75 +385,6 @@ class ManageProducts extends Component {
             editAvailability: product.availability,
             modal: !this.state.modal,
         });
-    };
-
-    // Handle Modal Name input change
-    handleNameChange = (event) => {
-        this.setState({
-            editName: event.target.value,
-        })
-    };
-
-    // Handle Modal Category input change
-    handleCategoryChange = (event) => {
-        this.setState({
-            editCategory: event.target.value,
-        })
-    };
-    // Handle Modal Name input change
-    handleImageChange = (event) => {
-        this.setState({
-            editImage: event.target.value,
-        })
-    };
-
-    // Handle Modal Price Unit input change
-    handlePriceChange = (event) => {
-        this.setState({
-            editPrice: event.target.value,
-        })
-    };
-
-    // Handle Modal Name input change
-    handlePricePerUnitChange = (event) => {
-        this.setState({
-            editPricePerUnit: event.target.value,
-        })
-    };
-
-    // Handle Add Modal Name input change
-    handleAddNameChange = (event) => {
-        this.setState({
-            addName: event.target.value,
-        })
-    };
-
-    // Handle Add Modal Name input change
-    handleAddImageChange = (event) => {
-        this.setState({
-            addImage: event.target.value,
-        })
-    };
-
-    // Handle Add Modal Category input change
-    handleAddCategoryChange = (event) => {
-        this.setState({
-            addCategory: event.target.value,
-        })
-    };
-
-    // Handle Add Modal Price Unit input change
-    handleAddPriceChange = (event) => {
-        this.setState({
-            addPrice: event.target.value,
-        })
-    };
-
-    // Handle Add Modal Name input change
-    handleAddPricePerUnitChange = (event) => {
-        this.setState({
-            addPricePerUnit: event.target.value,
-        })
     };
 
     // Component Lifecycle Methods
@@ -501,7 +455,7 @@ class ManageProducts extends Component {
                                     value={ this.state.editName }
                                     placeholder='Product Name'
                                     className='modal-text-input'
-                                    onChange={(event) => this.handleNameChange(event)}
+                                    onChange={(event) => this.setState({ editName: event.target.value })}
                                 />
                                 <div className='field-section'>
                                     <span className='field-text'>Category:</span>
@@ -511,13 +465,6 @@ class ManageProducts extends Component {
                                     className='mp-dropDown'
                                     onChange={(event) => this.setState({ editCategory: event.target.value })}
                                 >
-                                    {/*<option value="Breads">Breads</option>*/}
-                                    {/*<option value="Buns">Buns</option>*/}
-                                    {/*<option value="Pizza Base">Pizza Base</option>*/}
-                                    {/*<option value="Cakes">Cakes</option>*/}
-                                    {/*<option value="Fruits">Fruits</option>*/}
-                                    {/*<option value="Vegetables">Vegetables</option>*/}
-                                    {/*<option value="Millets">Millets</option>*/}
                                     {
                                         this.state.categories.map((category) => {
                                             return (
@@ -560,7 +507,7 @@ class ManageProducts extends Component {
                                     value={ this.state.editImage }
                                     placeholder='Product Image URL'
                                     className='modal-text-input'
-                                    onChange={(event) => this.handleImageChange(event)}
+                                    onChange={(event) => this.setState({ editImage: event.target.value })}
                                 />
                                 <div className='field-section'>
                                     <span className='field-text'>Price Unit:</span>
@@ -568,7 +515,7 @@ class ManageProducts extends Component {
                                 <select
                                     value={this.state.editPrice}
                                     className='mp-dropDown'
-                                    onChange={(event) => this.handlePriceChange(event)}
+                                    onChange={(event) => this.setState({ editPrice: event.target.value })}
                                 >
                                     <option value="Kg">Kilogram</option>
                                     <option value="g">Grams</option>
@@ -591,6 +538,16 @@ class ManageProducts extends Component {
                                         />
                                     </div>
                                 }
+                                <div className='field-section'>
+                                    <span className='field-text'>Price per Unit:</span>
+                                </div>
+                                <input
+                                    type='text'
+                                    value={ this.state.editPricePerUnit }
+                                    placeholder='Product Price per Unit'
+                                    className='modal-text-input'
+                                    onChange={(event) => this.setState({ editPricePerUnit: event.target.value})}
+                                />
                                 <div className='field-section'>
                                     <span className='field-text'>Availability:</span>
                                 </div>
@@ -637,7 +594,7 @@ class ManageProducts extends Component {
                                     value={ this.state.addName }
                                     placeholder='Product Name'
                                     className='modal-text-input'
-                                    onChange={(event) => this.handleAddNameChange(event)}
+                                    onChange={(event) => this.setState({ addName : event.target.value})}
                                 />
                                 <div className='field-section'>
                                     <span className='field-text'>Category:</span>
@@ -647,13 +604,6 @@ class ManageProducts extends Component {
                                     className='mp-dropDown'
                                     onChange={(event) => this.setState({ addCategory: event.target.value })}
                                 >
-                                    {/*<option value="Breads">Breads</option>*/}
-                                    {/*<option value="Buns">Buns</option>*/}
-                                    {/*<option value="Pizza Base">Pizza Base</option>*/}
-                                    {/*<option value="Cakes">Cakes</option>*/}
-                                    {/*<option value="Fruits">Fruits</option>*/}
-                                    {/*<option value="Vegetables">Vegetables</option>*/}
-                                    {/*<option value="Millets">Millets</option>*/}
                                     {
                                         this.state.categories.map((category) => {
                                             return (
@@ -696,7 +646,7 @@ class ManageProducts extends Component {
                                     value={ this.state.addImage }
                                     placeholder='Product Image URL'
                                     className='modal-text-input'
-                                    onChange={(event) => this.handleAddImageChange(event)}
+                                    onChange={(event) => this.setState({ addImage: event.target.value})}
                                 />
                                 <div className='field-section'>
                                     <span className='field-text'>Price Unit:</span>
@@ -704,7 +654,7 @@ class ManageProducts extends Component {
                                 <select
                                     value={this.state.addPrice}
                                     className='mp-dropDown'
-                                    onChange={(event) => this.handleAddPriceChange(event)}
+                                    onChange={(event) => this.setState({ addPrice: event.target.value})}
                                 >
                                     <option value="Kg">Kilogram</option>
                                     <option value="g">Grams</option>
@@ -735,7 +685,7 @@ class ManageProducts extends Component {
                                     value={ this.state.addPricePerUnit }
                                     placeholder='Product Price per Unit'
                                     className='modal-text-input'
-                                    onChange={(event) => this.handleAddPricePerUnitChange(event)}
+                                    onChange={(event) => this.setState({ addPricePerUnit: event.target.value})}
                                 />
                                 <div className='field-section'>
                                     <span className='field-text'>Availability:</span>

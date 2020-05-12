@@ -11,56 +11,50 @@ table {
 @media (max-width: 767px)
 {
     .mp-primary-section {
-        /*height: 90vh;*/
-        /*border: 2px solid red;*/
-        /*overflow-y: scroll;*/
         overflow-x: hidden;
         -ms-overflow-style: none;
     }
-    .add-product-btn {
+    .add-product-btn, .add-product-btn:focus, .add-product-btn:active {
         width: 75%;
         margin: 10px 0;
         padding: 10px 0;
+        border:none;
+        outline: none;
         background-color: var(--primaryGreenRegular);
         color: var(--text-light);
-        border:none;
     }
 }
 
 @media (min-width: 768px) and (max-width: 991px)
 {
     .mp-primary-section {
-        /*height: 90vh;*/
-        /*border: 2px solid red;*/
-        /*overflow-y: scroll;*/
         -ms-overflow-style: none;
     }
-    .add-product-btn {
+    .add-product-btn, .add-product-btn:focus, .add-product-btn:active{
         width: 25%;
         margin: 10px 0;
         padding: 10px 0;
+        border:none;
+        outline:none;
         background-color: var(--primaryGreenRegular);
         color: var(--text-light);
-        border:none;
     }
 }
 
 @media (min-width: 992px)
 {
     .mp-primary-section {
-        /*height: 88vh;*/
-        /*border: 2px solid red;*/
-        /*overflow-y: scroll;*/
         overflow-x: hidden;
         -ms-overflow-style: none;
     }
-    .add-product-btn {
+    .add-product-btn, .add-product-btn:focus, .add-product-btn:active {
         width: 25%;
         margin: 10px 0;
         padding: 10px 0;
+        border:none;
+        outline:none;
         background-color: var(--primaryGreenRegular);
         color: var(--text-light);
-        border:none;
     }
 }
 
@@ -105,7 +99,6 @@ th {
 }
 
 td {
-    /*border: 0.5px solid var(--primaryGreenLight);*/
     text-align: center;
     font-size: var(--tableText);
 }
@@ -185,41 +178,45 @@ tr:nth-child(odd) {
     color: var(--text-dark);
 }
 
-.modal-text-input {
+.modal-text-input, .modal-text-input:focus {
     width: 100%;
     margin: 0 0 15px 0;
     padding: 10px 10px;
     border: none;
     border-radius: 0.5em;
+    outline: none;
     background-color: var(--modalInputBg);
 }
 
-.mp-dropDown {
+.mp-dropDown, .mp-dropDown:focus {
     width: 100%;
     height: 3.2em;
-    background: var(--modalInputBg);
     padding: 0 5px 0 5px;
     border: none;
     border-radius: 0.5em;
     margin: 0 0 15px 0;
+    outline: none;
+    background: var(--modalInputBg);
 }
 
-.modal-edit-btn {
+.modal-edit-btn, .modal-edit-btn:focus, .modal-edit-btn:active {
     width: 100%;
     margin: 10px 0;
     padding: 10px 0;
+    border:none;
+    border-radius: 0.5em;
+    outline: none;
     background-color: var(--primaryGreenRegular);
     color: var(--text-light);
-    border:none;
-    border-radius: 0.5em;
 }
 
-.modal-delete-btn {
+.modal-delete-btn, .modal-delete-btn:focus, .modal-delete-btn:active {
     width: 100%;
     margin: 10px 0;
     padding: 10px 0;
-    background-color: var(--primaryOrangeRegular);
-    color: var(--text-light);
     border:none;
     border-radius: 0.5em;
+    outline: none;
+    background-color: var(--primaryOrangeRegular);
+    color: var(--text-light);
 }

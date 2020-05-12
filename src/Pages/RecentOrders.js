@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import AdminNavbar from "./AdminNavbar";
 import '../Resources/Styling/RecentOrders.css';
-import phone from '../Resources/Images/phone.png';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Spinner, Container } from "react-bootstrap";
@@ -161,7 +160,7 @@ class RecentOrders extends Component {
                                 <div style={{display:'flex', flex:1, fontWeight:'bold'}}>{orderItem.userName} - {orderItem.userMobileNo}</div>
                                 <div style={{display:'flex', flex:1, justifyContent:'flex-end'}}>{orderItem.orderDate}</div>
                             </div>
-                            <hr style={{backgroundColor: '#d4caca', marginTop: '0.5rem', marginBottom: '0.5rem'}}></hr>
+                            <hr style={{backgroundColor: '#d4caca', marginTop: '0.5rem', marginBottom: '0.5rem'}} />
                             {
                                 orderItem.items.map((cartItem) => {
                                     return(

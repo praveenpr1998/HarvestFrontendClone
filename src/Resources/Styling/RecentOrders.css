@@ -5,6 +5,10 @@
     overflow-y: hidden;
 }
 
+table {
+    table-layout: fixed;
+}
+
 @media (max-width: 767px)
 {
     .primary-section {
@@ -234,22 +238,24 @@
     color: var(--text-light);
 }
 
-.mark-as-delivered-btn {
-    background-color: var(--primaryGreenMedium);
-    color: var(--light);
+.mark-as-delivered-btn, .mark-as-delivered-btn:focus, .mark-as-delivered-btn:active {
     border-radius: 8px;
     padding: 0 2.5em;
     margin: 0.5em 0.5em;
     border: none;
+    outline: none;
+    background-color: var(--primaryGreenMedium);
+    color: var(--light);
 }
 
-.reject-order-btn {
-    background-color: var(--primaryOrangeMedium);
-    color: var(--light);
+.reject-order-btn, .reject-order-btn:focus, .reject-order-btn:active {
     border-radius: 8px;
     padding: 0 3.7em;
     margin: 0 0.5em;
     border: none;
+    outline: none;
+    background-color: var(--primaryOrangeMedium);
+    color: var(--light);
 }
 
 .download-orders-section {

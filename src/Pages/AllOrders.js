@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../Resources/Styling/AllOrders.css';
-import phone from "../Resources/Images/phone.png";
 import { Spinner, Container } from 'react-bootstrap';
 
 import AdminNavbar from "./AdminNavbar";
@@ -45,7 +44,7 @@ class AllOrders extends Component {
                                 <div style={{display:'flex', flex:1, fontWeight:'bold'}}>{orderItem.userName} - {orderItem.userMobileNo}</div>
                                 <div style={{display:'flex', flex:1, justifyContent:'flex-end'}}>{orderItem.orderDate}</div>
                             </div>
-                            <hr style={{backgroundColor: '#d4caca', marginTop: '0.5rem', marginBottom: '0.5rem'}}></hr>
+                            <hr style={{backgroundColor: '#d4caca', marginTop: '0.5rem', marginBottom: '0.5rem'}} />
                             {
                                 orderItem.items.map((cartItem) => {
                                     return(
@@ -113,7 +112,7 @@ class AllOrders extends Component {
                         this.props.history.push("/");
                     }
                 },
-                (err) => {
+                (error) => {
                 }
             );
 
