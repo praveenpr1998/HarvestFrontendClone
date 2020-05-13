@@ -156,7 +156,7 @@ class Home extends Component{
                                 <Card.Body>
                                     <img style={{width:100, height:80, paddingBottom: '10px'}} src={data.image} alt="product-image" />
                                     <Card.Title>
-                                    {data.name.length<21?<p className="homecardprodname">{data.name}<p style={{color:GLOBAL.BASE_COLORS.MEDIUM_PEACH}} className="homecardproddescription">{data.description}</p></p>:<p className="homecardprodname2">{data.name}<p style={{color:GLOBAL.BASE_COLORS.MEDIUM_PEACH}} className="homecardproddescription">{data.description}</p></p>}</Card.Title>
+                                    {data.name.length<23?<p className="homecardprodname">{data.name}<p style={{color:GLOBAL.BASE_COLORS.MEDIUM_PEACH}} className="homecardproddescription">{data.description}</p></p>:<p className="homecardprodname2">{data.name}<p style={{color:GLOBAL.BASE_COLORS.MEDIUM_PEACH}} className="homecardproddescription">{data.description}</p></p>}</Card.Title>
                                      {(data.price==="others")?<p className="homecardperunit">Price : ₹ {data.pricePerUnit} / {data.priceOthers}</p>
                                     :<p className="homecardperunit">Price : ₹ {data.pricePerUnit} / {data.price}</p>}
                                     {(this.state.addClicked[data.id]==='true')?
