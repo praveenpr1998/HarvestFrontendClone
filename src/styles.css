@@ -18,6 +18,10 @@ font-size: 14px;
     margin: 0;
     padding-top: 90px;
 }
+.homecardprodname2{
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+}
 .bagicon{
     color:green;
     position: absolute;
@@ -1795,6 +1799,10 @@ font-size: 14px;
         font-size: 15px;
         font-family: 'Roboto', sans-serif;
     }
+        .homecardprodname2{
+            font-size: 12px;
+            font-family: 'Roboto', sans-serif;
+        }
     .addbutton{
         width: 60px;
         height: 35px;
@@ -1952,6 +1960,10 @@ font-size: 14px;
     }
     .homecardprodname{
         font-size: 15px;
+        font-family: 'Roboto', sans-serif;
+    }
+    .homecardprodname2{
+        font-size: 12px;
         font-family: 'Roboto', sans-serif;
     }
     .addbutton{
