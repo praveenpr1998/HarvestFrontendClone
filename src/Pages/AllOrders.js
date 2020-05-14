@@ -39,7 +39,7 @@ class AllOrders extends Component {
                         <Container
                             key={{index}}
                             className="bootstrapcontainer"
-                            style={{border:'0.5px solid #d4caca', borderRadius:'15px', marginTop:'15px', padding: '15px', lineHeight:2, backgroundColor: '#F6F6F6'}}>
+                            style={{border:'0.5px solid #d4caca', borderRadius:'15px', marginBottom:'15px', padding: '15px', lineHeight:2, backgroundColor: '#F6F6F6'}}>
                             <div style={{display:'flex'}}>
                                 <div style={{display:'flex', flex:1, fontWeight:'bold'}}>{orderItem.userName} - {orderItem.userMobileNo}</div>
                                 <div style={{display:'flex', flex:1, justifyContent:'flex-end'}}>{orderItem.orderDate}</div>
@@ -55,6 +55,7 @@ class AllOrders extends Component {
                                 })
                             }
                             {/*<div style={{fontWeight:'bold', textAlign:'right', margin:'5px'}}>Total: ₹ {this.orderTotal(orderItem)}</div>*/}
+                            <hr style={{backgroundColor: '#d4caca', marginTop: '0.5rem', marginBottom: '0.5rem'}} />
                             <div className='d-flex flex-row align-items-center justify-content-between'>
                                 <span className='ao-order-status-text'>
                                     Order Status: { orderItem.orderStatus }
@@ -128,7 +129,7 @@ class AllOrders extends Component {
                     </span>
                     <hr className='all-orders-hr'/>
                     { this.displayedData() }
-                    <hr className='all-orders-bottom-hr'/>
+                    {/*<hr className='all-orders-bottom-hr'/>*/}
                 </div>
             </div>
         );
