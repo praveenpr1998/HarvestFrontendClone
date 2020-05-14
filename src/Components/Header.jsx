@@ -4,7 +4,7 @@ import "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Navbar,Nav} from "react-bootstrap";
 import { NavLink as RouterNavLink } from "react-router-dom" ;
-import { FaShoppingBag } from 'react-icons/fa';
+import { FaShoppingCart } from 'react-icons/fa';
 import { createBrowserHistory } from "history";
 const GLOBAL = require('../global');
 const history = createBrowserHistory();
@@ -50,7 +50,7 @@ class Header extends Component{
                           activeClassName=''
                           className='navLink-inactive'
                          >
-                            <FaShoppingBag color="green" size="24"/> 
+                            <FaShoppingCart color="green" size="24"/> 
                          </RouterNavLink></div>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
