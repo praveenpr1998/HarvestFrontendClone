@@ -101,8 +101,8 @@ font-size: 14px;
     color: #737373;
 }
 .logo{
-    width:400px;
-    height:200px;
+    width:350px;
+    height:150px;
 }
 .bootstrapcontainer{
     width:100%;
@@ -259,8 +259,15 @@ font-size: 14px;
 }
 .homecardperunit{
     position: absolute;
-    bottom: 55px;
+    bottom: 57px;
     left: 40px;
+    font-family: 'Roboto';
+}
+.homecardperunit2{
+    font-family: 'Roboto';
+    position: absolute;
+    bottom: 57px;
+    left: 20px;
 }
 @media screen and (max-width: 780px) {
     .noitemimage{
@@ -324,6 +331,11 @@ font-size: 14px;
         font-family: 'Roboto', sans-serif;
         font-size: 14px; 
     }
+    .homecardperunit2{
+        font-family: 'Roboto';
+        font-size: 14px; 
+    }
+    
     .allmenu{
         padding-top: 8px;
         padding-bottom: 5px;
@@ -948,7 +960,12 @@ font-size: 14px;
     .homecardperunit{
         font-family: 'Roboto', sans-serif;
         font-size: 12px; 
-        bottom: 49px;
+        bottom: 52px;
+    }
+    .homecardperunit2{
+        font-family: 'Roboto', sans-serif;
+        font-size: 12px; 
+        bottom: 52px;
     }
     .quant{
         position: absolute;
@@ -1296,6 +1313,7 @@ font-size: 14px;
         font-size: 12px; 
         bottom: 49px;
     }
+    
     .quant{
         position: absolute;
         bottom: 38px;
@@ -1642,6 +1660,13 @@ font-size: 14px;
         font-size: 12px; 
         bottom: 49px;
     }
+    .homecardperunit2{
+        font-family: 'Roboto', sans-serif;
+        font-size: 12px; 
+        bottom: 49px;
+        left: 23px;
+        
+    }
     .quant{
         position: absolute;
         bottom: 38px;
@@ -1799,9 +1824,17 @@ font-size: 14px;
         font-size: 15px;
         font-family: 'Roboto', sans-serif;
     }
-        .homecardprodname2{
-            font-size: 12px;
+    .homecardprodname2{
+        font-size: 13px;
+        font-family: 'Roboto', sans-serif;
+    }
+        
+        .homecardperunit2{
             font-family: 'Roboto', sans-serif;
+            font-size: 11px; 
+            bottom: 50px;
+            left: 13px;
+            
         }
     .addbutton{
         width: 60px;
