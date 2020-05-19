@@ -18,6 +18,14 @@ table {
         overflow-x: hidden;
         -ms-overflow-style: none;
     }
+    .row.fromto{
+    width: 210px;
+    }
+    .col.start{
+        margin-top: 10px;
+        margin-bottom: 10px;
+       
+    }
     .btn-section {
         width: 90%;
         margin: 10px 0 10px 0;
@@ -51,6 +59,9 @@ table {
 
 @media (min-width: 768px) and (max-width: 991px)
 {
+    .row.fromto{
+        width: 450px;
+    }
     .primary-section {
         /*height: 100vh;*/
         /*border: 2px solid red;*/
@@ -92,6 +103,9 @@ table {
 
 @media (min-width: 992px)
 {
+    .row.fromto{
+        width: 450px;
+    }
     .primary-section {
         /*height: 90vh;*/
         /*border: 2px solid red;*/
@@ -99,6 +113,7 @@ table {
         overflow-x: hidden;
         -ms-overflow-style: none;
     }
+    
     .btn-section {
         width: 20%;
         margin: 10px 0 10px 0;
@@ -260,6 +275,7 @@ table {
 
 .download-orders-section {
     /* width: 75%; */
+
 }
 
 .download-orders-btn {
