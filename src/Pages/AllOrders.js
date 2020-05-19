@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import '../Resources/Styling/AllOrders.css';
 import { Spinner, Container } from 'react-bootstrap';
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import AdminNavbar from "./AdminNavbar";
 
 const GLOBAL = require('../global');
@@ -13,6 +14,9 @@ class AllOrders extends Component {
             order: [],
             allOrdersEmpty: true,
             loading: true,
+            startDate:null,
+            endDate:null,
+            dateSelected:'no'
         }
     }
 
@@ -87,7 +91,10 @@ class AllOrders extends Component {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    token: localStorage.getItem('token')
+                    token: localStorage.getItem('token'),
+                    startDate:this.state.startDate,
+                    endDate:this.state.endDate,
+                    dateSelected:this.state.dateSelected
                 })
             }
         )
@@ -119,6 +126,20 @@ class AllOrders extends Component {
 
     }
 
+    handleDateChange=date=>{
+        this.setState({startDate: date});
+        this.setState({dateSelected:'yes'},()=>{
+            this.componentDidMount();
+        });   
+    }
+
+    handleEndDateChange=date=>{
+        this.setState({endDate: date});
+        this.setState({dateSelected:'yes'},()=>{
+            this.componentDidMount();
+        });   
+    }
+
     render() {
         return(
             <div className='ao-primary-section'>
@@ -127,6 +148,23 @@ class AllOrders extends Component {
                     <span className='all-orders-text' style={{paddingTop:'20px'}}>
                         All Orders
                     </span>
+                    <div className='row fromto' style={{paddingTop:10,paddingBottom:20}}>
+                           <div className='col start'>
+                                <DatePicker
+                                placeholderText="Select start date"
+                                selected={this.state.startDate}
+                                onChange={this.handleDateChange} 
+                               
+                                /> 
+                                </div>
+                                  <div className='col end'>
+                                       <DatePicker
+                                    placeholderText="Select end date"
+                                 selected={this.state.endDate}
+                                onChange={this.handleEndDateChange}     
+                                /></div>
+                                </div>
+                    
                     <hr className='all-orders-hr'/>
                     { this.displayedData() }
                     {/*<hr className='all-orders-bottom-hr'/>*/}
