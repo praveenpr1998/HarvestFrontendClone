@@ -158,7 +158,7 @@ class RecentOrders extends Component {
                         <Container className="bootstrapcontainer" style={{border:'0.5px solid #d4caca', borderRadius:'15px', marginTop:'15px', padding: '15px', lineHeight:2, backgroundColor: '#F6F6F6'}}>
                             <div style={{display:'flex', margin: '0 0.938em'}}>
                                 <div style={{display:'flex', flex:1, fontWeight:'bold'}}>{orderItem.userName} - {orderItem.userMobileNo}</div>
-                                <div style={{display:'flex', flex:1, justifyContent:'flex-end'}}>{orderItem.orderDate}</div>
+                                <div style={{display:'flex', flex:1, justifyContent:'flex-end'}}>{ new Intl.DateTimeFormat('en-IN').format(orderItem.orderDate) }</div>
                             </div>
                             <hr style={{backgroundColor: '#d4caca', marginTop: '0.5rem', marginBottom: '0.5rem'}} />
                             {
@@ -287,7 +287,7 @@ class RecentOrders extends Component {
                     {
                         this.state.order.length !== 0 &&
                         <div className='download-orders-section' style={{margin:'15px 0px'}}>
-                            <a href={ GLOBAL.BASE_URL+"orders/downloadOrderReport" }
+                            <a href={ (this.state.recentOrders) ? GLOBAL.BASE_URL+"orders/downloadOrderReport" : GLOBAL.BASE_URL+"orders/downloadConsolidatedOrderReport" }
                                target="blank"
                                className='download-orders-btn'
                                style={{borderRadius:'10px', fontSize:'14px'}}>

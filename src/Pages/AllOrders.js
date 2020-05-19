@@ -42,7 +42,7 @@ class AllOrders extends Component {
                             style={{border:'0.5px solid #d4caca', borderRadius:'15px', marginBottom:'15px', padding: '15px', lineHeight:2, backgroundColor: '#F6F6F6'}}>
                             <div style={{display:'flex'}}>
                                 <div style={{display:'flex', flex:1, fontWeight:'bold'}}>{orderItem.userName} - {orderItem.userMobileNo}</div>
-                                <div style={{display:'flex', flex:1, justifyContent:'flex-end'}}>{orderItem.orderDate}</div>
+                                <div style={{display:'flex', flex:1, justifyContent:'flex-end'}}>{ new Intl.DateTimeFormat('en-IN').format(orderItem.orderDate) }</div>
                             </div>
                             <hr style={{backgroundColor: '#d4caca', marginTop: '0.5rem', marginBottom: '0.5rem'}} />
                             {
