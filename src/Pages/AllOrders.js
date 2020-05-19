@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import '../Resources/Styling/AllOrders.css';
-import { Spinner, Container } from 'react-bootstrap';
+import { Spinner, Container,Button } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import AdminNavbar from "./AdminNavbar";
-
+import { FcCalendar } from "react-icons/fc";
 const GLOBAL = require('../global');
 
 class AllOrders extends Component {
@@ -102,9 +102,11 @@ class AllOrders extends Component {
             .then(
                 (result) => {
                     if(result.status === 200) {
+                        console.log(result.allOrders.length)
                         if(result.allOrders.length === 0) {
+                           
                             this.setState({
-                                allOrderEmpty: true,
+                                allOrdersEmpty: true,
                                 loading: false
                             });
                         }
@@ -128,16 +130,16 @@ class AllOrders extends Component {
 
     handleDateChange=date=>{
         this.setState({startDate: date});
-        this.setState({dateSelected:'yes'},()=>{
-            this.componentDidMount();
-        });   
+        this.setState({dateSelected:'yes'});   
     }
 
     handleEndDateChange=date=>{
         this.setState({endDate: date});
-        this.setState({dateSelected:'yes'},()=>{
-            this.componentDidMount();
-        });   
+        this.setState({dateSelected:'yes'});   
+    }
+    
+    filterOrders(){
+        this.componentDidMount();
     }
 
     render() {
@@ -148,23 +150,28 @@ class AllOrders extends Component {
                     <span className='all-orders-text' style={{paddingTop:'20px'}}>
                         All Orders
                     </span>
-                    <div className='row fromto' style={{paddingTop:10,paddingBottom:20}}>
-                           <div className='col start'>
-                                <DatePicker
+                    <div className=' ' style={{paddingBottom:20}}>
+                           <div className=' ' style={{paddingBottom:20,paddingTop:15}}>
+                                <FcCalendar size="20" /> <DatePicker
                                 placeholderText="Select start date"
                                 selected={this.state.startDate}
-                                onChange={this.handleDateChange} 
-                                dateFormat="dd/MM/yyyy"
+                                onChange={this.handleDateChange}
+                                dateFormat="dd/MM/yyyy" 
                                 /> 
                                 </div>
-                                  <div className='col end'>
-                                       <DatePicker
+                                  <div className=' ' style={{paddingBottom:10,paddingTop:10}}>
+                                    <FcCalendar size="20" /> <DatePicker
                                     placeholderText="Select end date"
-                                 selected={this.state.endDate}
-                                onChange={this.handleEndDateChange} 
-                                   dateFormat="dd/MM/yyyy"
-                                /></div>
+                                    dateFormat="dd/MM/yyyy"
+                                    selected={this.state.endDate}
+                                    onChange={this.handleEndDateChange}        
+                                /> 
                                 </div>
+                              
+                                </div>
+                                <div style={{paddingRight:10,marginBottom:20}}>
+                                   <Button className='btn btn-success btn-sm'  onClick={()=>this.filterOrders()}>Filter</Button>
+                                  </div>
                     
                     <hr className='all-orders-hr'/>
                     { this.displayedData() }
