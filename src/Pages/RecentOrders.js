@@ -4,6 +4,8 @@ import '../Resources/Styling/RecentOrders.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Spinner, Container } from "react-bootstrap";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 const GLOBAL = require('../global');
 
 let _ = require('lodash');
@@ -22,6 +24,9 @@ class RecentOrders extends Component {
             totalPrice: 0,
             recentEmpty: true,
             consolidatedEmpty: true,
+            startDate:null,
+            endDate:null,
+            dateSelected:'no'
         };
     };
 
@@ -239,7 +244,10 @@ class RecentOrders extends Component {
             mode: 'cors',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                token: localStorage.getItem('token')
+                token: localStorage.getItem('token'),
+                startDate:this.state.startDate,
+                endDate:this.state.endDate,
+                dateSelected:this.state.dateSelected
             })
         })
             .then(res => res.json())
@@ -260,6 +268,20 @@ class RecentOrders extends Component {
                 (error) => {
                 }
             );
+    }
+
+    handleDateChange=date=>{
+        this.setState({startDate: date});
+        this.setState({dateSelected:'yes'},()=>{
+            this.componentDidMount();
+        });   
+    }
+
+    handleEndDateChange=date=>{
+        this.setState({endDate: date});
+        this.setState({dateSelected:'yes'},()=>{
+            this.componentDidMount();
+        });   
     }
 
     // render() method
@@ -284,8 +306,25 @@ class RecentOrders extends Component {
                             Consolidated Orders
                         </button>
                     </div>
-                    {
+                    <div className='row fromto' style={{paddingTop:10,paddingBottom:20}}>
+                           <div className='col start'>
+                                <DatePicker
+                                placeholderText="Select start date"
+                                selected={this.state.startDate}
+                                onChange={this.handleDateChange} 
+                               
+                                /> 
+                                </div>
+                                  <div className='col end'>
+                                       <DatePicker
+                                    placeholderText="Select end date"
+                                 selected={this.state.endDate}
+                                onChange={this.handleEndDateChange}     
+                                /></div>
+                                </div>
+                                 {
                         this.state.order.length !== 0 &&
+                        
                         <div className='download-orders-section' style={{margin:'15px 0px'}}>
                             <a href={ (this.state.recentOrders) ? GLOBAL.BASE_URL+"orders/downloadOrderReport" : GLOBAL.BASE_URL+"orders/downloadConsolidatedOrderReport" }
                                target="blank"
@@ -294,6 +333,7 @@ class RecentOrders extends Component {
                                 Download Reports
                             </a>
                         </div>
+                        
                     }
                     {   this.state.recentOrders &&
                         this.pendingOrders()
