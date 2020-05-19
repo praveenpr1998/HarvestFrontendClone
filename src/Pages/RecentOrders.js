@@ -3,9 +3,11 @@ import AdminNavbar from "./AdminNavbar";
 import '../Resources/Styling/RecentOrders.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Spinner, Container } from "react-bootstrap";
+import { Spinner, Container, Button } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { FcCalendar } from "react-icons/fc";
+
 const GLOBAL = require('../global');
 
 let _ = require('lodash');
@@ -272,16 +274,16 @@ class RecentOrders extends Component {
 
     handleDateChange=date=>{
         this.setState({startDate: date});
-        this.setState({dateSelected:'yes'},()=>{
-            this.componentDidMount();
-        });   
+        this.setState({dateSelected:'yes'});   
     }
 
     handleEndDateChange=date=>{
         this.setState({endDate: date});
-        this.setState({dateSelected:'yes'},()=>{
-            this.componentDidMount();
-        });   
+        this.setState({dateSelected:'yes'});   
+    }
+    
+    filterOrders(){
+        this.componentDidMount();
     }
 
     // render() method
@@ -291,7 +293,7 @@ class RecentOrders extends Component {
                 <ToastContainer />
                 <AdminNavbar />
                 <div className='d-flex flex-column align-items-center justify-content-center'>
-                    <div className='d-flex flex-row align-items-center justify-content-center selection-section' style={{paddingTop:'20px'}}>
+                    <div className='d-flex flex-row align-items-center justify-content-center selection-section' style={{paddingTop:'20px',paddingBottom:10}}>
                         <button
                             className={(this.state.recentOrders ? 'active-btn' : 'inactive-btn' )}
                             onClick={() => this.recentOrdersBtn()}
@@ -306,23 +308,28 @@ class RecentOrders extends Component {
                             Consolidated Orders
                         </button>
                     </div>
-                    <div className='row fromto' style={{paddingTop:10,paddingBottom:20}}>
-                           <div className='col start'>
-                                <DatePicker
+                    <div className=' ' style={{paddingBottom:20}}>
+                           <div className=' ' style={{paddingBottom:20}}>
+                                <FcCalendar size="20" /> <DatePicker
                                 placeholderText="Select start date"
                                 selected={this.state.startDate}
-                                onChange={this.handleDateChange} 
-                                dateFormat="dd/MM/yyyy"
+                                onChange={this.handleDateChange}
+                                dateFormat="dd/MM/yyyy" 
                                 /> 
                                 </div>
-                                  <div className='col end'>
-                                       <DatePicker
+                                  <div className=' ' style={{paddingBottom:10}}>
+                                    <FcCalendar size="20" /> <DatePicker
                                     placeholderText="Select end date"
-                                 selected={this.state.endDate}
-                                onChange={this.handleEndDateChange}
-                                 dateFormat="dd/MM/yyyy"
-                                /></div>
+                                    dateFormat="dd/MM/yyyy"
+                                    selected={this.state.endDate}
+                                    onChange={this.handleEndDateChange}        
+                                /> 
                                 </div>
+                              
+                                </div>
+                                <div style={{paddingRight:10,marginBottom:20}}>
+                                   <Button className='btn btn-success btn-sm'  onClick={()=>this.filterOrders()}>Filter</Button>
+                                  </div>
                                  {
                         this.state.order.length !== 0 &&
                         
