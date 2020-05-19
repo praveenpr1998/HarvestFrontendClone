@@ -312,14 +312,15 @@ class RecentOrders extends Component {
                                 placeholderText="Select start date"
                                 selected={this.state.startDate}
                                 onChange={this.handleDateChange} 
-                               
+                                dateFormat="dd/MM/yyyy"
                                 /> 
                                 </div>
                                   <div className='col end'>
                                        <DatePicker
                                     placeholderText="Select end date"
                                  selected={this.state.endDate}
-                                onChange={this.handleEndDateChange}     
+                                onChange={this.handleEndDateChange}
+                                 dateFormat="dd/MM/yyyy"
                                 /></div>
                                 </div>
                                  {
