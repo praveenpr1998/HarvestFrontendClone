@@ -20,9 +20,7 @@ table {
         overflow-x: hidden;
         -ms-overflow-style: none;
     }
-    .row.fromto{
-    width: 210px;
-    }
+
     .col.start{
         margin-top: 10px;
         margin-bottom: 10px;
@@ -126,9 +124,6 @@ table {
 /* Tablets */
 @media (min-width: 768px) and (max-width: 991px)
 {
-    .row.fromto{
-        width: 450px;
-    }
     .primary-section {
         /*height: 100vh;*/
         /*border: 2px solid red;*/
@@ -230,9 +225,6 @@ table {
 /* Desktops and TVs */
 @media (min-width: 992px)
 {
-    .row.fromto{
-        width: 450px;
-    }
     .primary-section {
         /*height: 90vh;*/
         /*border: 2px solid red;*/

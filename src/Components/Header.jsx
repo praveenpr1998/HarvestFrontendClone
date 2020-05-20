@@ -21,9 +21,8 @@ class Header extends Component{
     })
     .then(res => res.json())
     .then(
-      (result) => { 
+      (result) => {
         if(result.message==="Success"){
-          console.log(result.message)
         localStorage.removeItem("token");
         history.push("/");
         window.location.reload();
@@ -31,7 +30,7 @@ class Header extends Component{
       });
     })
     }
-      
+
     render(){
         return(
             <div>
@@ -42,7 +41,7 @@ class Header extends Component{
                   className='navLink-inactive'
                 >
                 <Navbar.Brand href="">
-                  <img src={require("../Resources/Images/Harvest Logo.png")} className="logoHome" alt="Logo"></img> 
+                  <img src={require("../Resources/Images/Harvest Logo.png")} className="logoHome" alt="Logo"></img>
                 </Navbar.Brand>
                 </RouterNavLink>
                 <div className="topcart"><RouterNavLink
@@ -50,7 +49,7 @@ class Header extends Component{
                           activeClassName=''
                           className='navLink-inactive'
                          >
-                            <FaShoppingCart color="green" size="24"/> 
+                            <FaShoppingCart color="green" size="24"/>
                          </RouterNavLink></div>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
@@ -88,7 +87,7 @@ class Header extends Component{
         <div style={{height:10,width:'100%',backgroundColor:'#dbdbdb',position:'absolute',left:0,right:0}}>
          </div>
          </div>
-            
+
         )
     }
 }

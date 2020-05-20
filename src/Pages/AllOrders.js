@@ -119,7 +119,6 @@ class AllOrders extends Component {
             .then(
                 (result) => {
                     if(result.status === 200) {
-                        console.log(result.allOrders.length)
                         if(result.allOrders.length === 0) {
 
                             this.setState({
