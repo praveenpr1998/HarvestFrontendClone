@@ -28,7 +28,8 @@ class RecentOrders extends Component {
             consolidatedEmpty: true,
             startDate:null,
             endDate:null,
-            dateSelected:'no'
+            dateSelected:'no',
+            filterVisible:false
         };
     };
 
@@ -260,6 +261,8 @@ class RecentOrders extends Component {
                             order: result.recentOrders,
                             groupedProducts: result.groupedItems,
                             loading: false,
+                            filterVisible:result.filterVisible,
+
                         });
                     } else if(result.status === 401) {
                             alert('Invalid User, Please login again');
@@ -308,6 +311,7 @@ class RecentOrders extends Component {
                             Consolidated Orders
                         </button>
                     </div>
+                   {(this.state.filterVisible===true || this.state.order.length!==0)?
                     <div className=' ' style={{paddingBottom:20}}>
                            <div className=' ' style={{paddingBottom:20}}>
                                 <FcCalendar size="20" /> <DatePicker
@@ -326,10 +330,13 @@ class RecentOrders extends Component {
                                 /> 
                                 </div>
                               
-                                </div>
-                                <div style={{paddingRight:10,marginBottom:20}}>
-                                   <Button className='btn btn-success btn-sm'  onClick={()=>this.filterOrders()}>Filter</Button>
-                                  </div>
+                                </div>:null
+                                  }
+                    {(this.state.filterVisible===true ||this.state.order.length!==0)?
+                     <div style={{paddingRight:10,marginBottom:20}}>
+                     <Button className='btn btn-success btn-sm'  onClick={()=>this.filterOrders()}>Filter</Button>
+                    </div>:null
+                    }
                                  {
                         this.state.order.length !== 0 &&
                         
