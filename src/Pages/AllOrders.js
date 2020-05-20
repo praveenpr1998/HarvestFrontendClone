@@ -16,7 +16,8 @@ class AllOrders extends Component {
             loading: true,
             startDate:null,
             endDate:null,
-            dateSelected:'no'
+            dateSelected:'no',
+            filterVisible:'false'
         }
     }
 
@@ -107,14 +108,16 @@ class AllOrders extends Component {
                            
                             this.setState({
                                 allOrdersEmpty: true,
-                                loading: false
+                                loading: false,
+                                filterVisible:result.filterVisible
                             });
                         }
                          else {
                             this.setState({
                                 allOrdersEmpty: false,
                                 order: result.allOrders,
-                                loading: false
+                                loading: false,
+                                filterVisible:result.filterVisible
                             });
                         }
                     } else if(result.status === 401) {
@@ -150,7 +153,8 @@ class AllOrders extends Component {
                     <span className='all-orders-text' style={{paddingTop:'20px'}}>
                         All Orders
                     </span>
-                    <div className=' ' style={{paddingBottom:20}}>
+                        {(this.state.order.length!==0 || this.state.filterVisible===true)?
+                            <div className=' ' style={{paddingBottom:20}}>
                            <div className=' ' style={{paddingBottom:20,paddingTop:15}}>
                                 <FcCalendar size="20" /> <DatePicker
                                 placeholderText="Select start date"
@@ -168,10 +172,11 @@ class AllOrders extends Component {
                                 /> 
                                 </div>
                               
-                                </div>
+                                </div>:null}
+                                {(this.state.order.length!==0 || this.state.filterVisible===true)?
                                 <div style={{paddingRight:10,marginBottom:20}}>
                                    <Button className='btn btn-success btn-sm'  onClick={()=>this.filterOrders()}>Filter</Button>
-                                  </div>
+                                  </div>:null}
                     
                     <hr className='all-orders-hr'/>
                     { this.displayedData() }
