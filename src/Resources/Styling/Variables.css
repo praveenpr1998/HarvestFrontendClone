@@ -9,6 +9,7 @@
     --text-light: #FFFFFF;
     --text-dark: #353535;
     --tableBgGrey: #F2F2F2;
+    --inputBg: #F2F2F2;
     --modalInputBg: #F2F2F2;
     --btnRed: #FF0000;
     --primaryOrangeRegular: #EF964D;
@@ -26,6 +27,7 @@
     --titleTextMob: 1.1em;
     --itemText: 1.1em;
     --btnText: 1.2em;
+    --downloadOrdersBtnText: .875em;
     --tableTitle: 1.1rem;
     --tableText: 1rem;
     --orderTotalText: 1em;

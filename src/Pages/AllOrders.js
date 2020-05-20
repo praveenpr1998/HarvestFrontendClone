@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import '../Resources/Styling/AllOrders.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Spinner, Container,Button } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -43,8 +45,8 @@ class AllOrders extends Component {
                     return(
                         <Container
                             key={{index}}
-                            className="bootstrapcontainer"
-                            style={{border:'0.5px solid #d4caca', borderRadius:'15px', marginBottom:'15px', padding: '15px', lineHeight:2, backgroundColor: '#F6F6F6'}}>
+                            className="order-container"
+                        >
                             <div style={{display:'flex'}}>
                                 <div style={{display:'flex', flex:1, fontWeight:'bold'}}>{orderItem.userName} - {orderItem.userMobileNo}</div>
                                 <div style={{display:'flex', flex:1, justifyContent:'flex-end'}}>{ new Intl.DateTimeFormat('en-IN').format(orderItem.orderDate) }</div>
@@ -82,6 +84,20 @@ class AllOrders extends Component {
         }
     };
 
+    // Non-Rendering Methods
+    // Filter Orders based on the date
+    filterOrders(){
+        toast.success('Orders Filtered', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+        });
+        this.componentDidMount();
+    }
+
     // Component Life Cycle Methods
     componentDidMount() {
         fetch(GLOBAL.BASE_URL+'orders/getAllOrders',
@@ -105,7 +121,7 @@ class AllOrders extends Component {
                     if(result.status === 200) {
                         console.log(result.allOrders.length)
                         if(result.allOrders.length === 0) {
-                           
+
                             this.setState({
                                 allOrdersEmpty: true,
                                 loading: false,
@@ -131,53 +147,62 @@ class AllOrders extends Component {
 
     }
 
-    handleDateChange=date=>{
-        this.setState({startDate: date});
-        this.setState({dateSelected:'yes'});   
-    }
-
-    handleEndDateChange=date=>{
-        this.setState({endDate: date});
-        this.setState({dateSelected:'yes'});   
-    }
-    
-    filterOrders(){
-        this.componentDidMount();
-    }
-
+    // render() method
     render() {
         return(
             <div className='ao-primary-section'>
+                <ToastContainer />
                 <AdminNavbar />
                 <div className='d-flex flex-column align-items-center justify-content-center'>
                     <span className='all-orders-text' style={{paddingTop:'20px'}}>
                         All Orders
                     </span>
-                        {(this.state.order.length!==0 || this.state.filterVisible===true)?
-                            <div className=' ' style={{paddingBottom:20}}>
-                           <div className=' ' style={{paddingBottom:20,paddingTop:15}}>
-                                <FcCalendar size="20" /> <DatePicker
-                                placeholderText="Select start date"
-                                selected={this.state.startDate}
-                                onChange={this.handleDateChange}
-                                dateFormat="dd/MM/yyyy" 
-                                /> 
-                                </div>
-                                  <div className=' ' style={{paddingBottom:10,paddingTop:10}}>
-                                    <FcCalendar size="20" /> <DatePicker
+                    {
+                        (this.state.order.length!==0 || this.state.filterVisible===true)?
+                        <div className='date-picker-section'>
+                            <div className='date-picker-start-section'>
+                                <span className='date-picker-text'>
+                                    From:
+                                </span>
+                                <FcCalendar
+                                    size="20"
+                                    className='calender-icon'
+                                />
+                                <DatePicker
+                                    className='date-picker-text-input'
+                                    placeholderText="Select start date"
+                                    selected={ this.state.startDate }
+                                    onChange={ (date) => this.setState({ startDate: date, dateSelected: 'yes' }) }
+                                    dateFormat="dd/MM/yyyy"
+                                />
+                            </div>
+                            <div className='date-picker-end-section'>
+                                <span className='date-picker-text'>
+                                    From:
+                                </span>
+                                <FcCalendar
+                                    size="20"
+                                    className='calender-icon'
+                                />
+                                <DatePicker
+                                    className='date-picker-text-input'
                                     placeholderText="Select end date"
                                     dateFormat="dd/MM/yyyy"
-                                    selected={this.state.endDate}
-                                    onChange={this.handleEndDateChange}        
-                                /> 
-                                </div>
-                              
-                                </div>:null}
-                                {(this.state.order.length!==0 || this.state.filterVisible===true)?
-                                <div style={{paddingRight:10,marginBottom:20}}>
-                                   <Button className='btn btn-success btn-sm'  onClick={()=>this.filterOrders()}>Filter</Button>
-                                  </div>:null}
-                    
+                                    selected={ this.state.endDate }
+                                    onChange={ (date) => this.setState({ endDate: date, dateSelected: 'yes' }) }
+                                />
+                            </div>
+                            <div>
+                                <Button
+                                    className='filter-btn'
+                                    onClick={ ()=>this.filterOrders() }
+                                >
+                                        Filter
+                                </Button>
+                            </div>
+                        </div>:null
+                    }
+
                     <hr className='all-orders-hr'/>
                     { this.displayedData() }
                     {/*<hr className='all-orders-bottom-hr'/>*/}

@@ -110,7 +110,6 @@ class RecentOrders extends Component {
         });
     };
 
-
     // Calculate Order Total
     orderTotal = (orderItem) => {
         let total = 0;
@@ -119,6 +118,19 @@ class RecentOrders extends Component {
         });
         return total;
     };
+
+    // Filter Orders based on the date
+    filterOrders(){
+        toast.success('Orders Filtered', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+        });
+        this.componentDidMount();
+    }
 
     // Redering Methods
     // Render Total Price
@@ -163,12 +175,12 @@ class RecentOrders extends Component {
             return(
                 this.state.order.map((orderItem) => {
                     return(
-                        <Container className="bootstrapcontainer" style={{border:'0.5px solid #d4caca', borderRadius:'15px', marginTop:'15px', padding: '15px', lineHeight:2, backgroundColor: '#F6F6F6'}}>
+                        <Container className="order-container" >
                             <div style={{display:'flex', margin: '0 0.938em'}}>
                                 <div style={{display:'flex', flex:1, fontWeight:'bold'}}>{orderItem.userName} - {orderItem.userMobileNo}</div>
                                 <div style={{display:'flex', flex:1, justifyContent:'flex-end'}}>{ new Intl.DateTimeFormat('en-IN').format(orderItem.orderDate) }</div>
                             </div>
-                            <hr style={{backgroundColor: '#d4caca', marginTop: '0.5rem', marginBottom: '0.5rem'}} />
+                            <hr className='ro-hr' />
                             {
                                 orderItem.items.map((cartItem) => {
                                     return(
@@ -178,7 +190,10 @@ class RecentOrders extends Component {
                                     )
                                 })
                             }
-                            <div style={{fontWeight:'bold', textAlign:'center', margin:'5px'}}>Total: ₹ {this.orderTotal(orderItem)}</div>
+                            <hr className='ro-hr' />
+                            <div className='order-total-text'>
+                                Total: ₹ {this.orderTotal(orderItem)}
+                            </div>
                             <div className='co-btn-div' >
                                 <button
                                     className='mark-as-delivered-btn'
@@ -275,20 +290,6 @@ class RecentOrders extends Component {
             );
     }
 
-    handleDateChange=date=>{
-        this.setState({startDate: date});
-        this.setState({dateSelected:'yes'});   
-    }
-
-    handleEndDateChange=date=>{
-        this.setState({endDate: date});
-        this.setState({dateSelected:'yes'});   
-    }
-    
-    filterOrders(){
-        this.componentDidMount();
-    }
-
     // render() method
     render() {
         return(
@@ -311,45 +312,66 @@ class RecentOrders extends Component {
                             Consolidated Orders
                         </button>
                     </div>
-                   {(this.state.filterVisible===true || this.state.order.length!==0)?
-                    <div className=' ' style={{paddingBottom:20}}>
-                           <div className=' ' style={{paddingBottom:20}}>
-                                <FcCalendar size="20" /> <DatePicker
-                                placeholderText="Select start date"
-                                selected={this.state.startDate}
-                                onChange={this.handleDateChange}
-                                dateFormat="dd/MM/yyyy" 
-                                /> 
-                                </div>
-                                  <div className=' ' style={{paddingBottom:10}}>
-                                    <FcCalendar size="20" /> <DatePicker
-                                    placeholderText="Select end date"
+                    {
+                        (this.state.filterVisible===true || this.state.order.length!==0) ?
+                        <div className='date-picker-section'>
+                            <div className='date-picker-start-section'>
+                                <span className='date-picker-text'>
+                                    From:
+                                </span>
+                                <FcCalendar
+                                    size="25"
+                                    className='calender-icon'
+                                />
+                                <DatePicker
+                                    className='date-picker-text-input'
+                                    placeholderText="Select Start date"
+                                    selected={ this.state.startDate }
+                                    onChange={ (date) => this.setState({ startDate: date, dateSelected: 'yes' }) }
                                     dateFormat="dd/MM/yyyy"
-                                    selected={this.state.endDate}
-                                    onChange={this.handleEndDateChange}        
-                                /> 
+                                />
+                            </div>
+                            <div className='date-picker-end-section'>
+                                <span className='date-picker-text'>
+                                    To:
+                                </span>
+                                <FcCalendar
+                                    size="25"
+                                    className='calender-icon'
+                                />
+                                <DatePicker
+                                    className='date-picker-text-input'
+                                    placeholderText="Select End date"
+                                    dateFormat="dd/MM/yyyy"
+                                    selected={ this.state.endDate }
+                                    onChange={ (date) => this.setState({ endDate: date, dateSelected: 'yes' }) }
+                                />
+                            </div>
+                            <div>
+                                <div
+                                    className='filter-btn'
+                                    onClick={ () => this.filterOrders() }
+                                >
+                                    Filter
                                 </div>
-                              
-                                </div>:null
-                                  }
-                    {(this.state.filterVisible===true ||this.state.order.length!==0)?
-                     <div style={{paddingRight:10,marginBottom:20}}>
-                     <Button className='btn btn-success btn-sm'  onClick={()=>this.filterOrders()}>Filter</Button>
-                    </div>:null
+                            </div>
+                         </div>
+                         : null
                     }
-                                 {
+
+                    {
                         this.state.order.length !== 0 &&
-                        
                         <div className='download-orders-section' style={{margin:'15px 0px'}}>
-                            <a href={ (this.state.recentOrders) ? GLOBAL.BASE_URL+"orders/downloadOrderReport" : GLOBAL.BASE_URL+"orders/downloadConsolidatedOrderReport" }
-                               target="blank"
-                               className='download-orders-btn'
-                               style={{borderRadius:'10px', fontSize:'14px'}}>
+                            <a
+                                href={ (this.state.recentOrders) ? GLOBAL.BASE_URL+"orders/downloadOrderReport" : GLOBAL.BASE_URL+"orders/downloadConsolidatedOrderReport" }
+                                target="blank"
+                                className='download-orders-btn'
+                            >
                                 Download Reports
                             </a>
                         </div>
-                        
                     }
+
                     {   this.state.recentOrders &&
                         this.pendingOrders()
                     }
