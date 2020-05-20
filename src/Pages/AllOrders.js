@@ -16,8 +16,8 @@ class AllOrders extends Component {
             order: [],
             allOrdersEmpty: true,
             loading: true,
-            startDate:null,
-            endDate:null,
+            startDate: null,
+            endDate: new Date(),
             dateSelected:'no',
             filterVisible:'false'
         }
@@ -173,6 +173,7 @@ class AllOrders extends Component {
                                     selected={ this.state.startDate }
                                     onChange={ (date) => this.setState({ startDate: date, dateSelected: 'yes' }) }
                                     dateFormat="dd/MM/yyyy"
+                                    maxDate={ this.state.endDate - 1 }
                                 />
                             </div>
                             <div className='date-picker-end-section'>
@@ -189,6 +190,8 @@ class AllOrders extends Component {
                                     dateFormat="dd/MM/yyyy"
                                     selected={ this.state.endDate }
                                     onChange={ (date) => this.setState({ endDate: date, dateSelected: 'yes' }) }
+                                    minDate={ this.state.startDate }
+                                    maxDate={ (new Date()) }
                                 />
                             </div>
                             <div>

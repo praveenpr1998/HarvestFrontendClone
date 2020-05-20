@@ -7,7 +7,6 @@ import { Spinner, Container, Button } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { FcCalendar } from "react-icons/fc";
-
 const GLOBAL = require('../global');
 
 let _ = require('lodash');
@@ -26,8 +25,8 @@ class RecentOrders extends Component {
             totalPrice: 0,
             recentEmpty: true,
             consolidatedEmpty: true,
-            startDate:null,
-            endDate:null,
+            startDate: null,
+            endDate: new Date(),
             dateSelected:'no',
             filterVisible:false
         };
@@ -123,7 +122,7 @@ class RecentOrders extends Component {
     filterOrders(){
         toast.success('Orders Filtered', {
             position: "top-right",
-            autoClose: 5000,
+            autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -329,6 +328,7 @@ class RecentOrders extends Component {
                                     selected={ this.state.startDate }
                                     onChange={ (date) => this.setState({ startDate: date, dateSelected: 'yes' }) }
                                     dateFormat="dd/MM/yyyy"
+                                    maxDate={ this.state.endDate - 1 }
                                 />
                             </div>
                             <div className='date-picker-end-section'>
@@ -345,6 +345,8 @@ class RecentOrders extends Component {
                                     dateFormat="dd/MM/yyyy"
                                     selected={ this.state.endDate }
                                     onChange={ (date) => this.setState({ endDate: date, dateSelected: 'yes' }) }
+                                    minDate={ this.state.startDate }
+                                    maxDate={ (new Date()) }
                                 />
                             </div>
                             <div>
