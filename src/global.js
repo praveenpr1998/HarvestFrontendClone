@@ -1,6 +1,6 @@
 module.exports = {
 
-  BASE_URL: 'http://localhost:1337/',
+  BASE_URL: 'http://harvestapp.wheelhousecentral.co:1337/',
 
   BASE_COLORS: {
     'LIGHT_GREEN': '#ADD8A9',
