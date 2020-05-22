@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import "../styles.css";
 import "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Navbar,Nav} from "react-bootstrap";
+import {Navbar,Nav,Modal,Spinner,Button} from "react-bootstrap";
 import { NavLink as RouterNavLink } from "react-router-dom" ;
 import { FaShoppingCart } from 'react-icons/fa';
 import { createBrowserHistory } from "history";
@@ -11,29 +11,55 @@ const history = createBrowserHistory();
 
 class Header extends Component{
   state={
-    token:''
+    token:'',
+    modalVisible:false
   }
+  
      async logout(){
       this.setState({token:await localStorage.getItem("token")},()=>{
         fetch(GLOBAL.BASE_URL+"users/removeUser",{
         method:"POST",
         body:JSON.stringify({token:this.state.token})
-    })
-    .then(res => res.json())
-    .then(
+      })
+      .then(res => res.json())
+      .then(
       (result) => {
         if(result.message==="Success"){
         localStorage.removeItem("token");
+        localStorage.removeItem("itemsArray");
         history.push("/");
         window.location.reload();
         }
-      });
-    })
+        });
+      })
     }
 
+    async popup(){
+        this.setState({modalVisible:true});
+    }
+
+    async handleClose(){
+      this.setState({modalVisible:false})
+    }
+    
     render(){
         return(
             <div>
+           <Modal show={this.state.modalVisible} onHide={()=>this.handleClose()}>
+                <Modal.Header closeButton>
+                  <Modal.Title>Logout</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Logging out will remove your cart items!</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="success" onClick={()=>this.handleClose()}>
+                      Cancel
+                    </Button>
+                    <Button variant="danger" onClick={()=>this.logout()}>
+                       Logout
+                    </Button>
+                </Modal.Footer>
+             </Modal>
+    
             <Navbar bg="white" expand="lg">
                 <RouterNavLink
                   to='/home'
@@ -72,7 +98,7 @@ class Header extends Component{
                               My Cart
                         </RouterNavLink>
                       </Nav.Link>
-                      <Nav.Link onClick={()=>this.logout()}  >
+                      <Nav.Link  onClick={()=>this.popup()} >
                         <RouterNavLink
                              to='#'
                              activeClassName='navLink-active'
