@@ -178,7 +178,7 @@ class AllOrders extends Component {
                             </div>
                             <div className='date-picker-end-section'>
                                 <span className='date-picker-text'>
-                                    From:
+                                    To:
                                 </span>
                                 <FcCalendar
                                     size="20"
