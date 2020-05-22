@@ -119,6 +119,15 @@ table {
         line-height: 2;
         background-color: #F6F6F6;
     }
+
+    .total-price-section {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin: 15px 0;
+    }
 }
 
 /* Tablets */
@@ -220,6 +229,15 @@ table {
         line-height: 2;
         background-color: #F6F6F6;
     }
+
+    .total-price-section {
+        width: 75%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        margin: 15px 0;
+    }
 }
 
 /* Desktops and TVs */
@@ -320,6 +338,15 @@ table {
         padding: 15px;
         line-height: 2;
         background-color: #F6F6F6;
+    }
+
+    .total-price-section {
+        width: 75%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        margin: 15px 0;
     }
 }
 
@@ -570,15 +597,6 @@ tr:nth-child(odd) {
     text-align: center;
     font-size: var(--tableText);
     width: 30vw;
-}
-
-.total-price-section {
-    width: 75%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-        margin: 15px 0 0 0;
 }
 
 .total-price-text {

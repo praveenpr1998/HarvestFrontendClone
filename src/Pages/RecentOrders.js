@@ -144,12 +144,12 @@ class RecentOrders extends Component {
             if(this.state.consolidatedOrders) {
                 return(
                     <div className='total-price-section'>
-                <span className='total-price-text'>
-                    Total Price:
-                    <span className='total-price-amount'>
-                        ₹{totalPrice}
-                    </span>
-                </span>
+                        <span className='total-price-text'>
+                            Total Price:
+                            <span className='total-price-amount'>
+                                ₹{totalPrice}
+                            </span>
+                        </span>
                     </div>
                 );
             }
