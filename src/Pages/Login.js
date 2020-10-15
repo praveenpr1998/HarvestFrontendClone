@@ -54,6 +54,7 @@ class Login extends Component{
             .then(res => res.json())
             .then(
               (result) => {
+                  console.log('result',result);
                 if (result.message === "SuccessCustomer") {    
                     this.setState({isLoading:false})
                     JSON.stringify(localStorage.setItem("token",result.token));
